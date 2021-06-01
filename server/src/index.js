@@ -14,6 +14,7 @@ const server = express();
 const routes = require('./routes/routes');
 const userRoutes = require('./routes/userRouter');
 const recipesRoutes = require('./routes/recipesRouter');
+const listsRoutes = require('./routes/listsRouter');
 
 server.use(morgan('dev'));
 server.use(cors());
@@ -24,9 +25,10 @@ require('./passport/passport.config')(server);
 
 server.use('/', routes);
 // server.use('/user', passport.authenticate('jwt', { session: false }), protectedRoutes);
-// server.use('/recipes', recipesRouter);
+
 server.use('/user', userRoutes);
 server.use('/recipes', recipesRoutes);
+server.use('/lists', listsRoutes);
 
 connect(
   process.env.DDBB_URL,
