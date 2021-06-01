@@ -5,18 +5,19 @@ function listsController() {
   async function getAll(req, res) {
     try {
       const lists = await List.find({});
-      return res.json({
+      return res.json(
         lists,
-      });
+      );
     } catch (error) {
       return res.status(404);
     }
   }
 
   async function updateById(req, res) {
+    const { listId } = req.params;
     try {
       const updatedList = await List.findByIdAndUpdate(
-        req.params.listId,
+        listId,
         req.body,
         { new: true },
       );
@@ -28,10 +29,11 @@ function listsController() {
   }
 
   async function deleteById(req, res) {
+    const { listId } = req.params;
     try {
-      await List.findByIdAndDelete(req.params.listId);
+      await List.findByIdAndDelete(listId);
       res.status(200);
-      res.json(req.params.listId);
+      res.json(listId);
     } catch (error) {
       res.status(404);
       res.send(error.message);
@@ -54,9 +56,9 @@ function listsController() {
     const { listId } = req.params;
     try {
       const list = await List.findById(listId).populate('ingredients.recipe');
-      return res.json({
+      return res.json(
         list,
-      });
+      );
     } catch (error) {
       return res.status(404);
     }

@@ -5,9 +5,9 @@ function userController() {
     const { userId } = req.params;
     try {
       const user = await User.findById(userId).populate('recipes');
-      return res.json({
+      return res.json(
         user,
-      });
+      );
     } catch (error) {
       return res.status(404);
     }
