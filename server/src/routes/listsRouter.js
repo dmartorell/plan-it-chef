@@ -13,7 +13,8 @@ function listsRouter() {
   routes
     .route('/:listId')
     .delete(listsController.deleteById)
-    .put(listsController.updateById);
+    .put(listsController.updateById)
+    .get(listsController.getById);
 
   return routes;
 }

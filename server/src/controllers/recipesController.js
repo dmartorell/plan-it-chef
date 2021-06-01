@@ -34,10 +34,23 @@ function recipesController() {
       res.send(error);
     }
   }
+
+  async function getById(req, res) {
+    const { recipeId } = req.params;
+    try {
+      const user = await Recipe.findById(recipeId);
+      return res.json({
+        user,
+      });
+    } catch (error) {
+      return res.status(404);
+    }
+  }
   return {
     getAll,
     deleteById,
     createOne,
+    getById,
   };
 }
 module.exports = recipesController;

@@ -1,12 +1,12 @@
 const { model, Schema } = require('mongoose');
 
 const listSchema = Schema({
-  name: { type: String, default: Date.now },
+  name: String,
   ingredients: [
     {
       name: String,
       aisle: String,
-      recipeName: String,
+      recipe: { type: Schema.Types.ObjectId, ref: 'Recipe' },
       img: String,
       isActive: { type: Boolean, default: true },
       measures: {

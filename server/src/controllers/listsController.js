@@ -49,11 +49,24 @@ function listsController() {
       res.send(error);
     }
   }
+
+  async function getById(req, res) {
+    const { listId } = req.params;
+    try {
+      const list = await List.findById(listId).populate('ingredients.recipe');
+      return res.json({
+        list,
+      });
+    } catch (error) {
+      return res.status(404);
+    }
+  }
   return {
     getAll,
     deleteById,
     createOne,
     updateById,
+    getById,
   };
 }
 module.exports = listsController;

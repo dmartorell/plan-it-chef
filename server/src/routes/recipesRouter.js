@@ -12,7 +12,8 @@ function recipesRouter() {
 
   routes
     .route('/:recipeId')
-    .delete(recipesController.deleteById);
+    .delete(recipesController.deleteById)
+    .get(recipesController.getById);
 
   return routes;
 }
