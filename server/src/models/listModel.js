@@ -6,7 +6,7 @@ const listSchema = Schema({
     {
       name: String,
       aisle: String,
-      recipeId: String,
+      recipeName: String,
       img: String,
       isActive: { type: Boolean, default: true },
       measures: {
