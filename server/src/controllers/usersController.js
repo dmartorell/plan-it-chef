@@ -1,38 +1,33 @@
-const User = require('../models/usersModel');
+const User = require('../models/userModel');
 
-function usersController() {
-  async function getAll(req, res) {
-    const users = await User.find();
-    res.json(users);
-  }
-
-  async function createOne(req, res) {
-    const newUser = new User(req.body);
+function userController() {
+  async function getUserById(req, res) {
+    const { userId } = req.params;
     try {
-      await newUser.save();
-      res.json(newUser);
+      const user = await User.findById(userId).populate('recipes');
+      return res.json({
+        user,
+      });
     } catch (error) {
-      res.status(404);
-      res.send(error.message);
+      return res.status(404);
     }
   }
-
-  async function deleteById(req, res) {
+  async function updateUser(req, res) {
+    const { userId } = req.params;
     try {
-      await User.findByIdAndDelete(req.params.userId);
-      res.status(200);
-      res.json(req.params.userId);
+      const updatedUser = await User.findByIdAndUpdate(userId,
+        { ...req.body },
+        { new: true });
+      return res.json({
+        updatedUser,
+      });
     } catch (error) {
-      res.status(404);
-      res.send(error.message);
+      return res.status(404);
     }
   }
-
   return {
-    getAll,
-    createOne,
-    deleteById,
+    getUserById,
+    updateUser,
   };
 }
-
-module.exports = usersController;
+module.exports = userController;

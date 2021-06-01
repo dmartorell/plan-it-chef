@@ -1,19 +1,40 @@
 const express = require('express');
-const debug = require('debug')('app');
+const debug = require('debug')('server');
 const morgan = require('morgan');
+// const passport = require('passport');
+const cors = require('cors');
+const { connect } = require('mongoose');
 
 require('dotenv').config();
 require('./ddbb/mongoose.config');
 
-const app = express();
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
-app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+const server = express();
+const routes = require('./routes/routes');
+const userRoutes = require('./routes/userRouter');
+const recipesRoutes = require('./routes/recipesRouter');
+const listsRoutes = require('./routes/listsRouter');
 
-const usersRouter = require('./routes/usersRoutes');
+server.use(morgan('dev'));
+server.use(cors());
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
 
-app.use('/users', usersRouter);
+require('./passport/passport.config')(server);
 
-app.listen(port, debug(`Server is running on port ${port}`));
+server.use('/', routes);
+// server.use('/user', passport.authenticate('jwt', { session: false }), protectedRoutes);
+
+server.use('/user', userRoutes);
+server.use('/recipes', recipesRoutes);
+server.use('/lists', listsRoutes);
+
+connect(
+  process.env.DDBB_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+)
+  .then(() => debug('Correct conection'))
+  .catch((error) => debug(error));
+
+server.listen(PORT, debug(`server is running on port ${PORT}`));
