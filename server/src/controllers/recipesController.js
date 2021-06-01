@@ -4,28 +4,25 @@ const Recipe = require('../models/recipeModel');
 function recipesController() {
   async function getAll(req, res) {
     try {
-      const user = await Recipe.find({});
+      const recipes = await Recipe.find({});
       return res.json({
-        user,
-      });
-    } catch (error) {
-      return res.status(404);
-    }
-  }
-  async function updateById(req, res) {
-    const { recipeId } = req.params;
-    try {
-      const updatedRecipe = await Recipe.findByIdAndUpdate(recipeId,
-        { ...req.body },
-        { new: true });
-      return res.json({
-        updatedRecipe,
+        recipes,
       });
     } catch (error) {
       return res.status(404);
     }
   }
 
+  async function deleteById(req, res) {
+    try {
+      await Recipe.findByIdAndDelete(req.params.recipeId);
+      res.status(200);
+      res.json(req.params.recipeId);
+    } catch (error) {
+      res.status(404);
+      res.send(error.message);
+    }
+  }
   async function createOne(req, res) {
     const newFavoriteRecipe = new Recipe(req.body);
     try {
@@ -39,7 +36,7 @@ function recipesController() {
   }
   return {
     getAll,
-    updateById,
+    deleteById,
     createOne,
   };
 }
