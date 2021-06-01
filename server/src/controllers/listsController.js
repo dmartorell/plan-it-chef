@@ -1,11 +1,10 @@
 /* eslint-disable no-underscore-dangle */
-const User = require('../models/userModel');
-// const Restaurant = require('../models/restaurantModel');
+const List = require('../models/listModel')();
 
-function userController() {
+function listsController() {
   async function getData(req, res) {
     try {
-      const user = await User.findById(req.user._id);
+      const user = await List.findById(req.list._id);
       return res.json({
         user,
       });
@@ -13,13 +12,13 @@ function userController() {
       return res.status(404);
     }
   }
-  async function updateUser(req, res) {
+  async function updateList(req, res) {
     try {
-      const updatedUser = await User.findOneAndUpdate(req.user._id,
+      const updatedList = await List.findOneAndUpdate(req.list._id,
         { ...req.body },
         { new: true });
       return res.json({
-        updatedUser,
+        updatedList,
       });
     } catch (error) {
       return res.status(404);
@@ -27,7 +26,7 @@ function userController() {
   }
   return {
     getData,
-    updateUser,
+    updateList,
   };
 }
-module.exports = userController;
+module.exports = listsController;

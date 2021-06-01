@@ -20,9 +20,7 @@ module.exports = function localStrategyConfig() {
           const user = await UserModel.create({
             email: email.toLowerCase(),
             password,
-            firstname: req.body.firstname.toLowerCase(),
-            recipes: req.body.recipes,
-            lists: req.body.lists,
+            firstName: req.body.firstName.toLowerCase(),
           });
           return done(null, user);
         } catch (error) {
