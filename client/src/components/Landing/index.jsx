@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './style.scss';
 
-const Login = () => (
+const Landing = () => (
   <main className="canvas">
     <section className="container">
       <div className="main-logo">
@@ -36,4 +36,4 @@ const Login = () => (
   </main>
 );
 
-export default Login;
+export default Landing;
