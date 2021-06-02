@@ -51,26 +51,30 @@
         }
         .buttons {
             @include flex-config($justify: null, $align: center, $direction: column);
-            
-            .signUp-btn {
-                background-color: $secondary-red;
-                border-radius: 50px;
-                color: $base-white;
-                font-size: 0.95rem;
-                font-weight: 500;
-                padding: 1em 2em;
-                width: 12.75rem;
-            }
-            .logIn-btn {
-                background-color: transparent;
-                border-radius: 50px;
-                border: 1px solid $base-white;
-                color: $base-white;
-                font-size: 0.95rem;
-                font-weight: 500;
-                margin-top: 1em;
-                padding: 1em 2em;
-                width: 12.75rem;
+            .main-button {
+                cursor: pointer;
+
+                .signUp-btn {
+                    background-color: $secondary-red;
+                    border-radius: 50px;
+                    color: $base-white;
+                    cursor: pointer;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    padding: 1em 2em;
+                    width: 12.75rem;
+                }
+                .logIn-btn {
+                    background-color: transparent;
+                    border-radius: 50px;
+                    border: 1px solid $base-white;
+                    color: $base-white;
+                    cursor: pointer;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    padding: 1em 2em;
+                    width: 12.75rem;
+                }
             }
         }
     }
