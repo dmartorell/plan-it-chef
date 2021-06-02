@@ -21,17 +21,16 @@ const Login = () => (
         <p>time!</p>
       </span>
       <div className="buttons">
-        <Link className="main-button" to="/signup">
-          <button className="signUp-btn" type="button">
+        <button className="signUp" type="button">
+          <Link className="signUp-btn" to="/signup">
             Sign up
-          </button>
-        </Link>
-        <Link className="main-button" to="/login">
-          <button className="logIn-btn" type="button">
+          </Link>
+        </button>
+        <button className="logIn" type="button">
+          <Link className="logIn-btn" to="/login">
             Log in
-          </button>
-        </Link>
-
+          </Link>
+        </button>
       </div>
     </section>
   </main>
