@@ -9,8 +9,8 @@ function usersRouter() {
   // .post(usersController.addOne);
   routes
     .route('/:userId')
-    .get(usersController.getUserById)
-    .put(usersController.updateUser);
+    .get(usersController.getById)
+    .put(usersController.updateById);
   // .delete(usersController.deleteById);
   return routes;
 }

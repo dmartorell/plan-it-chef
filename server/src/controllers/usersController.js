@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 
 function userController() {
-  async function getUserById(req, res) {
+  async function getById(req, res) {
     const { userId } = req.params;
     try {
       const user = await User.findById(userId).populate('recipes');
@@ -12,22 +12,22 @@ function userController() {
       return res.status(404);
     }
   }
-  async function updateUser(req, res) {
+  async function updateById(req, res) {
     const { userId } = req.params;
     try {
       const updatedUser = await User.findByIdAndUpdate(userId,
         { ...req.body },
         { new: true });
-      return res.json({
+      return res.json(
         updatedUser,
-      });
+      );
     } catch (error) {
       return res.status(404);
     }
   }
   return {
-    getUserById,
-    updateUser,
+    getById,
+    updateById,
   };
 }
 module.exports = userController;
