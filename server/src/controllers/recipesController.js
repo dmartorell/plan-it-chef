@@ -5,9 +5,9 @@ function recipesController() {
   async function getAll(req, res) {
     try {
       const recipes = await Recipe.find({});
-      return res.json({
+      return res.json(
         recipes,
-      });
+      );
     } catch (error) {
       return res.status(404);
     }
