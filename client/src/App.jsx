@@ -1,13 +1,17 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/Login';
+
 import './App.scss';
 
 function App() {
   return (
     <BrowserRouter>
-
-      <Login />
+      <main>
+        <Switch>
+          <Route path="/" exact component={Login} />
+        </Switch>
+      </main>
     </BrowserRouter>
   );
 }
