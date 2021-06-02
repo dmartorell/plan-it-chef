@@ -43,6 +43,8 @@
     ]
   },
   "devDependencies": {
+    "@iconify-icons/carbon": "^1.1.4",
+    "@iconify/react": "^1.1.4",
     "eslint": "^7.27.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.23.4",

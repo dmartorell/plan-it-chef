@@ -9,16 +9,19 @@
         height: 154px;
         padding: 1.5em 1em;
         width: 100vw;
-
-        &__logo {
-            width: 120px;
-            height: auto;
-        }
+        
         &__user-name {
             color: $base-white;
             font-family: 'Nunito', sans-serif;
             font-size: 0.75rem;
+            margin-left: auto;
+            margin-right: 5px;
 
         }
+        &__logo {
+            width: 120px;
+            height: auto;
+        }
+        
     }
 }
