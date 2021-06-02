@@ -7,10 +7,9 @@
         background-color: $base-red;
         height: 100vh;
     
-        .container {
+        .landing-container {
             @include flex-config($justify: space-between, $align: center, $direction: column);
             height: 100vh;
-            border: 1px solid green;
             padding: 3em 0em;
     
             .main-logo {
@@ -22,7 +21,7 @@
                 .title {
                     position: absolute;
                     bottom: -10px;
-                    left: -15px;
+                    left: -10px;
                     &__title {
                         color: $base-white;
                         font-family: 'Shrikhand', cursive;

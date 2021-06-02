@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700;800;900&display=swap');
+@import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
+
+@media screen and (max-width: 414px) {
+    .header {
+        @include flex-config($justify: space-between, $align: flex-start);
+        background-color: $base-red;
+        height: 154px;
+        padding: 1.5em 1em;
+        width: 100vw;
+
+        &__logo {
+            width: 120px;
+            height: auto;
+        }
+        &__user-name {
+            color: $base-white;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.75rem;
+
+        }
+    }
+}

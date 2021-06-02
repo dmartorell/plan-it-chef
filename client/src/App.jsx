@@ -8,12 +8,10 @@ import './App.scss';
 function App() {
   return (
     <BrowserRouter>
-      <main>
-        <Switch>
-          <Route path="/" exact component={Landing} />
-          <Route path="/recipes" component={Recipes} />
-        </Switch>
-      </main>
+      <Switch>
+        <Route path="/" exact component={Landing} />
+        <Route path="/recipes" component={Recipes} />
+      </Switch>
     </BrowserRouter>
   );
 }

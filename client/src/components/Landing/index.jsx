@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import './style.scss';
+import mainImage from '../../assets/logo-bg.png';
 
 const Landing = () => (
   <main className="canvas">
-    <section className="container">
+    <section className="landing-container">
       <div className="main-logo">
         <figure>
-          <img className="image" src="https://i.ibb.co/68MT8Jm/mamma-logo.png" alt="logo" />
+          <img className="image" src={mainImage} alt="logo" />
         </figure>
         <div className="title">
           <h1 className="title__title">mamma</h1>

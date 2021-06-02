@@ -1,2 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&family=Shrikhand&display=swap');
+@import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
+
 @media screen and (max-width: 414px) {
+    .recipes-canvas {
+        @include flex-config($justify: space-between, $align: center, $direction: column);
+        background-color:$base-white;
+        height: 100vh;
+    }
 }
