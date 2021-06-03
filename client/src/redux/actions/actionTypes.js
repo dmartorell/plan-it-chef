@@ -1,0 +1,4 @@
+export default {
+  LOAD_RECIPES: 'LOAD_RECIPES',
+  LOAD_RECIPES_ERROR: 'LOAD_RECIPES_ERROR',
+};
