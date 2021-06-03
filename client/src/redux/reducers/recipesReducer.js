@@ -3,9 +3,8 @@ import actionTypes from '../actions/actionTypes';
 
 function recipesReducer(recipes = [], action) {
   switch (action.type) {
-    case actionTypes.LOAD_TASKS:
-      return action.tasks;
-
+    case actionTypes.LOAD_RECIPES:
+      return action.recipes;
     default:
       return recipes;
   }

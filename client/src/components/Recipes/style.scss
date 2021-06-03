@@ -4,8 +4,25 @@
 
 @media screen and (max-width: 414px) {
     .recipes-canvas {
-        @include flex-config($justify: space-between, $align: center, $direction: column);
+        @include flex-config($justify: none, $align: flex-start, $direction: column);
         background-color:$base-white;
         height: 100vh;
+
+        .container {
+            margin: 0 auto;
+            width: 85%;
+            height: auto;
+            
+            .recipe-item {
+                &__image {
+                    border-radius: 20px;
+                    height: 260px;
+                    object-fit: cover;
+                    width: 100%;
+                }
+
+            }
+            
+        }
     }
 }

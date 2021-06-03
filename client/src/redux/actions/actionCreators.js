@@ -8,8 +8,8 @@ function loadRecipes() {
     try {
       const { data } = await axios(url);
       dispatch({
-        type: actionTypes.LOAD_TASKS,
-        tasks: data,
+        type: actionTypes.LOAD_RECIPES,
+        recipes: data,
       });
     } catch (error) {
       dispatch({
