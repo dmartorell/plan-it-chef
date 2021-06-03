@@ -12,13 +12,61 @@
             margin: 0 auto;
             width: 93%;
             height: auto;
-            
+            padding-top: 1.5em; 
+            .page-head {
+                @include flex-config($justify: flex-start, $align: center);
+                margin-bottom: 0.3em;
+                padding: 0 0.4em;
+
+                &__title {
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+                &__icon {
+                    width: 2rem;
+                }
+                &__form {
+                    margin-left: auto;
+                    position: relative;
+                    .form-input {
+                        border: 1px solid $lighter-grey;
+                        border-radius: 10px;
+                        color: $base-black;
+                        padding: 0.4em 1em;
+                        padding-right: 2.5em;
+
+                        &:focus {
+                            outline: none;
+                            border-color: $secondary-red;
+                        }
+                    }
+                   
+                    ::placeholder { 
+                        color: $lighter-grey;
+                        opacity: 1;
+                    }
+                    .form-btn {
+                        position: absolute;
+                        right: 1em;
+                        top: 0.5em;
+                        &__icon {
+                            cursor: pointer;
+                            width: 16px;
+
+                        }
+                    }
+                }
+            }
             .recipe-item {
+                figure {
+                    position: relative;
+                }
                 &__image {
                     border-radius: 20px;
                     height: 260px;
-                    margin: 0.8em 0;
+                    margin: 0.9em 0;
                     object-fit: cover;
+                    position: relative;
                     width: 100%;
                 }
                 &__title {
@@ -29,17 +77,37 @@
                 }
                 &__webSite {
                     font-size: 16px;
-                    font-weight: 600;
+                    font-weight: 500;
+                    margin-bottom: 0.2em;
+
                     margin-left: 25px;
                 }
                 .times {
+                    @include flex-config($justify: flex-start, $align: center, $direction: column);
+                    background-color: $lighter-grey;
+                    border-radius: 15px 0 15px 0;
+                    bottom: 20px;
+                    right: 0;
+                    text-transform: uppercase;
+                    width: 67px;
+                    height: auto;
+                    padding: 0.5em;
+                    position: absolute;
+
+                    .times-title {
+                        font-size: 12px;
+                        font-weight: lighter;
+                    }
+                    .times-data {
+                        font-size: 16px;
+                        font-weight: bold;
+                        line-height: 15px;
+                    }
                     &__preparation {
-                        margin-left: 25px;
-
-
+                        @include flex-config($justify: space-between, $align: center, $direction: column);
                     }
                     &__cooking {
-
+                        @include flex-config($justify: space-between, $align: center, $direction: column);
                     }
                 }
             }
