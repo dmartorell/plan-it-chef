@@ -4,24 +4,48 @@
 
 @media screen and (max-width: 414px) {
     .header {
-        @include flex-config($justify: space-between, $align: flex-start);
+        @include flex-config($justify: space-between, $align: null, $direction: column);
+
         background-color: $base-red;
         height: 154px;
         padding: 1.5em 1em;
         width: 100vw;
-        
-        &__user-name {
-            color: $base-white;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.75rem;
-            margin-left: auto;
-            margin-right: 5px;
 
+        &__top {
+            @include flex-config($justify: space-between, $align: flex-start, $direction: row);
+
+            .user-name {
+                color: $base-white;
+                font-family: 'Nunito', sans-serif;
+                font-size: 0.75rem;
+                margin-left: auto;
+                margin-right: 5px;
+    
+            }
+            .logo {
+                width: 120px;
+                height: auto;
+            }
+            .user-icon {
+                width: 25px;
+                color: $base-white;
+            }
         }
-        &__logo {
-            width: 120px;
-            height: auto;
-        }
-        
+        &__bottom {
+            text-align: center;
+            ::placeholder { 
+                color: $lighter-grey;
+                opacity: 1;
+            }
+            .form-control {
+                background-color: transparent;
+                border: 1px solid $base-white;
+                border-radius: 10px;
+                color: $base-white;
+                padding: 1em 1em;
+
+                
+            }
+        } 
     }
 }
