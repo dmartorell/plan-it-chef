@@ -9,8 +9,11 @@ const Header = () => (
       <figure>
         <img className="logo" src={logo} alt="logo" />
       </figure>
-      <span className="user-name">Sylvia</span>
-      <span className="iconify user-icon" data-icon="carbon:user-avatar-filled" data-inline="false" />
+      <div className="user-info">
+        <span className="user-info__name">Sylvia</span>
+        <span className="iconify user-info__icon" data-icon="carbon:user-avatar-filled" data-inline="false" />
+      </div>
+
     </div>
     <div className="header__bottom">
       <form>

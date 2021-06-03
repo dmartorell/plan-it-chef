@@ -13,22 +13,25 @@
 
         &__top {
             @include flex-config($justify: space-between, $align: flex-start, $direction: row);
-
-            .user-name {
-                color: $base-white;
-                font-family: 'Nunito', sans-serif;
-                font-size: 0.75rem;
-                margin-left: auto;
-                margin-right: 5px;
-    
-            }
             .logo {
                 width: 120px;
                 height: auto;
             }
-            .user-icon {
-                width: 25px;
-                color: $base-white;
+            .user-info {
+                @include flex-config($justify: space-between, $align: center);
+
+                &__name {
+                    color: $base-white;
+                font-family: 'Nunito', sans-serif;
+                font-size: 0.8rem;
+                margin-left: auto;
+                margin-right: 5px;
+                }
+                &__icon {
+                    width: 25px;
+                    height: auto;
+                    color: $base-white;
+                }
             }
         }
         &__bottom {
