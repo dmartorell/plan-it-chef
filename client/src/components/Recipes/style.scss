@@ -32,6 +32,8 @@
                         border: 1px solid $lighter-grey;
                         border-radius: 10px;
                         color: $base-black;
+                        font-size: 12px;
+                        font-weight: lighter;
                         padding: 0.4em 1em;
                         padding-right: 2.5em;
 
@@ -53,7 +55,9 @@
                         &__icon {
                             cursor: pointer;
                             width: 16px;
-
+                        }
+                        &:focus {
+                            outline: none;
                         }
                     }
                 }

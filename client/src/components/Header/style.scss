@@ -40,15 +40,35 @@
                 color: $lighter-grey;
                 opacity: 1;
             }
-            .form-control {
-                background-color: transparent;
-                border: 1px solid $base-white;
-                border-radius: 10px;
-                color: $base-white;
-                padding: 1em 1em;
-                &:focus {
-                    outline: none;
-                    border-color: $secondary-red;
+            .header-form {
+                position: relative;
+
+                .form-input {
+                    background-color: transparent;
+                    border: 1px solid $base-white;
+                    border-radius: 10px;
+                    color: $base-white;
+                    font-size: 13px;
+                    margin-top: 1em;
+                    padding: 0.6em 1em;
+                    padding-right: 3em;
+                    &:focus {
+                        outline: none;
+                        border-color: $secondary-red;
+                    }
+                }
+                .form-btn {
+                    padding-right: 0.5em;
+                    position: absolute;
+                    right: 1em;
+                    top: 1.7em;
+                    &__icon {
+                        cursor: pointer;
+                        width: 17px;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
         } 
