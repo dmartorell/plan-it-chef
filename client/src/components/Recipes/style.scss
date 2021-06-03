@@ -10,17 +10,38 @@
 
         .container {
             margin: 0 auto;
-            width: 85%;
+            width: 93%;
             height: auto;
             
             .recipe-item {
                 &__image {
                     border-radius: 20px;
                     height: 260px;
+                    margin: 0.8em 0;
                     object-fit: cover;
                     width: 100%;
                 }
+                &__title {
+                    font-size: 22px;
+                    font-weight: bold;
+                    margin-left: 25px;
 
+                }
+                &__webSite {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-left: 25px;
+                }
+                .times {
+                    &__preparation {
+                        margin-left: 25px;
+
+
+                    }
+                    &__cooking {
+
+                    }
+                }
             }
             
         }
