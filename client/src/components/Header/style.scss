@@ -2,7 +2,7 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 714px) {
     .header {
         @include flex-config($justify: space-between, $align: null, $direction: column);
 
@@ -41,6 +41,8 @@
                 opacity: 1;
             }
             .header-form {
+                display: inline-block;
+                margin: 0 auto; 
                 position: relative;
 
                 .form-input {
@@ -60,8 +62,8 @@
                 .form-btn {
                     padding-right: 0.5em;
                     position: absolute;
-                    right: 1em;
-                    top: 1.7em;
+                    right: 0.5em;
+                    top: 1.65em;
                     &__icon {
                         cursor: pointer;
                         width: 17px;

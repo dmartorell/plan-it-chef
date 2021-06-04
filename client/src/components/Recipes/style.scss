@@ -2,7 +2,7 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 714px) {
     .recipes-canvas {
         @include flex-config($justify: none, $align: flex-start, $direction: column);
         background-color:$base-white;
@@ -19,8 +19,8 @@
                 padding: 0 0.4em;
 
                 &__title {
-                    font-size: 30px;
-                    font-weight: 600;
+                    font-size: 28px;
+                    font-weight: 700;
                 }
                 &__icon {
                     width: 2rem;
