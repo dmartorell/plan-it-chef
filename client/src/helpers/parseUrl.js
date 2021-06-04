@@ -1,6 +1,7 @@
 const parseUrl = (url) => {
   const { hostname } = new URL(url);
-  return hostname;
+  const [, name, domain] = hostname.split('.');
+  return `${name}.${domain}`;
 };
 
 export default parseUrl;
