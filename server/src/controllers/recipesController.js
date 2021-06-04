@@ -4,10 +4,11 @@ const Recipe = require('../models/recipeModel');
 function recipesController() {
   async function getAll(req, res) {
     try {
-      const recipes = await Recipe.find({});
-      return res.json(
-        recipes,
-      );
+      let recipes = null;
+      if (req.query.title) {
+        recipes = { title: { $regex: req.query.title, $options: 'i' } };
+      }
+      return res.json(await Recipe.find(recipes));
     } catch (error) {
       return res.status(404);
     }
