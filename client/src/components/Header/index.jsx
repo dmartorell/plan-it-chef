@@ -10,7 +10,7 @@ const Header = () => (
         <img className="logo" src={logo} alt="logo" />
       </figure>
       <div className="user-info">
-        <span className="user-info__name">Sylvia</span>
+        <p className="user-info__name">Sylvia</p>
         <span className="iconify user-info__icon" data-icon="carbon:user-avatar-filled" data-inline="false" />
       </div>
 
