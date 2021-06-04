@@ -7,6 +7,7 @@
         @include flex-config($justify: space-between, $align: null, $direction: column);
 
         background-color: $base-red;
+        box-shadow: 0px 5px 12px -6px rgba(66,66,66,0.81);
         height: 145px;
         padding: 1.5em 1.5em;
         width: 100vw;
