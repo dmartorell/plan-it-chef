@@ -46,34 +46,8 @@ describe('Given a Recipes component', () => {
         }));
 
         fireEvent.click(screen.getByTestId('search-btn'));
-
         expect(loadRecipes).toHaveBeenCalled();
       });
     });
   });
 });
-// describe('And Delete button is clicked', () => {
-//   test('Then delete task should be invoked', () => {
-//     deleteTask.mockImplementationOnce(() => ({
-//       type: actionTypes.ADD_TASK,
-//       task: initialState,
-//     }));
-
-//     fireEvent.click(screen.getByText(/x/i));
-
-//     expect(deleteTask).toHaveBeenCalled();
-//   });
-// });
-
-// describe('And update button is clicked', () => {
-//   test('Then update task should be invoked', () => {
-//     updateTask.mockImplementationOnce(() => ({
-//       type: actionTypes.ADD_TASK,
-//       task: initialState,
-//     }));
-
-//     fireEvent.click(screen.getByText(/✓/i));
-
-//     expect(updateTask).toHaveBeenCalled();
-//   });
-// });

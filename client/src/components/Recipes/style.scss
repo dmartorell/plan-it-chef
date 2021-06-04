@@ -117,6 +117,18 @@
                         @include flex-config($justify: space-between, $align: center, $direction: column);
                     }
                 }
+                .title-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .more-info-icon {
+                        cursor: pointer;
+                        margin-right: 25px;
+                        width: 30px;
+                    }
+                }
+                
             }
             
         }
