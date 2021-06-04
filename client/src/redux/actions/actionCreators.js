@@ -2,12 +2,12 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-const url = 'http://localhost:2021/recipes/'; // TODO: use ENV VARIABLE
+const url = 'http://localhost:2021/recipes'; // TODO: use ENV VARIABLE
 
-function loadRecipes(title) {
+export function loadRecipes(title) {
   return async (dispatch) => {
     try {
-      const { data } = title ? await axios(`${url}?title=${title}`) : await axios(url);
+      const { data } = title ? await axios(`${url}/?title=${title}`) : await axios(url);
       dispatch({
         type: actionTypes.LOAD_RECIPES,
         recipes: data,
@@ -19,5 +19,18 @@ function loadRecipes(title) {
     }
   };
 }
-
-export default loadRecipes;
+export function loadRecipeById(id) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(`${url}/detail/${id}`);
+      dispatch({
+        type: actionTypes.LOAD_RECIPE,
+        recipe: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.LOAD_RECIPE_ERROR,
+      });
+    }
+  };
+}

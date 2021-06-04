@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import './style.scss';
 import logo from '../../assets/logo-sm.png';
