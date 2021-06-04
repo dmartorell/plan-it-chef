@@ -1,12 +1,14 @@
+/* eslint-disable no-debugger */
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
 const url = 'http://localhost:2021/recipes/'; // TODO: use ENV VARIABLE
 
-function loadRecipes() {
+function loadRecipes(title) {
+  console.log(title);
   return async (dispatch) => {
     try {
-      const { data } = await axios(url);
+      const { data } = title ? await axios(`${url}?title=${title}`) : await axios(url);
       dispatch({
         type: actionTypes.LOAD_RECIPES,
         recipes: data,
