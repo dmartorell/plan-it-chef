@@ -30,7 +30,7 @@ const Recipes = ({ recipes, dispatch }) => {
 
         <ul className="recipes-list">
           {
-          recipes
+          recipes.length
             ? recipes.map((recipe) => {
               const recipeSource = recipe.sourceUrl ? parseUrl(recipe.sourceUrl) : 'No source available.';
               return (
@@ -57,7 +57,7 @@ const Recipes = ({ recipes, dispatch }) => {
                 </article>
               );
             })
-            : <p>Your list is empty.</p>
+            : <p className="error-message">No recipes available.</p>
         }
         </ul>
       </section>
