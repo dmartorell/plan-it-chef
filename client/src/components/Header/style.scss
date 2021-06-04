@@ -7,8 +7,8 @@
         @include flex-config($justify: space-between, $align: null, $direction: column);
 
         background-color: $base-red;
-        height: 154px;
-        padding: 1.5em 1em;
+        height: 145px;
+        padding: 1.5em 1.5em;
         width: 100vw;
 
         &__top {
@@ -44,6 +44,7 @@
                 display: inline-block;
                 margin: 0 auto; 
                 position: relative;
+                width: 80%;
 
                 .form-input {
                     background-color: transparent;
@@ -54,6 +55,8 @@
                     margin-top: 1em;
                     padding: 0.6em 1em;
                     padding-right: 3em;
+                    width: 100%;
+
                     &:focus {
                         outline: none;
                         border-color: $secondary-red;
