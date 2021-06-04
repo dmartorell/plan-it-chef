@@ -43,7 +43,9 @@ const Recipes = ({ recipes, dispatch }) => {
               return (
                 <article key={recipe._id} className="recipe-item">
                   <figure>
-                    <img className="recipe-item__image" alt="recipe" src={recipe.image} />
+                    <Link to={`/recipes/detail/${recipe._id}`}>
+                      <img className="recipe-item__image" alt="recipe" src={recipe.image} />
+                    </Link>
                     <div className="times">
                       <p className="times__preparation">
                         <span className="preparation-title times-title">prep</span>
