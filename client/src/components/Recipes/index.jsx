@@ -58,7 +58,7 @@ const Recipes = ({ recipes, dispatch }) => {
                   </figure>
                   <div className="title-container">
                     <h2 className="recipe-item__title">{recipe.title}</h2>
-                    <img className="more-info-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAzElEQVRoge3RPQ6CMBjG8fe1EGY7yxm8he5exYVLGG/h7ujAHVyddYSykZCS1kESQ/0oLu3g8xvbPyQPEAEAAAAAAAD8J54SSSnzJEn2RLQajkpjTFFV1SVG/9OA4eVnIpKjB5kbrfVSKXUN2btmvgHDl5HuubV2nqbpLnTv8g6g5299Ya1dR+hHpgz4xsbupwwoP10w8ylCP+IdYIwpmLl5c1Vrrbehe5fwBW3b1lmWHYQQCyLKiahj5mPf9xul1C10DwAAAAAAAAAPd4khl4Fh102hAAAAAElFTkSuQmCC" alt="icon" />
+                    <img className="more-info-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAwklEQVRoge3SMQ6CMBjF8fd96QV09wy49Ap6IBcuYbiHnsCBAxA6uDLrakjcWx1k0IZYXMrg+yUs9B+SlwIQERERERER/SeZEllrV977SkQ2w6taRErnXDdH/9MAa+0qhHAGsIyOelUt2ra95Oxjmhrgva9GPg4AixDCPncfSw54u9Yx29x9LDkg4TF3P2VA/eXsNEP/YcovVALoR45uxphd7j6WHOCc61S1AHAEcB+egzFm3TTNNXdPRERERERERC9PXEB7osEYMHIAAAAASUVORK5CYII=" alt="icon" />
                   </div>
                   <p className="recipe-item__webSite">
                     {recipeSource}
