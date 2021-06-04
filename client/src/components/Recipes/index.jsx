@@ -34,7 +34,6 @@ const Recipes = ({ recipes, dispatch }) => {
           </form>
 
         </div>
-
         <ul className="recipes-list">
           {
           recipes.length

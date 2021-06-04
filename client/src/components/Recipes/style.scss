@@ -26,8 +26,10 @@
                     width: 2rem;
                 }
                 &__form {
+                    @include flex-config($justify: flex-end, $align: center);
                     margin-left: auto;
                     position: relative;
+                    width: 100%;
                     .form-input {
                         border: 1px solid $lighter-grey;
                         border-radius: 10px;
@@ -36,15 +38,15 @@
                         font-weight: lighter;
                         padding: 0.4em 1em;
                         padding-right: 2.5em;
+                        width: 80%;
 
                         &:focus {
                             outline: none;
                             border-color: $secondary-red;
                         }
                     }
-                   
                     ::placeholder { 
-                        color: $lighter-grey;
+                        color: $light-grey;
                         opacity: 1;
                     }
                     .form-btn {

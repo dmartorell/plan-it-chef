@@ -5,7 +5,6 @@ import actionTypes from './actionTypes';
 const url = 'http://localhost:2021/recipes/'; // TODO: use ENV VARIABLE
 
 function loadRecipes(title) {
-  console.log(title);
   return async (dispatch) => {
     try {
       const { data } = title ? await axios(`${url}?title=${title}`) : await axios(url);
