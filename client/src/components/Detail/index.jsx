@@ -22,7 +22,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         <img src={selectedRecipe.image} alt="dish" className="main-image" />
       </figure>
       <i>icon</i>
-      <section className="recipe">
+      <section className="recipe main-container">
         <div className="recipe__head">
           <h1 className="title">
             {selectedRecipe.title}
@@ -53,19 +53,25 @@ const Detail = ({ dispatch, selectedRecipe }) => {
           <img src="" alt="" className="info-icon" />
           {`${selectedRecipe.servings} servings`}
         </p>
-        <h2 className="ingredients-list">
+        <h2 className="recipe-section ingredient-title">
           Ingredients:
         </h2>
         <ul className="ingredients-list">
           {
           selectedRecipe?.extendedIngredients?.map((ingredient) => (
             <li className="ingredients-list__item" key={ingredient._id}>
-
-              {ingredient.original}
+              <span className="iconify item-bullet" data-icon="akar-icons:circle-fill" data-inline="false" />
+              <p className="item-name">
+                {ingredient.original}
+              </p>
             </li>
           ))
           }
         </ul>
+        <h2 className="recipe-section ingredient-directions">
+          Directions:
+        </h2>
+
       </section>
     </main>
   );

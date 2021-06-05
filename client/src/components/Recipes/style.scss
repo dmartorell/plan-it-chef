@@ -8,11 +8,8 @@
         background-color:$base-white;
         min-height: 100vh;
 
-        .container {
-            margin: 0 auto;
-            width: 93%;
-            height: auto;
-            padding-top: 1.5em; 
+        .main-container {
+            
             .page-head {
                 @include flex-config($justify: flex-start, $align: center);
                 margin-bottom: 0.3em;

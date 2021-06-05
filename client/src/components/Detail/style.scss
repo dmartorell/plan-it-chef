@@ -3,5 +3,23 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
-    
+    .detail-canvas {
+        @include flex-config($justify: none, $align: flex-start, $direction: column);
+        background-color:$base-white;
+        min-height: 100vh;
+
+        .main-container {
+            .ingredients-list__item{
+                @include flex-config(null, center);
+                .item-name{}
+                .item-bullet {
+                    color: $secondary-red;
+                    margin-right: 0.8em;
+                    width: 0.6em;
+                }
+
+            }
+        }
+    }
 }
+
