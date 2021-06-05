@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 const { model, Schema } = require('mongoose');
 
 const recipeSchema = Schema({
@@ -8,10 +9,21 @@ const recipeSchema = Schema({
   cookingMinutes: Number,
   servings: Number,
   image: String,
-  ingredients: [
+  analyzedInstructions: [
+    {
+      steps: [
+        {
+          number: Number,
+          step: String,
+        },
+      ],
+    },
+  ],
+  extendedIngredients: [
     {
       name: String,
       aisle: String,
+      original: String,
       image: String,
       measures: {
         us: { amount: Number, unitShort: String },
