@@ -4,21 +4,31 @@
 
 @media screen and (max-width: 714px) {
     .detail-canvas {
-        @include flex-config($justify: none, $align: flex-start, $direction: column);
+        @include flex-config(null, flex-start, column);
         background-color:$base-white;
         min-height: 100vh;
 
         .main-container {
-            .ingredients-list__item{
-                @include flex-config(null, center);
-                .item-name{}
-                .item-bullet {
-                    color: $secondary-red;
-                    margin-right: 0.8em;
-                    width: 0.6em;
-                }
 
+            .ingredients-list {
+                .ingredients-list__item{
+                    .item-name{ 
+                    }
+                    .item-name::before{
+                        content: "\2022";
+                        display: inline-block;
+                        color: $secondary-red;
+                        font-size: 19px;
+                        font-weight: bold;
+                        width: 1em; 
+                    }
+                    
+    
+                }
+                
             }
+           
+            
         }
     }
 }

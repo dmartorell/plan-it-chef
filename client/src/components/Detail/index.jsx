@@ -60,7 +60,6 @@ const Detail = ({ dispatch, selectedRecipe }) => {
           {
           selectedRecipe?.extendedIngredients?.map((ingredient) => (
             <li className="ingredients-list__item" key={ingredient._id}>
-              <span className="iconify item-bullet" data-icon="akar-icons:circle-fill" data-inline="false" />
               <p className="item-name">
                 {ingredient.original}
               </p>
