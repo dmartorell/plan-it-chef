@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import actionTypes from '../actions/actionTypes';
 
 function selectedRecipeReducer(selectedRecipe = {}, action) {
