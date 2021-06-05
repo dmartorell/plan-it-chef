@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
