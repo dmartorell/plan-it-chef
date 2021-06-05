@@ -34,7 +34,7 @@
                         border: 1px solid $lighter-grey;
                         border-radius: 10px;
                         color: $base-black;
-                        font-size: 12px;
+                        font-size: 13px;
                         font-weight: lighter;
                         padding: 0.4em 1em;
                         padding-right: 2.5em;
@@ -52,11 +52,11 @@
                     .form-btn {
                         position: absolute;
                         right: 1em;
-                        top: 0.45em;
+                        top: 0.40em;
                         
                         &__icon {
                             cursor: pointer;
-                            width: 16px;
+                            width: 19px;
                         }
                         &:focus {
                             outline: none;

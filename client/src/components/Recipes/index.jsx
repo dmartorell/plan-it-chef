@@ -18,6 +18,7 @@ const Recipes = ({ recipes, dispatch }) => {
   const handleClick = (event) => {
     event.preventDefault();
     dispatch(loadRecipes(inputValue));
+    setInputValue('');
   };
 
   return (
