@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
@@ -19,40 +19,47 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   return (
     <main className="detail-canvas">
       <figure className="main-image">
+        <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
         <img src={selectedRecipe.image} alt="dish" className="main-image__pic" />
       </figure>
-      <i><span className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" /></i>
-      <section className="recipe main-container">
+      <section className="recipe">
         <div className="recipe__head">
           <div className="title-container">
             <h1 className="head-title">
               {selectedRecipe.title}
             </h1>
-            <i>
-              <span className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-            </i>
-            <i>
-              <span className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
-            </i>
+            <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
+            <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
           </div>
           <p className="url-source">
             From
             {' '}
-            <span className="url-source__name">{selectedRecipeSource}</span>
+            <Link to={selectedRecipe.sourceUrl} target="_blank" rel="noopener noreferrer"><span className="url-source__name">{selectedRecipeSource}</span></Link>
           </p>
         </div>
-        <p className="recipe__times">
-          <span className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
-          {selectedRecipe.preparationMinutes}
-          {' '}
-          min prep + $
-          {selectedRecipe.cookingMinutes}
-          {' '}
-          min cooking
+        <div className="recipe__times">
+          {
+            selectedRecipe.preparationMinutes
+              ? (
+                <>
+                  <i className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
+                  <p>
+                    {selectedRecipe.preparationMinutes}
+                    {' '}
+                    min prep +
+                    {' '}
+                    {selectedRecipe.cookingMinutes}
+                    {' '}
+                    min cooking
+                  </p>
+                </>
+              )
+              : <i className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
+          }
 
-        </p>
+        </div>
         <p className="recipe__servings">
-          <span className="iconify info-icon" data-icon="mdi:silverware-spoon" data-inline="false" />
+          <span className="iconify info-icon" data-icon="mdi:silverware-fork" data-inline="false" />
           {`${selectedRecipe.servings} servings`}
         </p>
         <h2 className="recipe-section ingredient-title">
