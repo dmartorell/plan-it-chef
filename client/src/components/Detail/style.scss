@@ -35,13 +35,13 @@
             .bookmark-icon {
                 position: absolute;
                 top: 24px;
-                right: 2.4em;
+                right: 1.7em;
                 width: 44px;
             }
         }
         .recipe {
             margin: 0 auto;
-            margin: 0 40px 0 40px;
+            margin: 0 30px;
             &__head {
                 .title-container {
                     @include flex-config(space-between, center, row);
@@ -59,8 +59,8 @@
                         color: $secondary-red;
                         height: auto;
                         margin: 0 0.1em 0 auto;
-                        width: 25px;
-                        min-width: 25px;
+                        width: 22px;
+                        min-width: 22px;
                     }
                 } 
             

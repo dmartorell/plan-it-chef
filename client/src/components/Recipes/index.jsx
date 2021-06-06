@@ -47,18 +47,25 @@ const Recipes = ({ recipes, dispatch }) => {
                     <Link to={`/recipes/detail/${recipe._id}`}>
                       <img className="recipe-item__image" alt="recipe" src={recipe.image} />
                     </Link>
-                    <div className="times">
-                      <p className="times__preparation">
-                        <span className="preparation-title times-title">prep</span>
-                        <span className="preparation-data times-data">
-                          {recipe.preparationMinutes}
-                        </span>
-                      </p>
-                      <p className="times__cooking">
-                        <span className="cooking-title times-title">cook</span>
-                        <span className="cooking-data times-data">{recipe.cookingMinutes}</span>
-                      </p>
-                    </div>
+                    {
+                      recipe.preparationMinutes
+
+                        ? (
+                          <div className="times">
+                            <p className="times__preparation">
+                              <span className="preparation-title times-title">prep</span>
+                              <span className="preparation-data times-data">
+                                {recipe.preparationMinutes}
+                              </span>
+                            </p>
+                            <p className="times__cooking">
+                              <span className="cooking-title times-title">cook</span>
+                              <span className="cooking-data times-data">{recipe.cookingMinutes}</span>
+                            </p>
+                          </div>
+                        )
+                        : <></>
+                    }
                   </figure>
                   <div className="title-container">
                     <h2 className="recipe-item__title">
