@@ -18,21 +18,23 @@ const Detail = ({ dispatch, selectedRecipe }) => {
 
   return (
     <main className="detail-canvas">
-      <figure>
-        <img src={selectedRecipe.image} alt="dish" className="main-image" />
+      <figure className="main-image">
+        <img src={selectedRecipe.image} alt="dish" className="main-image__pic" />
       </figure>
-      <i>icon</i>
+      <i><span className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" /></i>
       <section className="recipe main-container">
         <div className="recipe__head">
-          <h1 className="title">
-            {selectedRecipe.title}
-          </h1>
-          <i className="plus-icon-bkg icon-m">
-            <img className="plus-icon-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAXklEQVRoge3YwQ2AIBAAQbT/nvWt8QurcaaAgw2vYwz4t23i7GPFWfuMoSsJqAmoCagJqAmoCagJqAmoPW1J903qbS53/vwLCKj5lagJqAmoCagJqAmoCagJqAkAWic4EgNO1VdPlAAAAABJRU5ErkJggg==" alt="icon" />
-          </i>
-          <i className="cart-icon-bkg icon-m">
-            <img className="cart-icon-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACH0lEQVRoge2YPUscURSGHzfiQkIKCWKjpAjBWAWEgIKlIGhvYROL/IJA8hskgRQWptTWD7TRwsJS/AJ/gKhJGSSJrERJYuJY3FnYOc7n3jN7R5wHLuzuzD7nPcyduTMDJSUldf4DXsj4DXQ5zBVLpeGzF7FPFZhqQRZrrgg/Ah7wFXjgLlo6/hLdgAeMuYvWHPPEN9SqcQyMNNPAQAHC18dJVMhK1AbgANjP2HReXEdtiGsAYFY5SLN8bvaPVeCU4OF8rRQqihVuT5+qjfCDEO5aBoxjCDNdGutN2EqfAv+E9JWtNIQ2YEvU2fF/t2ZdiOc0pIJJbl99hrXkY0J8CTzRkgMdwJGosaTopw04FAXeKfrfC/cf4LmiHzCB87g/6gR+CPcnBW9ooQtRSOP+aEY4z9CdngHmRLE1S98zzHRpdL61dMYi74+usZur6otWGvZEUc1hvWil4U1O4bdRWrSSWMohfA3ob0X4ceXgZ5jz4EUrwj/EnGSNAfa4A8/KdaYJhr8CXjpNlIHHwC+CDXx0migjQwTDfwMeOU3k055yv0vxvRtzRPJE9ZJaAb6Q3wIWNtQZJfnlV6EbABgENjALz51soMQ1vcAycO6PVaCvQL7EYvLRzwN++ttc+xJZDilWH4sF8CVyHlOw5sqX9HI3LdqXvdS+LA1sxmzbyODJy5dIH+YEk4f7O9BTAF8qejEnWM0fC5bFtH0lJfeOG015wKnJADEyAAAAAElFTkSuQmCC" alt="icon" />
-          </i>
+          <div className="title-container">
+            <h1 className="head-title">
+              {selectedRecipe.title}
+            </h1>
+            <i>
+              <span className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
+            </i>
+            <i>
+              <span className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
+            </i>
+          </div>
           <p className="url-source">
             From
             {' '}

@@ -3,14 +3,61 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
+    .icon-bg {
+        width: 45px;
+        height: auto;
+        padding: 0.5em;
+        border-radius: 100%;
+        background-color: $secondary-red;
+        color: $base-white;
+    }
     .detail-canvas {
         @include flex-config(null, flex-start, column);
         background-color:$base-white;
         min-height: 100vh;
+        .bookmark-icon {
+            width: 45px;
+        }
+        .main-image {
+            
+
+            &__pic {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+            }
+            
+        }
+        .recipe {
+            &__head {
+                .title-container {
+                    @include flex-config(null, flex-start, row);
+                    .head-title {
+                        font-size: 1.8em;
+                        font-weight: bold;
+                    }
+                    .plus-icon {
+                        color: $secondary-red;
+                        height: auto;
+                        width: 100px;
+                    }
+                } 
+            }
+            &__times {
+
+            }
+            &__servings {
+
+            }
+
+        } 
+        
         .recipe-section {
-            font-size: 1.5em;
+            font-size: 1.3em;
+            font-weight: bold;
         }
         .main-container {
+            
 
             .ingredients-list {
                 .ingredients-list__item{
