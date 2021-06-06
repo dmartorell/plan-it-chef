@@ -39,18 +39,18 @@ const Detail = ({ dispatch, selectedRecipe }) => {
             <span className="url-source__name">{selectedRecipeSource}</span>
           </p>
         </div>
-        {
-          selectedRecipe.preparationMinutes
-            ? (
-              <p className="recipe__times">
-                <img src="" alt="" className="info-icon" />
-                {`${selectedRecipe.preparationMinutes} min prep + ${selectedRecipe.cookingMinutes} min cooking`}
-              </p>
-            )
-            : <img src="" alt="" className="info-icon" />
-        }
+        <p className="recipe__times">
+          <span className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
+          {selectedRecipe.preparationMinutes}
+          {' '}
+          min prep + $
+          {selectedRecipe.cookingMinutes}
+          {' '}
+          min cooking
+
+        </p>
         <p className="recipe__servings">
-          <img src="" alt="" className="info-icon" />
+          <span className="iconify info-icon" data-icon="mdi:silverware-spoon" data-inline="false" />
           {`${selectedRecipe.servings} servings`}
         </p>
         <h2 className="recipe-section ingredient-title">
@@ -70,6 +70,27 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         <h2 className="recipe-section ingredient-directions">
           Directions:
         </h2>
+        <div className="directions-list">
+          {
+          selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
+            <>
+              <h3 className="direction-block-title">
+                {directionsBlock.name}
+              </h3>
+              <ul className="instructions-list">
+                {
+              directionsBlock?.steps?.map((instruction) => (
+                <li className="instructions-list__item">
+                  <p className="item-number">{instruction.number}</p>
+                  <p className="item-text">{instruction.step}</p>
+                </li>
+              ))
+              }
+              </ul>
+            </>
+          ))
+          }
+        </div>
 
       </section>
     </main>
@@ -88,6 +109,7 @@ Detail.propTypes = {
     analyzedInstructions: PropTypes.shape([
       {
         _id: String,
+        name: String,
         steps: PropTypes.shape([
           {
             _id: String,

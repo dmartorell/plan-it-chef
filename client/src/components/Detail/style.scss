@@ -7,7 +7,9 @@
         @include flex-config(null, flex-start, column);
         background-color:$base-white;
         min-height: 100vh;
-
+        .recipe-section {
+            font-size: 1.5em;
+        }
         .main-container {
 
             .ingredients-list {
@@ -21,12 +23,42 @@
                         font-size: 19px;
                         font-weight: bold;
                         width: 1em; 
-                    }
+                        }
                     
     
                 }
-                
             }
+            .instructions-list {
+                &__item {
+                    @include flex-config(start, flex-start);
+                    margin-bottom: 3em;
+                    .item-number {
+                        font-weight: 600;
+                        font-size: 25px;
+                        min-width: 4em;
+                       
+
+                    }
+                    .item-text {
+                        position: relative;
+                    
+                        &::before {
+                            content: '';
+                            border-color: $secondary-red;
+                            border-style: solid;
+                            border-width: 0 0.2em 0 0;
+                            margin-top: -1em;
+                            height: 2.5em;
+                            position: absolute;
+                            top: 1.3em;
+                            left: -2.6em;
+                        }
+                    }
+
+                }
+
+            }
+            
            
             
         }
