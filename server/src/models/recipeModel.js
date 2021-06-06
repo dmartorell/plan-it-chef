@@ -11,6 +11,7 @@ const recipeSchema = Schema({
   image: String,
   analyzedInstructions: [
     {
+      name: String,
       steps: [
         {
           number: Number,
