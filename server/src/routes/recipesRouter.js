@@ -11,11 +11,10 @@ function recipesRouter() {
     .post(recipesController.createOne);
 
   routes
-    .route('/:recipeId')
+    .route('/detail/:recipeId')
     .delete(recipesController.deleteById)
     .get(recipesController.getById);
 
   return routes;
 }
-
 module.exports = recipesRouter();
