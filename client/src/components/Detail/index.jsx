@@ -19,7 +19,9 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   return (
     <main className="detail-canvas">
       <figure className="main-image">
-        <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
+        <button type="button" onClick={() => { console.log('click'); }}>
+          <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
+        </button>
         <img src={selectedRecipe.image} alt="dish" className="main-image__pic" />
       </figure>
       <section className="recipe">
@@ -58,7 +60,6 @@ const Detail = ({ dispatch, selectedRecipe }) => {
               )
               : <i className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
           }
-
         </div>
         <p className="recipe__servings">
           <span className="iconify info-icon" data-icon="mdi:silverware-fork" data-inline="false" />
@@ -84,21 +85,21 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         <div className="directions-list">
           {
           selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
-            <>
+            <li key="directions-block">
               <h3 className="direction-block-title">
                 {directionsBlock.name}
               </h3>
               <ul className="instructions-list">
                 {
               directionsBlock?.steps?.map((instruction) => (
-                <li className="instructions-list__item">
+                <li className="instructions-list__item" key={instruction.number}>
                   <p className="item-number">{instruction.number}</p>
                   <p className="item-text">{instruction.step}</p>
                 </li>
               ))
               }
               </ul>
-            </>
+            </li>
           ))
           }
         </div>
