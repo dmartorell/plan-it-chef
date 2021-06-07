@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
 import parseUrl from '../../helpers/parseUrl';
+import defaultImg from '../../assets/default-image-bg.png';
 
 import './style.scss';
 
@@ -15,20 +16,29 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
+  const recipeTitle = selectedRecipe.title || '?';
 
   return (
     <main className="detail-canvas">
       <figure className="main-image">
-        <button type="button" onClick={() => { console.log('click'); }}>
-          <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
-        </button>
-        <img src={selectedRecipe.image} alt="dish" className="main-image__pic" />
+        {
+          selectedRecipe.image
+            ? (
+              <>
+                <button type="button" onClick={() => { console.log('click'); }}>
+                  <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
+                </button>
+                <img className="main-image__pic" alt="recipe" src={selectedRecipe.image} />
+              </>
+            )
+            : <img className="main-image__pic" alt="recipe" src={defaultImg} />
+        }
       </figure>
       <section className="recipe">
         <div className="recipe__head">
           <div className="title-container">
             <h1 className="head-title">
-              {selectedRecipe.title}
+              {recipeTitle}
             </h1>
             <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
             <Link to="/shopping/">
