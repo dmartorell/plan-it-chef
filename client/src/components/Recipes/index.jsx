@@ -6,6 +6,7 @@ import { PropTypes } from 'prop-types';
 import { loadRecipes } from '../../redux/actions/actionCreators';
 import Header from '../Header/index';
 import parseUrl from '../../helpers/parseUrl';
+import defaultImg from '../../assets/default-image-bg.png';
 import './style.scss';
 
 const Recipes = ({ recipes, dispatch }) => {
@@ -45,7 +46,11 @@ const Recipes = ({ recipes, dispatch }) => {
                 <article key={recipe._id} className="recipe-item">
                   <figure>
                     <Link to={`/recipes/detail/${recipe._id}`}>
-                      <img className="recipe-item__image" alt="recipe" src={recipe.image} />
+                      {
+                        recipe.image
+                          ? <img className="recipe-item__image" alt="recipe" src={recipe.image} />
+                          : <img className="recipe-item__image" alt="recipe" src={defaultImg} />
+                      }
                     </Link>
                     {
                       recipe.preparationMinutes

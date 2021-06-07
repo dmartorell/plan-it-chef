@@ -85,12 +85,13 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         <div className="directions-list">
           {
           selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
-            <li key="directions-block">
-              <h3 className="direction-block-title">
-                {directionsBlock.name}
-              </h3>
-              <ul className="instructions-list">
-                {
+            <ul>
+              <li key="directions-block">
+                <h3 className="direction-block-title">
+                  {directionsBlock.name}
+                </h3>
+                <ul className="instructions-list">
+                  {
               directionsBlock?.steps?.map((instruction) => (
                 <li className="instructions-list__item" key={instruction.number}>
                   <p className="item-number">{instruction.number}</p>
@@ -98,8 +99,9 @@ const Detail = ({ dispatch, selectedRecipe }) => {
                 </li>
               ))
               }
-              </ul>
-            </li>
+                </ul>
+              </li>
+            </ul>
           ))
           }
         </div>
