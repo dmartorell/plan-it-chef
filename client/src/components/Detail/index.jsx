@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
@@ -34,7 +34,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
           <p className="url-source">
             From
             {' '}
-            <Link to={selectedRecipe.sourceUrl} target="_blank" rel="noopener noreferrer"><span className="url-source__name">{selectedRecipeSource}</span></Link>
+            <a href={selectedRecipe.sourceUrl} target="_blank" rel="noopener noreferrer"><span className="url-source__name">{selectedRecipeSource}</span></a>
           </p>
         </div>
         <div className="recipe__times">
@@ -50,7 +50,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
                     {' '}
                     {selectedRecipe.cookingMinutes}
                     {' '}
-                    min cooking
+                    min cook
                   </p>
                 </>
               )
@@ -100,7 +100,6 @@ const Detail = ({ dispatch, selectedRecipe }) => {
           ))
           }
         </div>
-
       </section>
     </main>
   );

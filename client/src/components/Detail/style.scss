@@ -17,8 +17,9 @@
         margin-right: 0.7em;
     }
     .recipe-section {
-        font-size: 1.3em;
+        font-size: 1.4em;
         font-weight: bold;
+        margin: 1.2em 0;
     }
     .detail-canvas {
         @include flex-config(null, flex-start, column);
@@ -89,7 +90,6 @@
                 font-size: 18px;
                 font-weight: 600;
                 letter-spacing: 0.5px;
-                margin-bottom: 1.2em;
 
 
             }
@@ -107,6 +107,10 @@
                     }
                 }
             }
+            .direction-block-title {
+                margin-bottom: 1em;
+                font-size: 1.1em;
+            }
             .instructions-list {
                 &__item {
                     @include flex-config(start, flex-start);
@@ -115,8 +119,6 @@
                         font-weight: 600;
                         font-size: 25px;
                         min-width: 4em;
-                       
-
                     }
                     .item-text {
                         position: relative;
