@@ -16,7 +16,6 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
-  const recipeTitle = selectedRecipe.title || '?';
 
   return (
     <main className="detail-canvas">
@@ -38,7 +37,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         <div className="recipe__head">
           <div className="title-container">
             <h1 className="head-title">
-              {recipeTitle}
+              {selectedRecipe.title}
             </h1>
             <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
             <Link to="/shopping/">
@@ -53,7 +52,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
         </div>
         <div className="recipe__times">
           {
-            selectedRecipe.preparationMinutes
+            selectedRecipe.preparationMinutes !== undefined
               ? (
                 <>
                   <i className="iconify info-icon" data-icon="cil:clock" data-inline="false" />

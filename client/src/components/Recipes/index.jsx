@@ -53,7 +53,7 @@ const Recipes = ({ recipes, dispatch }) => {
                       }
                     </Link>
                     {
-                      recipe.preparationMinutes
+                      recipe.preparationMinutes !== undefined
 
                         ? (
                           <div className="times">
