@@ -19,7 +19,7 @@
     .recipe-section {
         font-size: 1.4em;
         font-weight: bold;
-        margin: 1.2em 0;
+        margin: 1em 0;
     }
     .detail-canvas {
         @include flex-config(null, flex-start, column);
@@ -95,8 +95,6 @@
             }
             .ingredients-list {
                 .ingredients-list__item{
-                    .item-name{ 
-                    }
                     .item-name::before{
                         content: "\2022";
                         display: inline-block;
@@ -116,6 +114,7 @@
                     @include flex-config(start, flex-start);
                     margin-bottom: 3em;
                     .item-number {
+                        color: $light-grey;
                         font-weight: 600;
                         font-size: 25px;
                         min-width: 4em;
@@ -138,16 +137,6 @@
                 }
             }
         } 
-        
-        
-        .main-container {
-            
-
-            
-            
-           
-            
-        }
     }
 }
 

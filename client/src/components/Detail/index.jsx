@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
@@ -29,7 +29,9 @@ const Detail = ({ dispatch, selectedRecipe }) => {
               {selectedRecipe.title}
             </h1>
             <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-            <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
+            <Link to="/shopping/">
+              <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
+            </Link>
           </div>
           <p className="url-source">
             From
