@@ -37,109 +37,120 @@
             .bookmark-icon {
                 position: absolute;
                 top: 24px;
-                right: 1.7em;
+                right: 2.2em;
                 width: 44px;
             }
         }
-        .recipe {
-            margin: 0 auto;
-            margin: 0 30px;
-            &__head {
-                .title-container {
-                    @include flex-config(space-between, center, row);
-                    margin: 1em 0 0 0;
+        .container {
+            background-color: $base-white;
+            border-top-right-radius: 45px;
+            border-top-left-radius: 45px;
+            margin-top: -5.5em;
+            z-index: 1;
 
-                    .head-title {
-                        font-size: 1.8em;
-                        font-weight: bold;
-                        text-decoration: underline;
-                        text-decoration-color: $secondary-red;
-                        text-decoration-skip-ink: none;
-                        text-decoration-thickness: 3px;
-                    }
-                    .plus-icon {
-                        color: $secondary-red;
-                        height: auto;
-                        margin: 0 0.1em 0 auto;
-                        width: 22px;
-                        min-width: 22px;
-                    }
-                    .cart-icon:hover {
-                        background-color: $base-red;
-                    }
-                } 
-                .url-source {
-                    color:$light-grey;
-                    font-size: 12;
-                    line-height: 1.5em;
-                    .url-source__name {
-                        color: $base-black;
-                        text-decoration: underline;
-                        text-decoration-style: dotted
-                    }
-                }
-            }
-            // TO BE REFACTORED
-            &__times {
-                @include flex-config(none, center);
-                font-size: 18px;
-                font-weight: 600;
-                letter-spacing: 0.5px;
-                margin-top: 1.2em;
+            .recipe {
+                background-color: $base-white;
+                margin: 2em 30px;
+                border-top-left-radius: 55px;
+                border-top-right-radius: 55px;
 
-            }
-            &__servings {
-                @include flex-config(none, center);
-                font-size: 18px;
-                font-weight: 600;
-                letter-spacing: 0.5px;
+                &__head {
+                    .title-container {
+                        @include flex-config(space-between, center, row);
+                        margin: 1em 0 0 0;
 
-
-            }
-            .ingredients-list {
-                .ingredients-list__item{
-                    .item-name::before{
-                        content: "\2022";
-                        display: inline-block;
-                        color: $secondary-red;
-                        font-size: 19px;
-                        font-weight: bold;
-                        width: 1em; 
-                    }
-                }
-            }
-            .direction-block-title {
-                margin-bottom: 1em;
-                font-size: 1.1em;
-            }
-            .instructions-list {
-                &__item {
-                    @include flex-config(flex-start, flex-start);
-                    margin-bottom: 3em;
-                    .item-number {
-                        color: $light-grey;
-                        font-weight: 600;
-                        font-size: 25px;
-                        min-width: 4em;
-                    }
-                    .item-text {
-                        position: relative;
-                    
-                        &::before {
-                            content: '';
-                            border-color: $secondary-red;
-                            border-style: solid;
-                            border-width: 0 0.2em 0 0;
-                            margin-top: -1em;
-                            height: 2.5em;
-                            position: absolute;
-                            top: 1.3em;
-                            left: -2.6em;
+                        .head-title {
+                            font-size: 1.8em;
+                            font-weight: bold;
+                            text-decoration: underline;
+                            text-decoration-color: $secondary-red;
+                            text-decoration-skip-ink: none;
+                            text-decoration-thickness: 3px;
+                        }
+                        .plus-icon {
+                            color: $secondary-red;
+                            height: auto;
+                            margin: 0 0.1em 0 auto;
+                            width: 22px;
+                            min-width: 22px;
+                        }
+                        .cart-icon:hover {
+                            background-color: $base-red;
+                        }
+                    } 
+                    .url-source {
+                        color:$light-grey;
+                        font-size: 12;
+                        line-height: 1.5em;
+                        .url-source__name {
+                            color: $base-black;
+                            text-decoration: underline;
+                            text-decoration-style: dotted
                         }
                     }
                 }
-            }
-        } 
+                // TO BE REFACTORED
+                &__times {
+                    @include flex-config(none, center);
+                    font-size: 18px;
+                    font-weight: 600;
+                    letter-spacing: 0.5px;
+                    margin-top: 1.2em;
+
+                }
+                &__servings {
+                    @include flex-config(none, center);
+                    font-size: 18px;
+                    font-weight: 600;
+                    letter-spacing: 0.5px;
+
+
+                }
+                .ingredients-list {
+                    .ingredients-list__item{
+                        .item-name::before{
+                            content: "\2022";
+                            display: inline-block;
+                            color: $secondary-red;
+                            font-size: 19px;
+                            font-weight: bold;
+                            width: 1em; 
+                        }
+                    }
+                }
+                .direction-block-title {
+                    margin-bottom: 1em;
+                    font-size: 1.1em;
+                }
+                .instructions-list {
+                    &__item {
+                        @include flex-config(flex-start, flex-start);
+                        margin-bottom: 3em;
+                        .item-number {
+                            color: $light-grey;
+                            font-weight: 600;
+                            font-size: 25px;
+                            min-width: 4em;
+                        }
+                        .item-text {
+                            position: relative;
+                        
+                            &::before {
+                                content: '';
+                                border-color: $secondary-red;
+                                border-style: solid;
+                                border-width: 0 0.2em 0 0;
+                                margin-top: -1em;
+                                height: 2.5em;
+                                position: absolute;
+                                top: 1.3em;
+                                left: -2.6em;
+                            }
+                        }
+                    }
+                }
+            } 
+        }
     }
 }
 
