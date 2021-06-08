@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '../../utils/test-utils';
 import Recipes from './index';
-import loadRecipes from '../../redux/actions/actionCreators';
+import { loadRecipes } from '../../redux/actions/actionCreators';
 import actionTypes from '../../redux/actions/actionTypes';
 
 jest.mock('../../redux/actions/actionCreators');
@@ -16,7 +16,7 @@ describe('Given a Recipes component', () => {
         recipes: [],
       });
       render(
-        <Recipes />, initialState,
+        <Recipes />, { initialState },
       );
       expect(screen.getByText(/No recipes available./i)).toBeInTheDocument();
     });
