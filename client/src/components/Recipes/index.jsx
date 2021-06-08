@@ -1,8 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
 import { loadRecipes } from '../../redux/actions/actionCreators';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -10,7 +9,10 @@ import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
 import './style.scss';
 
-const Recipes = ({ recipes, dispatch }) => {
+const Recipes = () => {
+  const recipes = useSelector((store) => store.recipes);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (!recipes.length) dispatch(loadRecipes());
   }, []);
@@ -94,17 +96,5 @@ const Recipes = ({ recipes, dispatch }) => {
     </>
   );
 };
-Recipes.propTypes = {
-  recipes: PropTypes.arrayOf(PropTypes.shape({
-    code: PropTypes.string,
-    id: PropTypes.number,
-  })).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
 
-function mapStateToProps({ recipes }) {
-  return {
-    recipes,
-  };
-}
-export default connect(mapStateToProps)(Recipes);
+export default Recipes;
