@@ -22,11 +22,7 @@
         font-weight: bold;
         margin: 1em 0;
     }
-    .detail-canvas {
-        @include flex-config(null, flex-start, column);
-        background-color:$base-white;
-        min-height: calc(100vh - 225px);
-
+    .white-canvas {
         .main-image {
             position: relative;
             width: 100vw;
@@ -63,6 +59,7 @@
                         .head-title {
                             font-size: 1.8em;
                             font-weight: bold;
+                            margin-right:10px;
                             text-decoration: underline;
                             text-decoration-color: $secondary-red;
                             text-decoration-skip-ink: none;

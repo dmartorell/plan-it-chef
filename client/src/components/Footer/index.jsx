@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <Link className="icon-block" to="/recipes" onClick={() => dispatch(loadRecipes())}>
+        <Link className="icon-block" to="/recipes" data-testid="recipes-btn" onClick={() => dispatch(loadRecipes())}>
           <img className="iconify icon-block__icon" data-icon="feather:bookmark" data-inline="false" alt="icon" />
           <p className="icon-block__description">Recipes</p>
         </Link>

@@ -21,7 +21,7 @@ const Detail = () => {
 
   return (
     <>
-      <main className="detail-canvas">
+      <main className="white-canvas">
         <figure className="main-image">
           {
           selectedRecipe.image
@@ -45,7 +45,7 @@ const Detail = () => {
                 </h1>
                 <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
                 <Link to="/shopping/">
-                  <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
+                  <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" data-testid="add-btn" />
                 </Link>
               </div>
               <p className="url-source">
