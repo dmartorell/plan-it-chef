@@ -8,7 +8,7 @@ function recipesController() {
       if (req.query.title) {
         recipes = { title: { $regex: req.query.title, $options: 'i' } };
       }
-      return res.json(await Recipe.find(recipes));
+      return res.json(await Recipe.find(recipes).sort({ _id: -1 }));
     } catch (error) {
       return res.status(404);
     }
