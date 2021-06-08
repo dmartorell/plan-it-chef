@@ -51,3 +51,19 @@ describe('Given a Recipes component', () => {
     });
   });
 });
+
+describe('Given a Recipes component', () => {
+  describe('When is rendered with empty initial state', () => {
+    test('Then \'No recipes available.\' should be in the document', () => {
+      const initialState = { recipes: [] };
+      loadRecipes.mockReturnValueOnce({
+        type: actionTypes.LOAD_RECIPES,
+        recipes: [],
+      });
+      render(
+        <Recipes />, initialState,
+      );
+      expect(screen.getByText(/No recipes available./i)).toBeInTheDocument();
+    });
+  });
+});
