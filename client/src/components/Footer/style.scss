@@ -1,4 +1,17 @@
-@media screen and (max-width: 414px) {
-    
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700;800;900&display=swap');
+@import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
 
+@media screen and (max-width: 714px) {
+    .footer {
+        @include flex-config(space-between, null);
+        background-color: $base-red;
+        box-shadow: 2px 30px 10px 29px rgba(66, 66, 66, 0.81);
+        height: 80px;
+        padding: 1.5em 1.5em;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw; 
+    }
 }

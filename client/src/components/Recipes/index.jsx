@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { loadRecipes } from '../../redux/actions/actionCreators';
-import Header from '../Header/index';
+import Header from '../Header';
+import Footer from '../Footer';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
 import './style.scss';
@@ -35,7 +36,6 @@ const Recipes = ({ recipes, dispatch }) => {
               <img className="form-btn__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAFSUlEQVRoge2ZW2xURRjHf3N2Wxt2VeSFEOluSdCQLHYL7RZNFGsQBWxSbvqC8ZUQbfRBgw8aiz4hL2qMIeHJRIxGCEHuSBTQBOlB6cUVidhuW7xFuTRSWre75/Nht+Wcs5ee2W21Jv29zXfm/L/v352ZMzOFGWaYElQ5Lyfq6+cx6lujFA+DRBDCKO7IPh5E0QcSF+GUpNThBXHzt0moOS8lGemta2gyhBdBrQJ8Hl9LAUeVxY5Qt3m6lLzF0DIysHTpQivtexd4vKykiiOkrNbQd9/8VI6OQ9Nrx77axmdQ8h4QmKTUN0C2hDvNDyZFzUun/mjsdYFX8z4UuYBS+xFOpJHLs0heBhiWimpDGXejWAm0AIvyV6C2hTva20or3yYzUYf+aOwNgVfyPGoXjJdrOs9+4SVRYknjA8riTZAHc6so30xRI9nh9L4rnETRGuowdykQnWQCaiDauFmQt4FKxzPF0zUd5m4dPTsFjWQndgf2OSFcUah1oa72L0tNCNB/X2y5GOwD5thKuYEl0XC32VOKplHoQXZ1sk/s5GSYAAh1m6cNg/XA6K2oBDHknVI18xrprWtowr3EKlonw8QY1efNU0p43hlVT/TXNj5Uil5eI5mP3S0EdTbUYe4qJUExqrvMnYDpyKXkpVK0cowk6uvngXL8Gj5DtupObC8oEMHY6gqv7lm8bK6uVu4vMupbA/htke+rz5undIW9kl2+L9pCfr/fWq2rk2MkswF08KmuqD6y39GyaNJVyDNHJOJsckJXVBuVkyOSt18Rco0IYXvTp9SArqguaYt+RwnKWYMXco0obrc3K1NDv2hXpkkwPfyzs4TxM41nCn4Qx7iaml3W4csLg8Ggqw41mr9nYfINrb/szWDV6DxdUV18w2lXDvlDVyPXiEHC3kyLVOuK6uIzCNnbCn7X1ci3asUdzcx5YmqxDEcOS/hWVyLHiFiG+zzdoiuqiyhx5ZDPdTVyjaTlEJmLgjEWZTeRU0JfbWyFgnttoaQ/aZzU1ckxkr2yOeroJGq7lHl1lA8BhcF2R1DJR/N/aL+iq5V3+VUWO1yhxoFo42Zd8YnoizY8i1Bvj4nwVilaBf/K/XWxwyLYN2+jyuLRybqTSkSXPaKwjgEV48UIH4a6zE2l6BX+IKas1syVzTgVYrBvYEnMvanUpreuoUlh7cFmAvizwpd6oVTNgkYyl2eyxRWeY1l81l8b21LKnBFQiWjDc4ao4zjO6wBcuJpMDupqjjFhMX11jW2IvJanqnOC2lrT1e5pqeyrja3AYLt7TjiKURxJXw+sX5A4OeJF0/GupyIKmclwEWQ/ihNWWgYC1shlgCGjar7hU9VYxkpR0uJaYotx4Ebq5sZIPJ702B/QGB6JutgmJWonSFAnQYkcTA5d23jPpUt/e31hwt3vGDUd5m4siYIcKq22cQT4BOR4kT7NlYG79vy4cOFtXkU9GwEId5s94c5zzUrUcuAAzh3ARIwAHxvI/eFO8ylrMNgirg+vi+bKwOy9Xs2U9bXuWbxsrt9vrc6esSMoasgcitLAFeBXEUyl5GusqoPh7q+u2d/vrWmqUncO7VOwqnAWOZQcur5homE25YemiYhHIpVB/6y9QHOhPgJHZTCwrthq9p8bAW9mgGPWYGBtITPTwgiUb2baGIHyzEwrI+DVjBw3ZlWsrT5zZngsorX8/htE4vGkNRh4svjSrB6zbqY22CPTzgjAgsTJkaHUzRbgYN4OIm3uf6JOu6FlJ+8wE2kLd53b5u47rY2Ay0wBE/8bemuaqhJ1sZJOjjPMUCb/AKkg5sGUjouIAAAAAElFTkSuQmCC" alt="icon" />
             </button>
           </form>
-
         </div>
         <ul className="recipes-list">
           {
@@ -88,6 +88,7 @@ const Recipes = ({ recipes, dispatch }) => {
         }
         </ul>
       </section>
+      <Footer />
     </main>
   );
 };
