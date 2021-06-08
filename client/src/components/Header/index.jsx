@@ -6,7 +6,7 @@ const Header = () => (
   <header className="header">
     <div className="header__top">
       <figure>
-        <img className="logo" src={logo} alt="logo" />
+        <img className="logo" src={logo} alt="logo" data-testid="logo-sm" />
       </figure>
       <div className="user-info">
         <p className="user-info__name">Sylvia</p>

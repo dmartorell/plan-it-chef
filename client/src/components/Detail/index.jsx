@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
+import Footer from '../Footer';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
 
@@ -18,9 +19,10 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
 
   return (
-    <main className="detail-canvas">
-      <figure className="main-image">
-        {
+    <>
+      <main className="detail-canvas">
+        <figure className="main-image">
+          {
           selectedRecipe.image
             ? (
               <>
@@ -32,27 +34,27 @@ const Detail = ({ dispatch, selectedRecipe }) => {
             )
             : <img className="main-image__pic" alt="recipe" src={defaultImg} />
         }
-      </figure>
-      <div className="container">
-        <section className="recipe">
-          <div className="recipe__head">
-            <div className="title-container">
-              <h1 className="head-title">
-                {selectedRecipe.title}
-              </h1>
-              <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-              <Link to="/shopping/">
-                <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
-              </Link>
+        </figure>
+        <div className="container">
+          <section className="recipe">
+            <div className="recipe__head">
+              <div className="title-container">
+                <h1 className="head-title">
+                  {selectedRecipe.title}
+                </h1>
+                <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
+                <Link to="/shopping/">
+                  <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" />
+                </Link>
+              </div>
+              <p className="url-source">
+                From
+                {' '}
+                <a href={selectedRecipe.sourceUrl} target="_blank" rel="noopener noreferrer"><span className="url-source__name">{selectedRecipeSource}</span></a>
+              </p>
             </div>
-            <p className="url-source">
-              From
-              {' '}
-              <a href={selectedRecipe.sourceUrl} target="_blank" rel="noopener noreferrer"><span className="url-source__name">{selectedRecipeSource}</span></a>
-            </p>
-          </div>
-          <div className="recipe__times">
-            {
+            <div className="recipe__times">
+              {
             selectedRecipe.preparationMinutes !== undefined
               ? (
                 <>
@@ -70,16 +72,16 @@ const Detail = ({ dispatch, selectedRecipe }) => {
               )
               : <i className="iconify info-icon" data-icon="cil:clock" data-inline="false" />
           }
-          </div>
-          <p className="recipe__servings">
-            <span className="iconify info-icon" data-icon="mdi:silverware-fork" data-inline="false" />
-            {`${selectedRecipe.servings} servings`}
-          </p>
-          <h2 className="recipe-section ingredient-title">
-            Ingredients:
-          </h2>
-          <ul className="ingredients-list">
-            {
+            </div>
+            <p className="recipe__servings">
+              <span className="iconify info-icon" data-icon="mdi:silverware-fork" data-inline="false" />
+              {`${selectedRecipe.servings} servings`}
+            </p>
+            <h2 className="recipe-section ingredient-title">
+              Ingredients:
+            </h2>
+            <ul className="ingredients-list">
+              {
           selectedRecipe?.extendedIngredients?.map((ingredient) => (
             <li className="ingredients-list__item" key={ingredient._id}>
               <p className="item-name">
@@ -88,12 +90,12 @@ const Detail = ({ dispatch, selectedRecipe }) => {
             </li>
           ))
           }
-          </ul>
-          <h2 className="recipe-section ingredient-directions">
-            Directions:
-          </h2>
-          <div className="directions-list">
-            {
+            </ul>
+            <h2 className="recipe-section ingredient-directions">
+              Directions:
+            </h2>
+            <div className="directions-list">
+              {
           selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
             <ul>
               <li key={directionsBlock._id}>
@@ -114,10 +116,12 @@ const Detail = ({ dispatch, selectedRecipe }) => {
             </ul>
           ))
           }
-          </div>
-        </section>
-      </div>
-    </main>
+            </div>
+          </section>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 };
 

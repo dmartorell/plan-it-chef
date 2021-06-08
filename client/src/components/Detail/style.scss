@@ -25,7 +25,8 @@
     .detail-canvas {
         @include flex-config(null, flex-start, column);
         background-color:$base-white;
-        min-height: 100vh;
+        min-height: calc(100vh - 225px);
+
         .main-image {
             position: relative;
             width: 100vw;
