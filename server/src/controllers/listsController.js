@@ -56,9 +56,7 @@ function listsController() {
     const { listId } = req.params;
     try {
       const list = await List.findById(listId).populate('ingredients.recipe');
-      return res.json(
-        list,
-      );
+      return res.json(list);
     } catch (error) {
       return res.status(404);
     }

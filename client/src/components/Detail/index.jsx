@@ -96,7 +96,7 @@ const Detail = ({ dispatch, selectedRecipe }) => {
             {
           selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
             <ul>
-              <li key="directions-block">
+              <li key={directionsBlock._id}>
                 <h3 className="direction-block-title">
                   {directionsBlock.name}
                 </h3>

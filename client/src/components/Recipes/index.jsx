@@ -43,7 +43,7 @@ const Recipes = ({ recipes, dispatch }) => {
             ? recipes.map((recipe) => {
               const recipeSource = recipe.sourceUrl ? parseUrl(recipe.sourceUrl) : 'No source available.';
               return (
-                <article key={recipe._id} className="recipe-item">
+                <li key={recipe._id} className="recipe-item">
                   <figure>
                     <Link to={`/recipes/detail/${recipe._id}`}>
                       {
@@ -81,7 +81,7 @@ const Recipes = ({ recipes, dispatch }) => {
                   <p className="recipe-item__webSite">
                     {recipeSource}
                   </p>
-                </article>
+                </li>
               );
             })
             : <p className="error-message">No recipes available.</p>
