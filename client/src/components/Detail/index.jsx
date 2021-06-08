@@ -1,8 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
 import Footer from '../Footer';
 import parseUrl from '../../helpers/parseUrl';
@@ -10,8 +9,10 @@ import defaultImg from '../../assets/default-image-bg.png';
 
 import './style.scss';
 
-const Detail = ({ dispatch, selectedRecipe }) => {
+const Detail = () => {
   const { recipeId } = useParams();
+  const selectedRecipe = useSelector((store) => store.selectedRecipe);
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadRecipeById(recipeId));
   }, []);
@@ -125,56 +126,4 @@ const Detail = ({ dispatch, selectedRecipe }) => {
   );
 };
 
-Detail.propTypes = {
-  selectedRecipe: PropTypes.shape({
-    sourceUrl: String,
-    image: String,
-    title: String,
-    preparationMinutes: Number,
-    cookingMinutes: Number,
-    servings: Number,
-    instructions: String,
-    analyzedInstructions: PropTypes.shape([
-      {
-        _id: String,
-        name: String,
-        steps: PropTypes.shape([
-          {
-            _id: String,
-            number: Number,
-            step: String,
-          },
-        ]),
-      },
-    ]),
-    extendedIngredients:
-      {
-        _id: String,
-        original: String,
-        aisle: String,
-        image: String,
-        name: String,
-        measures: {
-          us:
-          {
-            amount: Number,
-            unitShort: String,
-          },
-          metric:
-          {
-            amount: Number,
-            unitShort: String,
-          },
-        },
-      },
-
-  }).isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
-function mapStateToProps({ selectedRecipe }) {
-  return {
-    selectedRecipe,
-  };
-}
-export default connect(mapStateToProps)(Detail);
+export default Detail;
