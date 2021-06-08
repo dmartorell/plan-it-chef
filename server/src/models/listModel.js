@@ -7,7 +7,7 @@ const listSchema = Schema({
       name: String,
       aisle: String,
       recipe: { type: Schema.Types.ObjectId, ref: 'Recipe' },
-      img: String,
+      image: String,
       isActive: { type: Boolean, default: true },
       measures: {
         us: { amount: Number, unit: String },
