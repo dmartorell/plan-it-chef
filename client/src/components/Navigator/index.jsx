@@ -5,11 +5,11 @@ import { loadRecipes } from '../../redux/actions/actionCreators';
 
 import './style.scss';
 
-const Footer = () => {
+const Navigator = () => {
   const dispatch = useDispatch();
 
   return (
-    <footer className="footer">
+    <nav className="navigator">
       <div className="container">
         <Link className="icon-block" to="/recipes" data-testid="recipes-btn" onClick={() => dispatch(loadRecipes())}>
           <img className="iconify icon-block__icon" data-icon="feather:bookmark" data-inline="false" alt="icon" />
@@ -24,8 +24,8 @@ const Footer = () => {
           <p className="icon-block__description">Lists</p>
         </Link>
       </div>
-    </footer>
+    </nav>
   );
 };
 
-export default Footer;
+export default Navigator;

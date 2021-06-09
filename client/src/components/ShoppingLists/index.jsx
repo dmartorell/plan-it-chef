@@ -3,7 +3,7 @@
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadShoppingLists } from '../../redux/actions/actionCreators';
-import Footer from '../Footer';
+import Navigator from '../Navigator';
 import Header from '../Header';
 
 import './style.scss';
@@ -46,7 +46,7 @@ const ShoppingLists = () => {
           </ul>
         </section>
       </main>
-      <Footer />
+      <Navigator />
     </>
   );
 };

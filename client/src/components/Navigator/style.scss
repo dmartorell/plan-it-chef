@@ -3,7 +3,7 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
-    .footer {
+    .navigator {
         @include flex-config(null, center);        
         background-color: $base-red;
         box-shadow: 2px 30px 10px 29px rgba(66, 66, 66, 0.81);

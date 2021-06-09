@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadRecipes } from '../../redux/actions/actionCreators';
 import Header from '../Header';
-import Footer from '../Footer';
+import Navigator from '../Navigator';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
 import './style.scss';
@@ -92,7 +92,7 @@ const Recipes = () => {
           </ul>
         </section>
       </main>
-      <Footer />
+      <Navigator />
     </>
   );
 };
