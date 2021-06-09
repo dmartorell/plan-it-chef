@@ -19,7 +19,7 @@ const Footer = () => {
           <img className="iconify icon-block__icon" data-icon="akar-icons:calendar" data-inline="false" alt="icon" />
           <p className="icon-block__description">Planner</p>
         </Link>
-        <Link className="icon-block" to="/shopping">
+        <Link className="icon-block" to="/lists">
           <img className="iconify icon-block__icon" data-icon="fluent:document-bullet-list-24-regular" data-inline="false" alt="icon" />
           <p className="icon-block__description">Lists</p>
         </Link>
