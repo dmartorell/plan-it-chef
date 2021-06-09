@@ -3,16 +3,17 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
-    .recipes-canvas {
+    .white-canvas {
         @include flex-config($justify: none, $align: flex-start, $direction: column);
         background-color:$base-white;
-        min-height: 100vh;
+        min-height: calc(100vh - 225px);
 
         .main-container {
+            margin-bottom: 32px;
             
             .page-head {
                 @include flex-config($justify: flex-start, $align: center);
-                margin-bottom: 0.3em;
+                margin-bottom: 1em;
                 padding: 0 0.4em;
 
                 &__title {
@@ -20,6 +21,9 @@
                     font-weight: 700;
                 }
                 &__icon {
+                    font-size: 1.8em;
+                    margin-right: 0.1em;
+
                     width: 2rem;
                 }
                 &__form {

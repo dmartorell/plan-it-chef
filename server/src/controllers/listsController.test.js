@@ -137,7 +137,9 @@ describe('invoking a getById function', () => {
       json: jest.fn(),
       status: jest.fn(),
     };
-    List.findById.mockImplementationOnce(() => ({}));
+    List.findById.mockImplementationOnce(() => ({
+      populate: jest.fn().mockImplementationOnce(() => ({})),
+    }));
     await getById(req, res);
     expect(res.json).toHaveBeenCalled();
   });
@@ -148,8 +150,11 @@ describe('invoking a getById function without req arguments', () => {
     const res = {
       status: jest.fn(),
     };
-    List.findById.mockRejectedValueOnce('error');
-    await getById(null, res);
+    const req = {
+      params: {},
+    };
+    List.findById.mockRejectedValueOnce();
+    await getById(req, res);
     expect(res.status).toHaveBeenCalledWith(404);
   });
 });

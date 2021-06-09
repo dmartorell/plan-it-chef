@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '../../utils/test-utils';
 import Recipes from './index';
-import loadRecipes from '../../redux/actions/actionCreators';
+import { loadRecipes } from '../../redux/actions/actionCreators';
 import actionTypes from '../../redux/actions/actionTypes';
 
 jest.mock('../../redux/actions/actionCreators');
@@ -16,7 +16,7 @@ describe('Given a Recipes component', () => {
         recipes: [],
       });
       render(
-        <Recipes />, initialState,
+        <Recipes />, { initialState },
       );
       expect(screen.getByText(/No recipes available./i)).toBeInTheDocument();
     });
@@ -48,6 +48,22 @@ describe('Given a Recipes component', () => {
         fireEvent.click(screen.getByTestId('search-btn'));
         expect(loadRecipes).toHaveBeenCalled();
       });
+    });
+  });
+});
+
+describe('Given a Recipes component', () => {
+  describe('When is rendered with empty initial state', () => {
+    test('Then \'No recipes available.\' should be in the document', () => {
+      const initialState = { recipes: [] };
+      loadRecipes.mockReturnValueOnce({
+        type: actionTypes.LOAD_RECIPES,
+        recipes: [],
+      });
+      render(
+        <Recipes />, initialState,
+      );
+      expect(screen.getByText(/No recipes available./i)).toBeInTheDocument();
     });
   });
 });

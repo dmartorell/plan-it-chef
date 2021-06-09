@@ -11,7 +11,7 @@ function recipesRouter() {
     .post(recipesController.createOne);
 
   routes
-    .route('/detail/:recipeId')
+    .route('/:recipeId')
     .delete(recipesController.deleteById)
     .get(recipesController.getById);
 

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&family=Shrikhand&display=swap');
+@import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
+
+@media screen and (max-width: 714px) {
+    .shoppingList-item {
+        @include flex-config($justify: space-between, $align: center);
+        .item-image {
+            max-width: 70px;
+            max-height: 50px;
+        }
+    }
+}

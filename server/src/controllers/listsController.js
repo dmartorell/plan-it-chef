@@ -4,7 +4,7 @@ const List = require('../models/listModel');
 function listsController() {
   async function getAll(req, res) {
     try {
-      const lists = await List.find({});
+      const lists = await List.find({}).sort({ _id: -1 });
       return res.json(
         lists,
       );
@@ -14,6 +14,8 @@ function listsController() {
   }
 
   async function updateById(req, res) {
+    // eslint-disable-next-line no-debugger
+    debugger;
     const { listId } = req.params;
     try {
       const updatedList = await List.findByIdAndUpdate(
@@ -56,9 +58,7 @@ function listsController() {
     const { listId } = req.params;
     try {
       const list = await List.findById(listId).populate('ingredients.recipe');
-      return res.json(
-        list,
-      );
+      return res.json(list);
     } catch (error) {
       return res.status(404);
     }
