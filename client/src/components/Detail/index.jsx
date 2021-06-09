@@ -44,7 +44,7 @@ const Detail = () => {
                   {selectedRecipe.title}
                 </h1>
                 <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-                <Link to="/shopping/">
+                <Link to="/lists/">
                   <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" data-testid="add-btn" />
                 </Link>
               </div>
