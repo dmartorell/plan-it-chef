@@ -3,13 +3,13 @@ import { React, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
-import Footer from '../Footer';
+import Navigator from '../Navigator';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
 
 import './style.scss';
 
-const Detail = () => {
+const RecipeDetail = () => {
   const { recipeId } = useParams();
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
   const dispatch = useDispatch();
@@ -121,9 +121,9 @@ const Detail = () => {
           </section>
         </div>
       </main>
-      <Footer />
+      <Navigator />
     </>
   );
 };
 
-export default Detail;
+export default RecipeDetail;

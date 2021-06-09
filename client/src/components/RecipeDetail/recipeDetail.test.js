@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { render, screen, fireEvent } from '../../utils/test-utils';
-import Detail from './index';
+import RecipeDetail from './index';
 import { loadRecipeById } from '../../redux/actions/actionCreators';
 import actionTypes from '../../redux/actions/actionTypes';
 
@@ -15,7 +15,7 @@ describe('Given a Detail component', () => {
         recipe: { id: '123' },
       });
       render(
-        <Detail />,
+        <RecipeDetail />,
       );
       expect(screen.getByText(/Ingredients/i)).toBeInTheDocument();
     });
@@ -23,7 +23,7 @@ describe('Given a Detail component', () => {
     describe('And Add to List button is clicked', () => {
       test('Then \'Shopping Lists\' should be in the document', () => {
         fireEvent.click(screen.getByTestId('add-btn'));
-        render(<Detail />);
+        render(<RecipeDetail />);
         expect(/Servings/).toBeInTheDocument();
       });
     });
