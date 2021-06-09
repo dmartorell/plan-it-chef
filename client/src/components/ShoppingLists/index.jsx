@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -38,8 +37,8 @@ const ShoppingLists = () => {
             {
               shoppingLists.length
                 ? shoppingLists.map((list) => (
-                  <Link to="/recipes">
-                    <li className="shoppingList-item" key={list._id}>
+                  <Link to={`/lists/${list._id}`}>
+                    <li className="shoppingList-item" key={list.name}>
                       {list.name}
                     </li>
                   </Link>
