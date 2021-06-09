@@ -13,7 +13,7 @@
             
             .page-head {
                 @include flex-config($justify: flex-start, $align: center);
-                margin-bottom: 0.3em;
+                margin-bottom: 1em;
                 padding: 0 0.4em;
 
                 &__title {
@@ -21,6 +21,9 @@
                     font-weight: 700;
                 }
                 &__icon {
+                    font-size: 1.8em;
+                    margin-right: 0.1em;
+
                     width: 2rem;
                 }
                 &__form {
