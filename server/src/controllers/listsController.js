@@ -4,7 +4,7 @@ const List = require('../models/listModel');
 function listsController() {
   async function getAll(req, res) {
     try {
-      const lists = await List.find({});
+      const lists = await List.find({}).sort({ _id: -1 });
       return res.json(
         lists,
       );
