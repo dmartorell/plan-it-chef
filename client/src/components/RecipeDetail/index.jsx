@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadRecipeById } from '../../redux/actions/actionCreators';
+import { loadRecipeById, loadShoppingLists, updateListById } from '../../redux/actions/actionCreators';
 import Navigator from '../Navigator';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
@@ -12,12 +12,24 @@ import './style.scss';
 const RecipeDetail = () => {
   const { recipeId } = useParams();
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
+  const shoppingList = useSelector((store) => store.shoppingLists[0]);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadShoppingLists());
+  }, []);
   useEffect(() => {
     dispatch(loadRecipeById(recipeId));
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
+  const handleClick = () => {
+    const updatedShoppingList = [...shoppingList.ingredients];
+    selectedRecipe.extendedIngredients.map((ingredient) => updatedShoppingList
+      .push({ ...ingredient, isActive: true, recipe: selectedRecipe._id }));
+    // eslint-disable-next-line no-console
+    console.log(updatedShoppingList);
+    dispatch(updateListById(shoppingList._id, { ingredients: updatedShoppingList }));
+  };
 
   return (
     <>
@@ -44,9 +56,9 @@ const RecipeDetail = () => {
                   {selectedRecipe.title}
                 </h1>
                 <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-                <Link to="/lists/">
+                <button type="button" onClick={handleClick}>
                   <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" data-testid="add-btn" />
-                </Link>
+                </button>
               </div>
               <p className="url-source">
                 From

@@ -1,6 +1,7 @@
 /* eslint-disable no-debugger */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadShoppingLists } from '../../redux/actions/actionCreators';
 import Navigator from '../Navigator';
@@ -37,9 +38,11 @@ const ShoppingLists = () => {
             {
               shoppingLists.length
                 ? shoppingLists.map((list) => (
-                  <li className="shoppingList-item" key={list._id}>
-                    {list.name}
-                  </li>
+                  <Link to="/recipes">
+                    <li className="shoppingList-item" key={list._id}>
+                      {list.name}
+                    </li>
+                  </Link>
                 ))
                 : <p className="error-message">No shopping lists available.</p>
             }

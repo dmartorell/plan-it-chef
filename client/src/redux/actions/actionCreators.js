@@ -48,3 +48,18 @@ export function loadShoppingLists() {
     }
   };
 }
+export function updateListById(id, updatedList) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`${url}/lists/${id}`, updatedList);
+      dispatch({
+        type: actionTypes.UPDATE_LIST,
+        shoppingLists: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'UPDATE_LIST_ERROR',
+      });
+    }
+  };
+}
