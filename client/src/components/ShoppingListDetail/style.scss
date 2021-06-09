@@ -3,36 +3,11 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
-    .main-container {
-        .list-picker-title{
-            font-size: 20px;
-            margin-left: 25px;
-        }
-        .pickedList {
-            color: $secondary-red;
-            display: inline;
-            font-size: 22px;
-            padding:0 0.2em;
-            &__icon {
-                font-size: 0.9em;
-                margin: 0 0.2em;
-                cursor: pointer;
-                vertical-align: sub;
-            }
-        }
-        .shoppingLists-list {
-            margin-top: 1.5em;
-            .shoppingList-item {
-                border: 1px solid $base-white;
-                border-radius: 10px;
-                background-color: white;
-                cursor: pointer;
-                margin-bottom: 0.5em;
-                padding: 1.2em 1.2em;
-                &:hover {
-                    border: 1px solid rgba($secondary-red, 0.4);
-                }
-            }
+    .shoppingList-item {
+        @include flex-config($justify: space-between, $align: center);
+        .item-image {
+            max-width: 70px;
+            max-height: 50px;
         }
     }
 }
