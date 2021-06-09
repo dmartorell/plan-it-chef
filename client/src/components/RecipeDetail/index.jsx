@@ -22,13 +22,18 @@ const RecipeDetail = () => {
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
-  const handleClick = () => {
+
+  const updateShoppingList = () => {
     const updatedShoppingList = [...shoppingList.ingredients];
-    selectedRecipe.extendedIngredients.map((ingredient) => updatedShoppingList
-      .push({ ...ingredient, isActive: true, recipe: selectedRecipe._id }));
-    // eslint-disable-next-line no-console
-    console.log(updatedShoppingList);
-    dispatch(updateListById(shoppingList._id, { ingredients: updatedShoppingList }));
+    selectedRecipe.extendedIngredients
+      .map((ingredient) => updatedShoppingList
+        .push({ ...ingredient, isActive: true, recipe: selectedRecipe._id }));
+    return updatedShoppingList;
+  };
+
+  const handleClick = () => {
+    const updatedList = updateShoppingList();
+    dispatch(updateListById(shoppingList._id, { ingredients: updatedList }));
   };
 
   return (
@@ -39,7 +44,7 @@ const RecipeDetail = () => {
           selectedRecipe.image
             ? (
               <>
-                <button type="button" onClick={() => { console.log('click'); }}>
+                <button type="button">
                   <i className="iconify bookmark-icon icon-bg" data-icon="fluent:bookmark-20-regular" data-inline="false" />
                 </button>
                 <img className="main-image__pic" alt="recipe" src={selectedRecipe.image} />
