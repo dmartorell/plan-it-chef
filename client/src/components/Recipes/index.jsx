@@ -48,7 +48,7 @@ const Recipes = () => {
                 return (
                   <li key={recipe._id} className="recipe-item">
                     <figure>
-                      <Link to={`/recipes/detail/${recipe._id}`}>
+                      <Link to={`/recipes/${recipe._id}`}>
                         {
                           recipe.image
                             ? <img className="recipe-item__image" alt="recipe" src={recipe.image} />

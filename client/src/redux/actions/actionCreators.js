@@ -21,7 +21,7 @@ export function loadRecipes(title) {
 export function loadRecipeById(id) {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${url}/recipes/detail/${id}`);
+      const { data } = await axios(`${url}/recipes/${id}`);
       dispatch({
         type: actionTypes.LOAD_RECIPE,
         recipe: data,
