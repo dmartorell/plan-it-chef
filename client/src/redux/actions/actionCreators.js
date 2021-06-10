@@ -49,6 +49,21 @@ export function loadShoppingLists() {
     }
   };
 }
+export function loadListById(id) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(`${listsUrl}/${id}`);
+      dispatch({
+        type: actionTypes.LOAD_LIST,
+        list: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.LOAD_LIST_ERROR,
+      });
+    }
+  };
+}
 export function updateListById(id, updatedList) {
   return async (dispatch) => {
     try {

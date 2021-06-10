@@ -1,18 +1,23 @@
 /* eslint-disable no-underscore-dangle */
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { loadListById } from '../../redux/actions/actionCreators';
+
 import Navigator from '../Navigator';
 import Header from '../Header';
 
 import './style.scss';
 
 const ShoppingListDetail = () => {
-  // const dispatch = useDispatch();
-  const { listId } = useParams();
-  const shoppingLists = useSelector((store) => store.shoppingLists);
-  const { ingredients } = shoppingLists.find((list) => list._id === listId);
   const imageURL = process.env.REACT_APP_IMAGE_URL;
+  const dispatch = useDispatch();
+  const { listId } = useParams();
+  useEffect(() => {
+    dispatch(loadListById(listId));
+  }, []);
+
+  const { ingredients } = useSelector((store) => store.selectedList);
 
   return (
     <>
@@ -21,17 +26,21 @@ const ShoppingListDetail = () => {
         <section className="main-container">
           <ul className="shoppingLists-list">
             {
-              ingredients.length
+              ingredients?.length
                 ? ingredients.map((ingredient) => (
+                  ingredient.name && (
                   <li className="shoppingList-item" key={ingredient._id}>
                     <img className="item-image" src={`${imageURL}/${ingredient.image}`} alt="product" />
-                    <p className="item-name">
-                      {ingredient.name}
-                    </p>
-                    <p className="item-amount" />
-                    <p className="item-unit" />
-
+                    <div className="item-info">
+                      <p className="item-info__name">
+                        {ingredient.name}
+                      </p>
+                      <p className="item-info__amount">
+                        {`${ingredient.measures.us.amount} ${ingredient.measures.us.unitShort}`}
+                      </p>
+                    </div>
                   </li>
+                  )
                 ))
                 : <p className="error-message">No ingredients available.</p>
             }
