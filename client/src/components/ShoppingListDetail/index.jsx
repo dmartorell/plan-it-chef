@@ -12,6 +12,7 @@ const ShoppingListDetail = () => {
   const { listId } = useParams();
   const shoppingLists = useSelector((store) => store.shoppingLists);
   const { ingredients } = shoppingLists.find((list) => list._id === listId);
+  const imageURL = process.env.REACT_APP_IMAGE_URL;
 
   return (
     <>
@@ -23,10 +24,13 @@ const ShoppingListDetail = () => {
               ingredients.length
                 ? ingredients.map((ingredient) => (
                   <li className="shoppingList-item" key={ingredient._id}>
-                    <img className="item-image" src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} className="item-image" alt="product" />
+                    <img className="item-image" src={`${imageURL}/${ingredient.image}`} alt="product" />
                     <p className="item-name">
                       {ingredient.name}
                     </p>
+                    <p className="item-amount" />
+                    <p className="item-unit" />
+
                   </li>
                 ))
                 : <p className="error-message">No ingredients available.</p>

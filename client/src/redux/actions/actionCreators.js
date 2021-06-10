@@ -1,12 +1,13 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-const url = 'http://localhost:2021'; // TODO: use ENV VARIABLE
+const recipesUrl = process.env.REACT_APP_RECIPES_URL;
+const listsUrl = process.env.REACT_APP_LISTS_URL;
 
 export function loadRecipes(title) {
   return async (dispatch) => {
     try {
-      const { data } = title ? await axios(`${url}/recipes/?title=${title}`) : await axios(`${url}/recipes`);
+      const { data } = title ? await axios(`${recipesUrl}/?title=${title}`) : await axios(`${recipesUrl}`);
       dispatch({
         type: actionTypes.LOAD_RECIPES,
         recipes: data,
@@ -21,7 +22,7 @@ export function loadRecipes(title) {
 export function loadRecipeById(id) {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${url}/recipes/${id}`);
+      const { data } = await axios(`${recipesUrl}/${id}`);
       dispatch({
         type: actionTypes.LOAD_RECIPE,
         recipe: data,
@@ -36,7 +37,7 @@ export function loadRecipeById(id) {
 export function loadShoppingLists() {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${url}/lists`);
+      const { data } = await axios(`${listsUrl}`);
       dispatch({
         type: actionTypes.LOAD_LISTS,
         shoppingLists: data,
@@ -51,7 +52,7 @@ export function loadShoppingLists() {
 export function updateListById(id, updatedList) {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`${url}/lists/${id}`, updatedList);
+      const { data } = await axios.put(`${listsUrl}/${id}`, updatedList);
       dispatch({
         type: actionTypes.UPDATE_LIST,
         shoppingLists: data,

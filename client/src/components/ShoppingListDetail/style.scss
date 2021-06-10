@@ -4,10 +4,14 @@
 
 @media screen and (max-width: 714px) {
     .shoppingList-item {
-        @include flex-config($justify: space-between, $align: center);
+        @include flex-config($justify: null, $align: center);
         .item-image {
             max-width: 70px;
             max-height: 50px;
+        }
+        .item-name {
+            font-size: 1.2em;
+            font-weight: 600;
         }
     }
 }
