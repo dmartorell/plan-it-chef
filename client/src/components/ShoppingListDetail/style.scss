@@ -6,12 +6,24 @@
     .shoppingList-item {
         @include flex-config($justify: null, $align: center);
         .item-image {
-            max-width: 70px;
-            max-height: 50px;
+            width: 70px;
+            height: 50px;
+            object-fit: contain;
+
         }
-        .item-name {
-            font-size: 1.2em;
-            font-weight: 600;
+        .item-info {
+            @include flex-config($justify: null, $align: baseLine);
+
+            &__name {
+                font-size: 1.2em;
+                font-weight: 600;
+                margin-left: 1.5em;
+                margin-right: 0.5em;
+            }
+            &__amount {
+                color: $dark-grey;
+            }
+            
         }
     }
 }
