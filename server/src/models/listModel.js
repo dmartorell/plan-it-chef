@@ -10,8 +10,8 @@ const listSchema = Schema({
       image: String,
       isActive: { type: Boolean, default: true },
       measures: {
-        us: { amount: Number, unit: String },
-        metric: { amount: Number, unit: String },
+        us: { amount: Number, unitShort: String },
+        metric: { amount: Number, unitShort: String },
       },
     },
   ],
