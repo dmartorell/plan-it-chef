@@ -1,8 +1,11 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
 const recipesUrl = process.env.REACT_APP_RECIPES_URL;
 const listsUrl = process.env.REACT_APP_LISTS_URL;
+const signupUrl = process.env.REACT_APP_SIGNUP_URL;
+const loginUrl = process.env.REACT_APP_LOGIN_URL;
 
 export function loadRecipes(title) {
   return async (dispatch) => {
@@ -74,8 +77,55 @@ export function updateListById(id, updatedList) {
       });
     } catch (error) {
       dispatch({
-        type: 'UPDATE_LIST_ERROR',
+        type: actionTypes.UPDATE_LIST_ERROR,
       });
     }
   };
 }
+export function signup(user) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post(`${signupUrl}`, user);
+      dispatch({
+        type: actionTypes.CREATE_USER,
+        user: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+      dispatch({
+        type: actionTypes.CREATE_USER_ERROR,
+      });
+    }
+  };
+}
+export function login(user) {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post(`${loginUrl}`, user);
+      dispatch({
+        type: actionTypes.LOGIN_USER,
+        token: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+      dispatch({
+        type: actionTypes.LOGIN_USER_ERROR,
+      });
+    }
+  };
+}
+// export function signup(userInfo) {
+//   return async (dispatch) => {
+//     try {
+//       const { data } = await axios.post(`${listsUrl}/${id}`, updatedList);
+//       dispatch({
+//         type: actionTypes.UPDATE_LIST,
+//         shoppingLists: data,
+//       });
+//     } catch (error) {
+//       dispatch({
+//         type: 'UPDATE_LIST_ERROR',
+//       });
+//     }
+//   };
+// }

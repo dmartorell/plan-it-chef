@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import actionTypes from '../actions/actionTypes';
 
 function recipesReducer(recipes = [], action) {

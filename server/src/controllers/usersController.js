@@ -25,9 +25,20 @@ function userController() {
       return res.status(404);
     }
   }
+  async function getAll(req, res) {
+    try {
+      const users = await User.find({});
+      return res.json(
+        users,
+      );
+    } catch (error) {
+      return res.status(404);
+    }
+  }
   return {
     getById,
     updateById,
+    getAll,
   };
 }
 module.exports = userController;

@@ -4,8 +4,8 @@ const usersController = require('../controllers/usersController')();
 function usersRouter() {
   const routes = Router();
   routes
-    .route('/');
-  // .get(usersController.getData);
+    .route('/')
+    .get(usersController.getAll);
   // .post(usersController.addOne);
   routes
     .route('/:userId')

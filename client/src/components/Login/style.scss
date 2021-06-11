@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&family=Shrikhand&display=swap');
+@import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
+
+@media screen and (max-width: 714px) {
+    .canvas {
+        background-color: $base-red;
+        height: 100vh;
+    
+        .landing-container {
+            @include flex-config($justify: space-between, $align: center, $direction: column);
+            height: 100vh;
+            padding: 3em 0em;
+    
+            .main-logo {
+                position: relative;
+                .image {
+                    height: 280px;
+                    width: auto;
+                }
+                .title {
+                    position: absolute;
+                    bottom: -10px;
+                    left: -10px;
+                    &__title {
+                        color: $base-white;
+                        font-family: 'Shrikhand', cursive;
+                        font-size: 3.5rem;
+                        line-height: 50px;
+                        letter-spacing: 0.01em;
+                        text-align: center;
+                        text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
+                    }
+                    &__subtitle {
+                        color: $base-white;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        font-size: 1.12rem;
+                        line-height: 1.8rem;
+                        letter-spacing: 0.61em;
+                        text-align: center;
+                        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7);
+                        text-transform: uppercase;
+                    }
+                }
+            }
+    
+            .slogan {
+                color: $base-white;
+                font-size: 1.87rem;
+                font-weight: 800;
+                text-align: center;
+                text-transform: capitalize;
+            }
+            .buttons {
+                @include flex-config($justify: null, $align: center, $direction: column);
+                
+                .signUp {
+                    width: 100%;
+                    height: auto;
+                    background-color: $secondary-red;
+                    border-radius: 50px;
+                    color: $base-white;
+                    cursor: pointer;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    padding: 1em 2em;
+                    width: 12.75rem;
+                }
+                .logIn {
+                    background-color: transparent;
+                    border-radius: 50px;
+                    border: 1px solid $base-white;
+                    color: $base-white;
+                    cursor: pointer;
+                    margin-top: 2em;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                    padding: 1em 2em;
+                    width: 12.75rem;
+                } 
+            }
+        }
+    }
+}
+
+
+
