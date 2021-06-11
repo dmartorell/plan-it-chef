@@ -26,9 +26,10 @@
                 border: 1px solid $base-white;
                 border-radius: 10px;
                 background-color: white;
-                cursor: pointer;
+                cursor:pointer;
+                font-size: 1.2em;
                 margin-bottom: 0.5em;
-                padding: 1.2em 1.2em;
+                padding: 1em 1em;
                 &:hover {
                     border: 1px solid rgba($secondary-red, 0.2);
                 }

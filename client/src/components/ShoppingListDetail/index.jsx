@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadListById } from '../../redux/actions/actionCreators';
@@ -16,8 +17,11 @@ const ShoppingListDetail = () => {
   useEffect(() => {
     dispatch(loadListById(listId));
   }, []);
-
   const { ingredients } = useSelector((store) => store.selectedList);
+  const [isCheckBoxMarked, setIsCheckBoxMarked] = useState(false);
+  const toggleCheckBox = () => {
+    setIsCheckBoxMarked(!isCheckBoxMarked);
+  };
 
   return (
     <>
@@ -39,6 +43,22 @@ const ShoppingListDetail = () => {
                         {`${ingredient.measures.us.amount} ${ingredient.measures.us.unitShort}`}
                       </p>
                     </div>
+                    {
+                      isCheckBoxMarked
+
+                        ? (
+                          <button className="item-btn" type="button" onClick={toggleCheckBox}>
+                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
+                          </button>
+                        )
+                        : (
+                          <button className="item-btn" type="button" onClick={toggleCheckBox}>
+                            <i className="iconify" data-icon="system-uicons:checkbox-empty" data-inline="false" />
+                            {' '}
+
+                          </button>
+                        )
+                    }
                   </li>
                   )
                 ))
