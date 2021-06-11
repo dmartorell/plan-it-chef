@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './style.scss';
 import mainImage from '../../assets/logo-bg.png';
 import { login } from '../../redux/actions/actionCreators';
@@ -9,12 +9,8 @@ import { login } from '../../redux/actions/actionCreators';
 const Login = () => {
   const storeUser = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  // const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  useEffect(() => {
-    console.log(storeUser.token);
-  }, [storeUser]);
 
   const sendUser = () => {
     const user = {
@@ -22,8 +18,11 @@ const Login = () => {
       password,
     };
     dispatch(login(user));
-    // history.push('/recipes');
   };
+
+  if (storeUser.token) {
+    return <Redirect to="/recipes" />;
+  }
 
   return (
 
@@ -44,7 +43,7 @@ const Login = () => {
           <hr />
           <label htmlFor="email">
             <b>Email</b>
-            <input type="text" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)} name="email" required />
+            <input type="text" placeholder="Enter Email" name="email" required onChange={(e) => setEmail(e.target.value)} />
           </label>
           <label htmlFor="password">
             <b>Password</b>

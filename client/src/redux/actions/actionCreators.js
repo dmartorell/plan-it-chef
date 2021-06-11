@@ -104,10 +104,9 @@ export function login(user) {
       const { data } = await axios.post(`${loginUrl}`, user);
       dispatch({
         type: actionTypes.LOGIN_USER,
-        token: data,
+        user: data,
       });
     } catch (error) {
-      console.log(error.message);
       dispatch({
         type: actionTypes.LOGIN_USER_ERROR,
       });
