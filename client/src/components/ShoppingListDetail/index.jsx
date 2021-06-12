@@ -14,8 +14,10 @@ const ShoppingListDetail = () => {
   const imageURL = process.env.REACT_APP_IMAGE_URL;
   const dispatch = useDispatch();
   const { listId } = useParams();
+  const token = useSelector((store) => store.user.token);
+
   useEffect(() => {
-    dispatch(loadListById(listId));
+    dispatch(loadListById(listId, token));
   }, []);
   const { ingredients } = useSelector((store) => store.selectedList);
   const [isCheckBoxMarked, setIsCheckBoxMarked] = useState(false);

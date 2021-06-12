@@ -12,14 +12,15 @@ import './style.scss';
 
 const RecipeDetail = () => {
   const { recipeId } = useParams();
+  const token = useSelector((store) => store.user.token);
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
   const shoppingList = useSelector((store) => store.user.lists[0]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadShoppingLists());
+    dispatch(loadShoppingLists(token));
   }, []);
   useEffect(() => {
-    dispatch(loadRecipeById(recipeId));
+    dispatch(loadRecipeById(recipeId, token));
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';

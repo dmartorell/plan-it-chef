@@ -26,11 +26,9 @@ server.use(express.json());
 server.use(passport.initialize());
 
 server.use('/', routes);
-// server.use('/user', passport.authenticate('jwt', { session: false }), protectedRoutes);
-
-server.use('/user', userRoutes);
-server.use('/recipes', recipesRoutes);
-server.use('/lists', listsRoutes);
+server.use('/user', passport.authenticate('jwt', { session: false }), userRoutes);
+server.use('/recipes', passport.authenticate('jwt', { session: false }), recipesRoutes);
+server.use('/lists', passport.authenticate('jwt', { session: false }), listsRoutes);
 
 connect(
   process.env.DDBB_URL,

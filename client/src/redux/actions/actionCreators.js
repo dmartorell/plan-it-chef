@@ -7,10 +7,12 @@ const listsUrl = process.env.REACT_APP_LISTS_URL;
 const signupUrl = process.env.REACT_APP_SIGNUP_URL;
 const loginUrl = process.env.REACT_APP_LOGIN_URL;
 
-export function loadRecipes(title) {
+export function loadRecipes(token, title) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
   return async (dispatch) => {
     try {
-      const { data } = title ? await axios(`${recipesUrl}/?title=${title}`) : await axios(`${recipesUrl}`);
+      const { data } = title ? await axios(`${recipesUrl}/?title=${title}`, headers) : await axios(`${recipesUrl}`, headers);
       dispatch({
         type: actionTypes.LOAD_RECIPES,
         recipes: data,
@@ -22,10 +24,12 @@ export function loadRecipes(title) {
     }
   };
 }
-export function loadRecipeById(id) {
+export function loadRecipeById(id, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${recipesUrl}/${id}`);
+      const { data } = await axios(`${recipesUrl}/${id}`, headers);
       dispatch({
         type: actionTypes.LOAD_RECIPE,
         recipe: data,
@@ -37,10 +41,13 @@ export function loadRecipeById(id) {
     }
   };
 }
-export function loadShoppingLists() {
+
+export function loadShoppingLists(token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${listsUrl}`);
+      const { data } = await axios(`${listsUrl}`, headers);
       dispatch({
         type: actionTypes.LOAD_LISTS,
         shoppingLists: data,
@@ -52,10 +59,12 @@ export function loadShoppingLists() {
     }
   };
 }
-export function loadListById(id) {
+export function loadListById(id, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${listsUrl}/${id}`);
+      const { data } = await axios(`${listsUrl}/${id}`, headers);
       dispatch({
         type: actionTypes.LOAD_LIST,
         list: data,
