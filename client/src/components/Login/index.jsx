@@ -3,7 +3,6 @@ import { React, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './style.scss';
-import mainImage from '../../assets/logo-bg.png';
 import { login } from '../../redux/actions/actionCreators';
 
 const Login = () => {
@@ -25,35 +24,30 @@ const Login = () => {
   }
 
   return (
-
-    <main className="canvas">
-      <section className="landing-container">
-        <div className="main-logo">
-          <figure>
-            <img className="image" src={mainImage} alt="logo" />
-          </figure>
-          <div className="title">
-            <h1 className="title__title">mamma</h1>
-            <h3 className="title__subtitle">chef</h3>
+    <main className="signup-canvas">
+      <section className="signup-container">
+        <form className="form">
+          <h1 className="form__title">Log in</h1>
+          <div className="form__fields">
+            <label className="label" htmlFor="email">
+              Email
+              <br />
+              <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} name="email" autoComplete="off" required />
+            </label>
+            <label className="label" htmlFor="password">
+              Password
+              <br />
+              <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} name="password" autoComplete="off" required />
+            </label>
           </div>
-        </div>
-        <form>
-          <h1>Log In</h1>
-          <p>Please fill in this form to create an account.</p>
-          <hr />
-          <label htmlFor="email">
-            <b>Email</b>
-            <input type="text" placeholder="Enter Email" name="email" required onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <label htmlFor="password">
-            <b>Password</b>
-            <input type="password" placeholder="Enter Password" onChange={(e) => setPassword(e.target.value)} name="password" required />
-          </label>
           <button
+            className="solid-secondary-btn submit-btn letsCook-btn"
             type="button"
             onClick={sendUser}
           >
-            Log In
+            {'Let\'s cook!'}
+            <i className="iconify arrow-icon" data-icon="entypo:arrow-long-right" data-inline="false" />
+
           </button>
         </form>
       </section>

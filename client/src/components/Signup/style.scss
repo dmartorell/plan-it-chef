@@ -10,7 +10,10 @@
     }
     .signup-container {
         margin-bottom: 32px;
-        .form {
+        
+        
+    }
+    .form {
 
             text-align: center;
             &__title {
@@ -46,6 +49,4 @@
                 margin-top: 3em;
             }
         }
-        
-    }
 }

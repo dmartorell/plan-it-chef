@@ -81,6 +81,14 @@
             }
         }
     }
+    .letsCook-btn {
+        @include flex-config($justify: center, $align: center);
+        margin: auto;
+        .arrow-icon {
+            font-size: 1.7em;
+            margin-left: 0.6em;
+        }
+    }
 }
 
 
