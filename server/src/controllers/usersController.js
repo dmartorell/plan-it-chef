@@ -4,7 +4,7 @@ function userController() {
   async function getById(req, res) {
     const { userId } = req.params;
     try {
-      const user = await User.findById(userId).populate('recipes');
+      const user = await User.findById(userId).populate('recipes').populate('lists');
       return res.json(
         user,
       );
@@ -27,7 +27,7 @@ function userController() {
   }
   async function getAll(req, res) {
     try {
-      const users = await User.find({});
+      const users = await User.find({}).populate('recipes').populate('lists');
       return res.json(
         users,
       );

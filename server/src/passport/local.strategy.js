@@ -45,7 +45,7 @@ passport.use(
     },
     async (email, password, done) => {
       try {
-        const user = await UserModel.findOne({ email });
+        const user = await UserModel.findOne({ email }).populate('lists');
         if (!user) {
           return done(null, false, { message: 'User not found' });
         }
