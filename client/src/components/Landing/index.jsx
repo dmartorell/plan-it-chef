@@ -21,16 +21,16 @@ const Landing = () => (
         <p>time!</p>
       </span>
       <div className="buttons">
-        <button className="signUp" type="button">
-          <Link className="signUp-btn" to="/signup">
+        <Link to="/signup">
+          <button type="button" className="signUp">
             Sign up
-          </Link>
-        </button>
-        <button className="logIn" type="button">
-          <Link className="logIn-btn" to="/login">
+          </button>
+        </Link>
+        <Link to="/login">
+          <button type="button" className="logIn">
             Log in
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
     </section>
   </main>

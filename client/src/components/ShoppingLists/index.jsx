@@ -16,7 +16,7 @@ const ShoppingLists = () => {
       <main className="white-canvas">
         <section className="main-container">
           <div className="page-head">
-            <img className="iconify page-head__icon" data-icon="fluent:document-bullet-list-24-regular" data-inline="false" alt="icon" />
+            <i className="iconify page-head__icon" data-icon="fluent:document-bullet-list-24-regular" data-inline="false" alt="icon" />
             <h1 className="page-head__title">Shopping Lists</h1>
           </div>
           {/* <h2 className="list-picker-title">
