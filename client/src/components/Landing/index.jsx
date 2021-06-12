@@ -22,12 +22,12 @@ const Landing = () => (
       </span>
       <div className="buttons">
         <Link to="/signup">
-          <button type="button" className="signUp">
+          <button type="button" className="solid-secondary-btn">
             Sign up
           </button>
         </Link>
         <Link to="/login">
-          <button type="button" className="logIn">
+          <button type="button" className="transparent-btn">
             Log in
           </button>
         </Link>

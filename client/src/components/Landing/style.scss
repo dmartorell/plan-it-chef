@@ -2,7 +2,43 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
+
 @media screen and (max-width: 714px) {
+    .solid-secondary-btn {
+        width: 100%;
+        height: auto;
+        background-color: $secondary-red;
+        border-radius: 50px;
+        color: $base-white;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 1em 2em;
+        width: 12.75rem;
+        &:hover {
+            background-color: $base-white;
+            color: $secondary-red;
+            font-weight: bolder;
+        }
+    }
+    .transparent-btn {
+        background-color: transparent;
+        border-radius: 50px;
+        border: 1px solid $base-white;
+        color: $base-white;
+        cursor: pointer;
+        margin-top: 2em;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 1em 2em;
+        width: 12.75rem;
+        &:hover {
+            background-color: $base-white;
+            color: $secondary-red;
+            font-weight: bolder;
+        }
+    } 
+
     .canvas {
         background-color: $base-red;
         height: 100vh;
@@ -54,34 +90,12 @@
             .buttons {
                 @include flex-config($justify: null, $align: center, $direction: column);
                 
-                .signUp {
-                    width: 100%;
-                    height: auto;
-                    background-color: $secondary-red;
-                    border-radius: 50px;
-                    color: $base-white;
-                    cursor: pointer;
-                    font-size: 0.95rem;
-                    font-weight: 500;
-                    padding: 1em 2em;
-                    width: 12.75rem;
-                }
-                .logIn {
-                    background-color: transparent;
-                    border-radius: 50px;
-                    border: 1px solid $base-white;
-                    color: $base-white;
-                    cursor: pointer;
-                    margin-top: 2em;
-                    font-size: 0.95rem;
-                    font-weight: 500;
-                    padding: 1em 2em;
-                    width: 12.75rem;
-                } 
+                
             }
         }
     }
 }
+
 
 
 
