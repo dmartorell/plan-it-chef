@@ -3,136 +3,49 @@
 @import "../../styles/mixins.scss";
 
 @media screen and (max-width: 714px) {
-    .white-canvas {
-        @include flex-config($justify: none, $align: flex-start, $direction: column);
-        background-color:$base-white;
-        min-height: calc(100vh - 225px);
-
-        .main-container {
-            margin-bottom: 32px;
-            
-            .page-head {
-                @include flex-config($justify: flex-start, $align: center);
-                margin-bottom: 1em;
-                padding: 0 0.4em;
-
-                &__title {
-                    font-size: 28px;
-                    font-weight: 700;
-                }
-                &__icon {
-                    font-size: 1.8em;
-                    margin-right: 0.1em;
-
-                    width: 2rem;
-                }
-                &__form {
-                    @include flex-config($justify: flex-end, $align: center);
-                    margin-left: auto;
-                    position: relative;
-                    width: 100%;
-                    .form-input {
-                        border: 1px solid $lighter-grey;
-                        border-radius: 10px;
-                        color: $base-black;
-                        font-size: 13px;
-                        font-weight: lighter;
-                        padding: 0.7em 1em;
-                        padding-right: 2.5em;
-                        width: 80%;
-
-                        &:focus {
-                            outline: none;
-                            border-color: $secondary-red;
-                        }
-                    }
-                    ::placeholder { 
-                        color: $light-grey;
-                        opacity: 1;
-                    }
-                    .form-btn {
-                        position: absolute;
-                        right: 1em;
-                        top: 0.6em;
-                        
-                        &__icon {
-                            cursor: pointer;
-                            width: 19px;
-                        }
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-                }
-            }
-            .recipe-item {
-                figure {
-                    position: relative;
-                }
-                &__image {
-                    border-radius: 20px;
-                    height: 280px;
-                    margin: 0.9em 0;
-                    object-fit: cover;
-                    position: relative;
-                    width: 100%;
-                }
-                &__title {
-                    font-size: 22px;
-                    font-weight: bold;
-                    margin-left: 25px;
-
-                }
-                &__webSite {
-                    font-size: 16px;
-                    font-weight: 500;
-                    margin-bottom: 0.2em;
-
-                    margin-left: 25px;
-                }
-                .times {
-                    @include flex-config($justify: flex-start, $align: center, $direction: column);
-                    background-color: $lighter-grey;
-                    border-radius: 15px 0 15px 0;
-                    bottom: 20px;
-                    right: 0;
-                    text-transform: uppercase;
-                    width: 67px;
-                    height: auto;
-                    padding: 0.5em;
-                    position: absolute;
-
-                    .times-title {
-                        font-size: 12px;
-                        font-weight: lighter;
-                    }
-                    .times-data {
-                        font-size: 16px;
-                        font-weight: bold;
-                        line-height: 15px;
-                    }
-                    &__preparation {
-                        @include flex-config($justify: space-between, $align: center, $direction: column);
-                    }
-                    &__cooking {
-                        @include flex-config($justify: space-between, $align: center, $direction: column);
-                    }
-                }
-                .title-container {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    .more-info-icon {
-                        cursor: pointer;    
-                        margin-right: 25px;
-                        width: 30px;
-                    }
-                }
-                
-            }
-            
-        }
+    .signup-canvas {
+        @include flex-config($justify: center, $align: center, $direction: column);
+        background-color:$base-red;
+        min-height: 100vh;
     }
-    
+    .signup-container {
+        margin-bottom: 32px;
+        .form {
+
+            text-align: center;
+            &__title {
+                color: $base-white;
+                font-size: 2em;
+                padding-bottom: 1em;
+            }
+            &__message {
+                color: $base-white;
+                padding-bottom: 1em;
+            }
+           
+            &__fields {
+                @include flex-config($justify: center, $align: center, $direction: column);
+                color: $base-white;
+                margin: 0 auto;
+                padding: 2em 3em;
+                .label {
+                    font-size: 1em;
+                }
+                .input {
+                    border-style: none;
+                    border-radius: 12px;
+                    padding: 0.6em 1em;
+                    margin: 1em 0;
+                    &:focus {
+                        outline: none;
+
+                    }
+                }
+            }
+            .submit-btn {
+                margin-top: 3em;
+            }
+        }
+        
+    }
 }
