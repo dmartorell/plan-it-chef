@@ -41,7 +41,7 @@ const Login = () => {
             </label>
           </div>
           <button
-            className="solid-secondary-btn submit-btn letsCook-btn"
+            className="transparent-btn submit-btn letsCook-btn"
             type="button"
             onClick={sendUser}
           >

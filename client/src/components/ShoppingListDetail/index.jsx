@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-import { React, useEffect, useState } from 'react';
+import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadListById } from '../../redux/actions/actionCreators';
@@ -20,10 +20,10 @@ const ShoppingListDetail = () => {
     dispatch(loadListById(listId, token));
   }, []);
   const { ingredients } = useSelector((store) => store.selectedList);
-  const [isCheckBoxMarked, setIsCheckBoxMarked] = useState(false);
-  const toggleCheckBox = () => {
-    setIsCheckBoxMarked(!isCheckBoxMarked);
-  };
+  // const [isCheckBoxMarked, setIsCheckBoxMarked] = useState(false);
+  // const toggleCheckBox = () => {
+  //   setIsCheckBoxMarked(!isCheckBoxMarked);
+  // };
 
   return (
     <>
@@ -46,18 +46,16 @@ const ShoppingListDetail = () => {
                       </p>
                     </div>
                     {
-                      isCheckBoxMarked
+                      ingredient._isActive
 
                         ? (
-                          <button className="item-btn" type="button" onClick={toggleCheckBox}>
-                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
+                          <button className="item-btn" type="button" onClick="">
+                            <i className="iconify" data-icon="system-uicons:checkbox-empty" data-inline="false" />
                           </button>
                         )
                         : (
-                          <button className="item-btn" type="button" onClick={toggleCheckBox}>
-                            <i className="iconify" data-icon="system-uicons:checkbox-empty" data-inline="false" />
-                            {' '}
-
+                          <button className="item-btn" type="button" onClick="">
+                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
                           </button>
                         )
                     }

@@ -10,43 +10,40 @@
     }
     .signup-container {
         margin-bottom: 32px;
-        
-        
     }
     .form {
-
-            text-align: center;
-            &__title {
-                color: $base-white;
-                font-size: 2em;
-                padding-bottom: 1em;
+        text-align: center;
+        &__title {
+            color: $base-white;
+            font-size: 2em;
+            padding-bottom: 1em;
+        }
+        &__message {
+            color: $base-white;
+            padding-bottom: 1em;
+        }
+        
+        &__fields {
+            @include flex-config($justify: center, $align: center, $direction: column);
+            color: $base-white;
+            margin: 0 auto;
+            padding: 2em 3em;
+            .label {
+                font-size: 1em;
             }
-            &__message {
-                color: $base-white;
-                padding-bottom: 1em;
-            }
-           
-            &__fields {
-                @include flex-config($justify: center, $align: center, $direction: column);
-                color: $base-white;
-                margin: 0 auto;
-                padding: 2em 3em;
-                .label {
-                    font-size: 1em;
+            .input {
+                border-style: none;
+                border-radius: 12px;
+                color: $base-black;
+                margin: 1em 0;
+                padding: 0.6em 1em;
+                &:focus {
+                    outline: none;
                 }
-                .input {
-                    border-style: none;
-                    border-radius: 12px;
-                    padding: 0.6em 1em;
-                    margin: 1em 0;
-                    &:focus {
-                        outline: none;
-
-                    }
-                }
-            }
-            .submit-btn {
-                margin-top: 3em;
             }
         }
+        .submit-btn {
+            margin-top: 3em;
+        }
+    }
 }

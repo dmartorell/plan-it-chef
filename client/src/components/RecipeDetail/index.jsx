@@ -38,7 +38,7 @@ const RecipeDetail = () => {
     const updatedList = updateShoppingList();
     console.log({ updatedList });
     console.log({ shoppingList });
-    dispatch(updateListById(shoppingList._id, { ingredients: updatedList }));
+    dispatch(updateListById(shoppingList._id, { ingredients: updatedList }, token));
   };
 
   return (

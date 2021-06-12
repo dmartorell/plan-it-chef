@@ -20,6 +20,11 @@
             color: $secondary-red;
             font-weight: bolder;
         }
+        &:focus {
+            outline:none;
+            background-color: $secondary-red;
+            color: white;
+        }
     }
     .transparent-btn {
         background-color: transparent;
@@ -36,6 +41,11 @@
             background-color: $base-white;
             color: $secondary-red;
             font-weight: bolder;
+        }
+        &:focus {
+            outline:none;
+            background-color: $secondary-red;
+            color: white;
         }
     } 
 

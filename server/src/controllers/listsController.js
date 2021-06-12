@@ -14,8 +14,6 @@ function listsController() {
   }
 
   async function updateById(req, res) {
-    // eslint-disable-next-line no-debugger
-    debugger;
     const { listId } = req.params;
     try {
       const updatedList = await List.findByIdAndUpdate(
