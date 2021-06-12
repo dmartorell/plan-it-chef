@@ -1,19 +1,14 @@
 /* eslint-disable no-underscore-dangle */
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadShoppingLists } from '../../redux/actions/actionCreators';
+import { useSelector } from 'react-redux';
 import Navigator from '../Navigator';
 import Header from '../Header';
 
 import './style.scss';
 
 const ShoppingLists = () => {
-  const shoppingLists = useSelector((store) => store.shoppingLists);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadShoppingLists());
-  }, []);
+  const shoppingLists = useSelector((store) => store.user.lists);
 
   return (
     <>
@@ -35,7 +30,7 @@ const ShoppingLists = () => {
           </h2> */}
           <ul className="shoppingLists-list">
             {
-              shoppingLists.length
+              shoppingLists?.length
                 ? shoppingLists.map((list) => (
                   <Link to={`/lists/${list._id}`}>
                     <li className="shoppingList-item" key={list.name}>

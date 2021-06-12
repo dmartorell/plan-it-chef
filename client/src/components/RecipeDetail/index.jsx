@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -12,7 +13,7 @@ import './style.scss';
 const RecipeDetail = () => {
   const { recipeId } = useParams();
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
-  const shoppingList = useSelector((store) => store.shoppingLists[0]);
+  const shoppingList = useSelector((store) => store.user.lists[0]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadShoppingLists());
@@ -24,15 +25,18 @@ const RecipeDetail = () => {
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
 
   const updateShoppingList = () => {
-    const updatedShoppingList = [...shoppingList.ingredients];
+    // const updatedShoppingList = [...shoppingList.ingredients];
+
     selectedRecipe.extendedIngredients
-      .map((ingredient) => updatedShoppingList
+      .map((ingredient) => shoppingList.ingredients
         .push({ ...ingredient, isActive: true, recipe: selectedRecipe._id }));
-    return updatedShoppingList;
+    return shoppingList.ingredients;
   };
 
   const handleClick = () => {
     const updatedList = updateShoppingList();
+    console.log({ updatedList });
+    console.log({ shoppingList });
     dispatch(updateListById(shoppingList._id, { ingredients: updatedList }));
   };
 
