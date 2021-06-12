@@ -76,10 +76,12 @@ export function loadListById(id, token) {
     }
   };
 }
-export function updateListById(id, updatedList) {
+export function updateListById(id, updatedList, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`${listsUrl}/${id}`, updatedList);
+      const { data } = await axios.put(`${listsUrl}/${id}`, updatedList, headers);
       dispatch({
         type: actionTypes.UPDATE_LIST,
         shoppingLists: data,
@@ -118,6 +120,7 @@ export function login(user) {
     } catch (error) {
       dispatch({
         type: actionTypes.LOGIN_USER_ERROR,
+        user: { isLogged: false },
       });
     }
   };
