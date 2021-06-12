@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 const List = require('../models/listModel');
 
@@ -15,6 +16,8 @@ function listsController() {
 
   async function updateById(req, res) {
     const { listId } = req.params;
+    // eslint-disable-next-line no-debugger
+    debugger;
     try {
       const updatedList = await List.findByIdAndUpdate(
         listId,
