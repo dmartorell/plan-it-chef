@@ -1,10 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-import { React, useEffect, useState } from 'react';
+import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadListById, updateIngredientsList } from '../../redux/actions/actionCreators';
+import { updateIngredientsList, loadListById } from '../../redux/actions/actionCreators';
 
 import Navigator from '../Navigator';
 import Header from '../Header';
@@ -17,17 +17,16 @@ const ShoppingListDetail = () => {
   const { listId } = useParams();
   const token = useSelector((store) => store.user.token);
   const selectedList = useSelector((store) => store.selectedList);
-  const [isClicked, setClicked] = useState({});
+  // const [isClicked, setClicked] = useState({});
 
   useEffect(() => {
     dispatch(loadListById(listId, token));
-    console.log(selectedList);
-  }, [isClicked]);
+  }, []);
 
   const toggleCheck = (ingredientId, marked) => {
     dispatch(updateIngredientsList(listId, selectedList, ingredientId, marked, token));
-    setClicked(marked);
-    console.log(isClicked);
+    // setClicked(marked);
+    // console.log(isClicked);
   };
 
   return (
@@ -40,7 +39,14 @@ const ShoppingListDetail = () => {
               selectedList.ingredients?.length
                 ? selectedList.ingredients.map((ingredient, i) => (
                   ingredient.name && (
-                  <li className="shoppingList-item" key={`${ingredient._id}${i}`}>
+                  <li
+                    className={
+                    ingredient.isActive
+                      ? 'shoppingList-item'
+                      : 'shoppingList-item--inactive'
+                  }
+                    key={`${ingredient._id}${i}`}
+                  >
                     <img className="item-image" src={`${imageURL}/${ingredient.image}`} alt="product" />
                     <div className="item-info">
                       <p className="item-info__name">

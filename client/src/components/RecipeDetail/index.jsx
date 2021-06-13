@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect } from 'react';
@@ -24,7 +25,6 @@ const RecipeDetail = () => {
   }, []);
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
-
   const handleClick = () => {
     dispatch(updateListById(shoppingList, selectedRecipe, token));
   };
@@ -93,9 +93,8 @@ const RecipeDetail = () => {
             </h2>
             <ul className="ingredients-list">
               {
-          selectedRecipe?.extendedIngredients?.map((ingredient) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <li className="ingredients-list__item" key={ingredient._id}>
+          selectedRecipe?.extendedIngredients?.map((ingredient, i) => (
+            <li className="ingredients-list__item" key={i}>
               <p className="item-name">
                 {ingredient.original}
               </p>
@@ -108,16 +107,16 @@ const RecipeDetail = () => {
             </h2>
             <div className="directions-list">
               {
-          selectedRecipe?.analyzedInstructions?.map((directionsBlock) => (
+          selectedRecipe?.analyzedInstructions?.map((directionsBlock, i) => (
             <ul>
-              <li key={directionsBlock._id}>
+              <li key={i}>
                 <h3 className="direction-block-title">
                   {directionsBlock.name}
                 </h3>
                 <ul className="instructions-list">
                   {
-              directionsBlock?.steps?.map((instruction) => (
-                <li className="instructions-list__item" key={instruction.number}>
+              directionsBlock?.steps?.map((instruction, index) => (
+                <li className="instructions-list__item" key={index}>
                   <p className="item-number">{instruction.number}</p>
                   <p className="item-text">{instruction.step}</p>
                 </li>

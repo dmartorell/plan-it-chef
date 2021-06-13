@@ -32,8 +32,8 @@ const ShoppingLists = () => {
           <ul className="shoppingLists-list">
             {
               shoppingLists?.length
-                ? shoppingLists.map((list, i) => (
-                  <Link to={`/lists/${list._id}`} key={`${list.name}${i}`}>
+                ? shoppingLists.map((list) => (
+                  <Link to={`/lists/${list._id}`} key={list.name}>
                     <li className="shoppingList-item">
                       {list.name}
                     </li>
