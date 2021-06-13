@@ -25,24 +25,8 @@ const RecipeDetail = () => {
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
 
-  const updateShoppingList = () => {
-    // const updatedShoppingList = [...shoppingList.ingredients];
-    // eslint-disable-next-line no-debugger
-    debugger;
-
-    selectedRecipe.extendedIngredients
-      .map((ingredient) => shoppingList.ingredients
-        .push({ ...ingredient, isActive: true, recipe: selectedRecipe._id }));
-    return shoppingList.ingredients;
-  };
-
   const handleClick = () => {
-    // eslint-disable-next-line no-debugger
-    debugger;
-    const updatedList = updateShoppingList();
-    console.log({ updatedList });
-    console.log({ shoppingList });
-    dispatch(updateListById(shoppingList._id, { ingredients: updatedList }, token));
+    dispatch(updateListById(shoppingList, selectedRecipe, token));
   };
 
   return (

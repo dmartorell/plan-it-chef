@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 import axios from 'axios';
@@ -78,6 +79,7 @@ export function loadListById(id, token) {
   };
 }
 export function updateIngredientsList(listId, currentList, ingredientId, checkState, token) {
+  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const updatedList = currentList.ingredients.map((ingredient) => (ingredient._id === ingredientId
     ? { ...ingredient, isActive: checkState }
@@ -96,11 +98,22 @@ export function updateIngredientsList(listId, currentList, ingredientId, checkSt
     }
   };
 }
-export function updateListById(listId, updatedList, token) {
+export function updateListById(userList, currentRecipe, token) {
+  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
+  const newRecipeIngredients = currentRecipe.extendedIngredients
+    .map((ingredient) => (
+      {
+        ...ingredient,
+        isActive: true,
+        recipe: currentRecipe._id,
+      }
+    ));
+
+  const updatedList = [...userList.ingredients, ...newRecipeIngredients];
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`${listsUrl}/${listId}`, updatedList, headers);
+      const { data } = await axios.put(`${listsUrl}/${userList._id}`, { ingredients: updatedList }, headers);
       dispatch({
         type: actionTypes.UPDATE_LIST,
         list: data,
