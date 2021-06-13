@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 import axios from 'axios';
 import actionTypes from './actionTypes';
@@ -76,15 +77,17 @@ export function loadListById(id, token) {
     }
   };
 }
-export function updateListById(id, updatedList, token) {
+export function updateListById(listId, currentList, ingredientId, checkState, token) {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
-
+  const updatedList = currentList.ingredients.map((ingredient) => (ingredient._id === ingredientId
+    ? { ...ingredient, isActive: checkState }
+    : ingredient));
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`${listsUrl}/${id}`, updatedList, headers);
+      const { data } = await axios.put(`${listsUrl}/${listId}`, { ingredients: updatedList }, headers);
       dispatch({
         type: actionTypes.UPDATE_LIST,
-        shoppingLists: data,
+        list: data,
       });
     } catch (error) {
       dispatch({
@@ -93,6 +96,7 @@ export function updateListById(id, updatedList, token) {
     }
   };
 }
+
 export function signup(user) {
   return async (dispatch) => {
     try {

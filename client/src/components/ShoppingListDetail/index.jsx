@@ -3,7 +3,7 @@
 import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadListById } from '../../redux/actions/actionCreators';
+import { loadListById, updateListById } from '../../redux/actions/actionCreators';
 
 import Navigator from '../Navigator';
 import Header from '../Header';
@@ -15,15 +15,15 @@ const ShoppingListDetail = () => {
   const dispatch = useDispatch();
   const { listId } = useParams();
   const token = useSelector((store) => store.user.token);
+  const selectedList = useSelector((store) => store.selectedList);
 
   useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
-  const { ingredients } = useSelector((store) => store.selectedList);
-  // const [isCheckBoxMarked, setIsCheckBoxMarked] = useState(false);
-  // const toggleCheckBox = () => {
-  //   setIsCheckBoxMarked(!isCheckBoxMarked);
-  // };
+
+  const markAsChecked = (ingredientId) => {
+    dispatch(updateListById(listId, selectedList, ingredientId, false, token));
+  };
 
   return (
     <>
@@ -32,8 +32,8 @@ const ShoppingListDetail = () => {
         <section className="main-container">
           <ul className="shoppingLists-list">
             {
-              ingredients?.length
-                ? ingredients.map((ingredient) => (
+              selectedList.ingredients?.length
+                ? selectedList.ingredients.map((ingredient) => (
                   ingredient.name && (
                   <li className="shoppingList-item" key={ingredient._id}>
                     <img className="item-image" src={`${imageURL}/${ingredient.image}`} alt="product" />
@@ -46,11 +46,10 @@ const ShoppingListDetail = () => {
                       </p>
                     </div>
                     {
-                      ingredient._isActive
-
+                      ingredient.isActive
                         ? (
-                          <button className="item-btn" type="button" onClick="">
-                            <i className="iconify" data-icon="system-uicons:checkbox-empty" data-inline="false" />
+                          <button className="item-btn " type="button" onClick={() => markAsChecked(ingredient._id)}>
+                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-empty" data-inline="false" />
                           </button>
                         )
                         : (
