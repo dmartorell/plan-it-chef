@@ -8,7 +8,7 @@ const listsUrl = process.env.REACT_APP_LISTS_URL;
 const signupUrl = process.env.REACT_APP_SIGNUP_URL;
 const loginUrl = process.env.REACT_APP_LOGIN_URL;
 
-export function loadRecipes(token, title) {
+export function loadRecipes(token, title = '') {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
 
   return async (dispatch) => {

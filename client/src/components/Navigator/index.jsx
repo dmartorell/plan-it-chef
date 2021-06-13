@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loadRecipes } from '../../redux/actions/actionCreators';
 
 import './style.scss';
 
 const Navigator = () => {
   const dispatch = useDispatch();
+  const token = useSelector((store) => store.user.token);
 
   return (
     <nav className="navigator">
       <div className="container">
-        <Link className="icon-block" to="/recipes" data-testid="recipes-btn" onClick={() => dispatch(loadRecipes())}>
+        <Link className="icon-block" to="/recipes" data-testid="recipes-btn" onClick={() => dispatch(loadRecipes(token))}>
           <i className="iconify icon-block__icon" data-icon="feather:bookmark" data-inline="false" alt="icon" />
           <p className="icon-block__description">Recipes</p>
         </Link>

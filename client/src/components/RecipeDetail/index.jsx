@@ -27,6 +27,8 @@ const RecipeDetail = () => {
 
   const updateShoppingList = () => {
     // const updatedShoppingList = [...shoppingList.ingredients];
+    // eslint-disable-next-line no-debugger
+    debugger;
 
     selectedRecipe.extendedIngredients
       .map((ingredient) => shoppingList.ingredients
@@ -108,6 +110,7 @@ const RecipeDetail = () => {
             <ul className="ingredients-list">
               {
           selectedRecipe?.extendedIngredients?.map((ingredient) => (
+            // eslint-disable-next-line react/no-array-index-key
             <li className="ingredients-list__item" key={ingredient._id}>
               <p className="item-name">
                 {ingredient.original}

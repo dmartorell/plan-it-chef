@@ -17,7 +17,6 @@ const ShoppingListDetail = () => {
   const { listId } = useParams();
   const token = useSelector((store) => store.user.token);
   const selectedList = useSelector((store) => store.selectedList);
-  // eslint-disable-next-line no-unused-vars
   const [isClicked, setClicked] = useState({});
 
   useEffect(() => {
@@ -54,12 +53,12 @@ const ShoppingListDetail = () => {
                     {
                       ingredient.isActive
                         ? (
-                          <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, true)}>
+                          <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, false)}>
                             <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-empty" data-inline="false" />
                           </button>
                         )
                         : (
-                          <button className="item-btn" type="button" onClick={() => toggleCheck(ingredient._id, false)}>
+                          <button className="item-btn" type="button" onClick={() => toggleCheck(ingredient._id, true)}>
                             <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
                           </button>
                         )
