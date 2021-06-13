@@ -77,7 +77,7 @@ export function loadListById(id, token) {
     }
   };
 }
-export function updateListById(listId, currentList, ingredientId, checkState, token) {
+export function updateIngredientsList(listId, currentList, ingredientId, checkState, token) {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const updatedList = currentList.ingredients.map((ingredient) => (ingredient._id === ingredientId
     ? { ...ingredient, isActive: checkState }
@@ -85,6 +85,22 @@ export function updateListById(listId, currentList, ingredientId, checkState, to
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`${listsUrl}/${listId}`, { ingredients: updatedList }, headers);
+      dispatch({
+        type: actionTypes.UPDATE_LIST,
+        list: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.UPDATE_LIST_ERROR,
+      });
+    }
+  };
+}
+export function updateListById(listId, updatedList, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`${listsUrl}/${listId}`, updatedList, headers);
       dispatch({
         type: actionTypes.UPDATE_LIST,
         list: data,

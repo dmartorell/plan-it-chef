@@ -35,6 +35,8 @@ const RecipeDetail = () => {
   };
 
   const handleClick = () => {
+    // eslint-disable-next-line no-debugger
+    debugger;
     const updatedList = updateShoppingList();
     console.log({ updatedList });
     console.log({ shoppingList });

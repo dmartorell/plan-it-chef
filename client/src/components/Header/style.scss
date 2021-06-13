@@ -18,22 +18,26 @@
                 width: 120px;
                 height: auto;
             }
-            .user-info {
-                @include flex-config($justify: space-between, $align: center);
-
-                &__name {
-                    color: $base-white;
-                font-family: 'Nunito', sans-serif;
-                font-size: 0.8rem;
-                margin-left: auto;
-                margin-right: 5px;
-                }
-                &__icon {
-                    width: 28px;
-                    height: auto;
-                    color: $base-white;
+            .logout-btn {
+                cursor: pointer;
+                .user-info {
+                    @include flex-config($justify: space-between, $align: center);
+    
+                    &__name {
+                        color: $base-white;
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 0.8rem;
+                    margin-left: auto;
+                    margin-right: 5px;
+                    }
+                    &__icon {
+                        width: 28px;
+                        height: auto;
+                        color: $base-white;
+                    }
                 }
             }
+            
         }
         &__bottom {
             text-align: center;

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-underscore-dangle */
 import { React } from 'react';
 import { Link } from 'react-router-dom';
@@ -31,9 +32,9 @@ const ShoppingLists = () => {
           <ul className="shoppingLists-list">
             {
               shoppingLists?.length
-                ? shoppingLists.map((list) => (
-                  <Link to={`/lists/${list._id}`}>
-                    <li className="shoppingList-item" key={list.name}>
+                ? shoppingLists.map((list, i) => (
+                  <Link to={`/lists/${list._id}`} key={`${list.name}${i}`}>
+                    <li className="shoppingList-item">
                       {list.name}
                     </li>
                   </Link>
