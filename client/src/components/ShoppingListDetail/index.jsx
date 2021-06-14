@@ -9,6 +9,7 @@ import Navigator from '../Navigator';
 import Header from '../Header';
 import checked from '../../assets/check-checked.png';
 import empty from '../../assets/check-empty.png';
+import getAisles from '../../helpers/getAisles';
 
 import './style.scss';
 
@@ -21,10 +22,19 @@ const ShoppingListDetail = () => {
     selectedList: store.selectedList,
   }));
 
-  useEffect(() => {
-    console.log(selectedList);
-  });
-
+  // useEffect(() => {
+  //   console.log(selectedList);
+  //   console.log(getAisles(selectedList));
+  // });
+  const aisles = [...getAisles(selectedList)].filter((aisle) => aisle !== '?' && aisle !== undefined);
+  const productsFromList = aisles.length
+        && aisles.map(
+          (aisle) => ({
+            name: aisle,
+            products: selectedList.ingredients.filter((ingredient) => ingredient.aisle === aisle),
+          }),
+        );
+  console.log(productsFromList);
   useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
@@ -50,31 +60,38 @@ const ShoppingListDetail = () => {
         <section className="main-container">
           <ul className="shoppingLists-list">
             {
-              selectedList.ingredients?.length
-                ? selectedList.ingredients.map((ingredient, i) => (
-                  ingredient.name && (
-                  <li
-                    className={
-                    ingredient.isActive
-                      ? 'shoppingList-item'
-                      : 'shoppingList-item--inactive'
-                  }
-                    key={`${ingredient._id}${i}`}
-                  >
-                    <img className="item-image" src={`${imageURL}/${ingredient.image}`} alt="product" />
-                    <div className="item-info">
-                      <p className="item-info__name">
-                        {ingredient.name}
-                      </p>
-                      <p className="item-info__amount">
-                        {`${ingredient.measures.us.amount} ${ingredient.measures.us.unitShort}`}
-                      </p>
-                    </div>
+              productsFromList.length
+                ? productsFromList.map((product) => (
+                  product.name && (
+                  <>
+                    <p>{product.name}</p>
+                    {product.products.map((productFromSection, i) => (
+                      <li
+                        className={
+                          productFromSection.isActive
+                            ? 'shoppingList-item'
+                            : 'shoppingList-item--inactive'
+                      }
+                        key={`${productFromSection._id}${i}`}
+                      >
+                        <img className="item-image" src={`${imageURL}/${productFromSection.image}`} alt="product" />
+                        <div className="item-info">
+                          <p className="item-info__name">
+                            {productFromSection.name}
+                          </p>
+                          <p className="item-info__amount">
+                            {`${productFromSection.measures.us.amount} ${productFromSection.measures.us.unitShort}`}
+                          </p>
+                        </div>
 
-                    <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, !ingredient.isActive)}>
-                      {ingredient.isActive ? checkboxStatus.empty : checkboxStatus.checked}
-                    </button>
-                  </li>
+                        <button className="item-btn " type="button" onClick={() => toggleCheck(productFromSection._id, !productFromSection.isActive)}>
+                          {productFromSection.isActive
+                            ? checkboxStatus.empty
+                            : checkboxStatus.checked}
+                        </button>
+                      </li>
+                    ))}
+                  </>
                   )
                 ))
                 : <p className="error-message">No ingredients available.</p>
