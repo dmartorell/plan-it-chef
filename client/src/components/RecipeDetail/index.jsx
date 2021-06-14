@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadRecipeById, updateListById, loadShoppingLists } from '../../redux/actions/actionCreators';
 import Navigator from '../Navigator';
-import parseUrl from '../../helpers/parseUrl';
+import {parseUrl} from '../../helpers/commonHelper';
 import defaultImg from '../../assets/default-image-bg.png';
 
 import './style.scss';

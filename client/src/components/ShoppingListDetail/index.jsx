@@ -9,7 +9,7 @@ import Navigator from '../Navigator';
 import Header from '../Header';
 import checked from '../../assets/check-checked.png';
 import empty from '../../assets/check-empty.png';
-import getAisles from '../../helpers/getAisles';
+import {getAisles} from '../../helpers/commonHelper';
 
 import './style.scss';
 

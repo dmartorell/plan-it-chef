@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 import actionTypes from './actionTypes';
-import sortByAisle from '../../helpers/sortByAisle';
+import { sortByAisle } from '../../helpers/commonHelper';
 
 const recipesUrl = process.env.REACT_APP_RECIPES_URL;
 const listsUrl = process.env.REACT_APP_LISTS_URL;
