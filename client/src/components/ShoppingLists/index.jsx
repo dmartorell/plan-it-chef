@@ -23,15 +23,6 @@ const ShoppingLists = () => {
             {' '}
 
           </div>
-          {/* <h2 className="list-picker-title">
-            Add to
-            <p className="pickedList">
-              {' '}
-              My List
-              <span className="iconify pickedList__icon" data-icon="fe:arrow-down"
-              data-inline="false" />
-            </p>
-          </h2> */}
           <ul className="shoppingLists-list">
             {
               shoppingLists?.length

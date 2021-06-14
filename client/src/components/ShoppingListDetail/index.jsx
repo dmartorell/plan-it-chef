@@ -59,6 +59,7 @@ const ShoppingListDetail = () => {
       <Header />
       <main className="white-canvas">
         <section className="main-container">
+          <h1>{selectedList.name}</h1>
           <ul className="shoppingLists-list">
             {
               productsFromList.length
