@@ -79,6 +79,7 @@ export function loadListById(id, token) {
   };
 }
 export function updateIngredientsList(listId, currentList, ingredientId, checkState, token) {
+  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const updatedList = currentList.ingredients.map((ingredient) => (ingredient._id === ingredientId
     ? { ...ingredient, isActive: checkState }
@@ -98,6 +99,7 @@ export function updateIngredientsList(listId, currentList, ingredientId, checkSt
   };
 }
 export function updateListById(userList, currentRecipe, token) {
+  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const newRecipeIngredients = currentRecipe.extendedIngredients
     .map((ingredient) => (

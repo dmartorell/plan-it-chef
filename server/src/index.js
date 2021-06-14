@@ -32,7 +32,7 @@ server.use('/lists', passport.authenticate('jwt', { session: false }), listsRout
 
 connect(
   process.env.DDBB_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
+  { useNewUrlParser: true, useUnifiedTopology: true },
 )
   .then(() => debug('Correct conection'))
   .catch((error) => debug(error));

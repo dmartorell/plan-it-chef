@@ -4,7 +4,7 @@
 import { React, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadRecipeById, loadShoppingLists, updateListById } from '../../redux/actions/actionCreators';
+import { loadRecipeById, updateListById, loadShoppingLists } from '../../redux/actions/actionCreators';
 import Navigator from '../Navigator';
 import parseUrl from '../../helpers/parseUrl';
 import defaultImg from '../../assets/default-image-bg.png';
@@ -15,7 +15,7 @@ const RecipeDetail = () => {
   const { recipeId } = useParams();
   const token = useSelector((store) => store.user.token);
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
-  const shoppingList = useSelector((store) => store.user.lists[0]);
+  const shoppingList = useSelector((store) => store.selectedList);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadShoppingLists(token));

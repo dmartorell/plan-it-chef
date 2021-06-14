@@ -25,8 +25,6 @@ const ShoppingListDetail = () => {
 
   const toggleCheck = (ingredientId, marked) => {
     dispatch(updateIngredientsList(listId, selectedList, ingredientId, marked, token));
-    // setClicked(marked);
-    // console.log(isClicked);
   };
 
   return (
@@ -56,19 +54,13 @@ const ShoppingListDetail = () => {
                         {`${ingredient.measures.us.amount} ${ingredient.measures.us.unitShort}`}
                       </p>
                     </div>
-                    {
-                      ingredient.isActive
-                        ? (
-                          <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, false)}>
-                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-empty" data-inline="false" />
-                          </button>
-                        )
-                        : (
-                          <button className="item-btn" type="button" onClick={() => toggleCheck(ingredient._id, true)}>
-                            <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
-                          </button>
-                        )
-                    }
+                    <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, !ingredient.isActive)}>
+                      {
+                        ingredient.isActive
+                          ? <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-empty" data-inline="false" />
+                          : <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
+                      }
+                    </button>
                   </li>
                   )
                 ))
