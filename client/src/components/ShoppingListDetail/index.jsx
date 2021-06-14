@@ -9,7 +9,7 @@ import Navigator from '../Navigator';
 import Header from '../Header';
 import checked from '../../assets/check-checked.png';
 import empty from '../../assets/check-empty.png';
-import {getAisles} from '../../helpers/commonHelper';
+import { getAisles } from '../../helpers/commonHelper';
 
 import './style.scss';
 
@@ -22,10 +22,6 @@ const ShoppingListDetail = () => {
     selectedList: store.selectedList,
   }));
 
-  // useEffect(() => {
-  //   console.log(selectedList);
-  //   console.log(getAisles(selectedList));
-  // });
   const aisles = [...getAisles(selectedList)].filter((aisle) => aisle !== '?' && aisle !== undefined);
   const productsFromList = aisles.length
         && aisles.map(
@@ -35,9 +31,14 @@ const ShoppingListDetail = () => {
           }),
         );
   console.log(productsFromList);
+
+  const groupProducts = productsFromList.length
+  && productsFromList.map((product) => product.products.map((pr) => pr._id));
   useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
+
+  console.log(groupProducts);
 
   const [checkbox, setCheckbox] = useState(false);
 
@@ -64,7 +65,7 @@ const ShoppingListDetail = () => {
                 ? productsFromList.map((product) => (
                   product.name && (
                   <>
-                    <p>{product.name}</p>
+                    <p className="aisle-title">{product.name}</p>
                     {product.products.map((productFromSection, i) => (
                       <li
                         className={

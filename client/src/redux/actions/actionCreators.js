@@ -110,7 +110,7 @@ export function updateListById(userList, currentRecipe, token) {
       }
     ));
 
-  const updatedList = [...userList.ingredients, ...newRecipeIngredients].sort(sortByAisle);
+  const updatedList = [...userList?.ingredients, ...newRecipeIngredients].sort(sortByAisle);
 
   return async (dispatch) => {
     try {

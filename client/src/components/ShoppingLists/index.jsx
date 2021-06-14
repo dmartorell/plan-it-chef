@@ -19,6 +19,9 @@ const ShoppingLists = () => {
           <div className="page-head">
             <i className="iconify page-head__icon" data-icon="fluent:document-bullet-list-24-regular" data-inline="false" alt="icon" />
             <h1 className="page-head__title">Shopping Lists</h1>
+            <span className="iconify plus-icon" data-icon="ant-design:plus-circle-filled" data-inline="false" />
+            {' '}
+
           </div>
           {/* <h2 className="list-picker-title">
             Add to
