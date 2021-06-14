@@ -17,7 +17,6 @@ const ShoppingListDetail = () => {
   const { listId } = useParams();
   const token = useSelector((store) => store.user.token);
   const selectedList = useSelector((store) => store.selectedList);
-  // const [isClicked, setClicked] = useState({});
 
   useEffect(() => {
     dispatch(loadListById(listId, token));
