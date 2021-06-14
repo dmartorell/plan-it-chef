@@ -22,6 +22,10 @@ const ShoppingListDetail = () => {
   }));
 
   useEffect(() => {
+    console.log(selectedList);
+  });
+
+  useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
 

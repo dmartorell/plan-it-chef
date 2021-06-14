@@ -3,6 +3,7 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 import actionTypes from './actionTypes';
+import sortByAisle from '../../helpers/sortByAisle';
 
 const recipesUrl = process.env.REACT_APP_RECIPES_URL;
 const listsUrl = process.env.REACT_APP_LISTS_URL;
@@ -99,7 +100,6 @@ export function updateIngredientsList(listId, currentList, ingredientId, checkSt
   };
 }
 export function updateListById(userList, currentRecipe, token) {
-  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const newRecipeIngredients = currentRecipe.extendedIngredients
     .map((ingredient) => (
@@ -110,7 +110,8 @@ export function updateListById(userList, currentRecipe, token) {
       }
     ));
 
-  const updatedList = [...userList.ingredients, ...newRecipeIngredients];
+  const updatedList = [...userList.ingredients, ...newRecipeIngredients].sort(sortByAisle);
+
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`${listsUrl}/${userList._id}`, { ingredients: updatedList }, headers);
