@@ -1,13 +1,14 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-import { React, useEffect } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateIngredientsList, loadListById } from '../../redux/actions/actionCreators';
 
 import Navigator from '../Navigator';
 import Header from '../Header';
+import checked from '../../assets/check-checked.png';
+import empty from '../../assets/check-empty.png';
 
 import './style.scss';
 
@@ -15,15 +16,27 @@ const ShoppingListDetail = () => {
   const imageURL = process.env.REACT_APP_IMAGE_URL;
   const dispatch = useDispatch();
   const { listId } = useParams();
-  const token = useSelector((store) => store.user.token);
-  const selectedList = useSelector((store) => store.selectedList);
+  const { token, selectedList } = useSelector((store) => ({
+    token: store.user.token,
+    selectedList: store.selectedList,
+  }));
 
   useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
 
+  const [checkbox, setCheckbox] = useState(false);
+
   const toggleCheck = (ingredientId, marked) => {
     dispatch(updateIngredientsList(listId, selectedList, ingredientId, marked, token));
+    setCheckbox(!checkbox);
+  };
+
+  const checkboxStatus = {
+
+    checked: <img className="item-btn__icon" src={checked} alt="checked" />,
+    empty: <img className="item-btn__icon" src={empty} alt="empty" />,
+
   };
 
   return (
@@ -53,12 +66,9 @@ const ShoppingListDetail = () => {
                         {`${ingredient.measures.us.amount} ${ingredient.measures.us.unitShort}`}
                       </p>
                     </div>
+
                     <button className="item-btn " type="button" onClick={() => toggleCheck(ingredient._id, !ingredient.isActive)}>
-                      {
-                        ingredient.isActive
-                          ? <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-empty" data-inline="false" />
-                          : <i className="iconify item-btn__icon" data-icon="system-uicons:checkbox-checked" data-inline="false" />
-                      }
+                      {ingredient.isActive ? checkboxStatus.empty : checkboxStatus.checked}
                     </button>
                   </li>
                   )

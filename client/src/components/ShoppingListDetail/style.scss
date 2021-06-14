@@ -39,8 +39,7 @@
             margin-left: auto;
             cursor: pointer;
             &__icon {
-                color: $light-grey;
-                font-size: 2.8em;
+                width: 37px;
             }
         }
         &--inactive {
@@ -74,8 +73,7 @@
                 margin-left: auto;
                 cursor: pointer;
                 &__icon {
-                    color: $light-grey;
-                    font-size: 2.8em;
+                    width: 37px;
                 }
             }
         }
