@@ -9,6 +9,8 @@ const recipesUrl = process.env.REACT_APP_RECIPES_URL;
 const listsUrl = process.env.REACT_APP_LISTS_URL;
 const signupUrl = process.env.REACT_APP_SIGNUP_URL;
 const loginUrl = process.env.REACT_APP_LOGIN_URL;
+const recipesParserUrl = process.env.REACT_APP_RECIPES_PARSER_URL;
+const apiKey = process.env.REACT_APP_SPOONACULAR_APIKEY;
 
 export function loadRecipes(token, title = '') {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
@@ -99,6 +101,7 @@ export function updateIngredientsList(listId, currentList, ingredientId, checkSt
     }
   };
 }
+
 export function updateListById(userList, currentRecipe, token) {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const newRecipeIngredients = currentRecipe.extendedIngredients
@@ -109,7 +112,6 @@ export function updateListById(userList, currentRecipe, token) {
         recipe: currentRecipe._id,
       }
     ));
-
   const updatedList = [...userList?.ingredients, ...newRecipeIngredients].sort(sortByAisle);
 
   return async (dispatch) => {
@@ -159,19 +161,21 @@ export function login(user) {
     }
   };
 }
-
-// export function signup(userInfo) {
-//   return async (dispatch) => {
-//     try {
-//       const { data } = await axios.post(`${listsUrl}/${id}`, updatedList);
-//       dispatch({
-//         type: actionTypes.UPDATE_LIST,
-//         shoppingLists: data,
-//       });
-//     } catch (error) {
-//       dispatch({
-//         type: 'UPDATE_LIST_ERROR',
-//       });
-//     }
-//   };
-// }
+export function getFormattedRecipe(url, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+  return async (dispatch) => {
+    try {
+      debugger;
+      const { data } = await axios(`${recipesParserUrl}=${url}&apiKey=${apiKey}`);
+      await axios.post(`${recipesUrl}`, data, headers);
+      dispatch({
+        type: actionTypes.GET_API_RECIPE,
+        recipe: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.GET_API_RECIPE_ERROR,
+      });
+    }
+  };
+}
