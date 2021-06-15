@@ -21,6 +21,10 @@ const Recipes = () => {
     dispatch(loadRecipes(token));
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const [inputValue, setInputValue] = useState('');
 
   const handleClick = (event) => {

@@ -23,6 +23,9 @@ const RecipeDetail = () => {
   useEffect(() => {
     dispatch(loadRecipeById(recipeId, token));
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   const selectedRecipeSource = selectedRecipe.sourceUrl ? parseUrl(selectedRecipe.sourceUrl) : 'No source available.';
   const handleClick = () => {
