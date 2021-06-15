@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,7 +19,7 @@ const Recipes = () => {
 
   useEffect(() => {
     dispatch(loadRecipes(token));
-  }, [recipes.length]);
+  }, []);
 
   const [inputValue, setInputValue] = useState('');
 
