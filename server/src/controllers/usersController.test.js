@@ -1,5 +1,3 @@
-// const jest = require('jest');
-
 const {
   updateById,
   getById,

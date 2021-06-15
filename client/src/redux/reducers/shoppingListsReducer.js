@@ -2,11 +2,9 @@
 import actionTypes from '../actions/actionTypes';
 
 function shoppingListsReducer(shoppingLists = {}, action) {
-  switch (action.type) {
-    case actionTypes.LOAD_LISTS:
-      return action.shoppingLists;
-    default:
-      return shoppingLists;
+  if (action.type === actionTypes.LOAD_LISTS) {
+    return action.shoppingLists;
   }
+  return shoppingLists;
 }
 export default shoppingListsReducer;

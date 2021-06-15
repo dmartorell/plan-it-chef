@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -26,7 +25,6 @@ const Recipes = () => {
     setInputValue('');
     event.preventDefault();
     dispatch(loadRecipes(token, inputValue));
-    console.log(recipes);
   };
   if (!token) {
     return <Redirect to="/" />;

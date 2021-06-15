@@ -16,7 +16,6 @@
                 @include flex-config($justify: null, $align: center, $direction: column);
                 
                 .signUp {
-                    width: 100%;
                     height: auto;
                     background-color: $secondary-red;
                     border-radius: 50px;

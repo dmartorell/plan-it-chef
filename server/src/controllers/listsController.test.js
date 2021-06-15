@@ -1,5 +1,3 @@
-// const jest = require('jest');
-
 const {
   getAll,
   deleteById,

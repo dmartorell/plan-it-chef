@@ -4,12 +4,15 @@ const LocalStrategy = require('passport-local');
 const listModel = require('../models/listModel');
 const UserModel = require('../models/userModel');
 
+const username = process.env.LOCAL_STRATEGY_USERNAME;
+const pass = process.env.LOCAL_STRATEGY_PASSWORD;
+
 passport.use(
   'signup',
   new LocalStrategy.Strategy(
     {
-      usernameField: 'email',
-      passwordField: 'password',
+      usernameField: username,
+      passwordField: pass,
       passReqToCallback: true,
     },
     async (req, email, password, done) => {

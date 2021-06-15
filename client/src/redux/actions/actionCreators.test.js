@@ -16,7 +16,7 @@ describe('Given a loadRecipes function', () => {
         recipes: [{ id: '12' }],
       });
     });
-    test('It should dispatch LOAD_HEROES_ERROR', async () => {
+    test('It should dispatch LOAD_RECIPES_ERROR', async () => {
       axios.mockRejectedValue();
       const dispatch = jest.fn();
       await loadRecipes()(dispatch);
@@ -39,7 +39,7 @@ describe('Given a loadRecipes function', () => {
         recipes: [{ title: 'paella' }],
       });
     });
-    test('It should dispatch LOAD_HEROES_ERROR', async () => {
+    test('It should dispatch LOAD_RECIPES_ERROR', async () => {
       axios.mockRejectedValue();
       const dispatch = jest.fn();
       await loadRecipes()(dispatch);

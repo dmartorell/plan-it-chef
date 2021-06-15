@@ -30,15 +30,10 @@ const ShoppingListDetail = () => {
             products: selectedList.ingredients.filter((ingredient) => ingredient.aisle === aisle),
           }),
         );
-  console.log(productsFromList);
 
-  const groupProducts = productsFromList.length
-  && productsFromList.map((product) => product.products.map((pr) => pr._id));
   useEffect(() => {
     dispatch(loadListById(listId, token));
   }, []);
-
-  console.log(groupProducts);
 
   const [checkbox, setCheckbox] = useState(false);
 

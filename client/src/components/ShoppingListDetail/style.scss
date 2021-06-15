@@ -4,7 +4,6 @@
 
 @media screen and (max-width: 714px) {
     .shoppingList-item {
-        cursor: default;
         @include flex-config($justify: null, $align: center);
         border: 1px solid $base-white;
         border-radius: 10px;
@@ -32,7 +31,7 @@
             }
             &__amount {
                 color: $dark-grey;
-                font-size: 0.85em;;
+                font-size: 0.85em;
             }      
         }
         .item-btn {
@@ -68,7 +67,7 @@
                 }
                 &__amount {
                     color: $dark-grey;
-                    font-size: 0.85em;;
+                    font-size: 0.85em;
                 }        
             } 
             .item-btn {
