@@ -14,7 +14,6 @@ const apiKey = process.env.REACT_APP_SPOONACULAR_APIKEY;
 
 export function loadRecipes(token, title = '') {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
-
   return async (dispatch) => {
     try {
       const { data } = title ? await axios(`${recipesUrl}/?title=${title}`, headers) : await axios(`${recipesUrl}`, headers);
@@ -82,7 +81,6 @@ export function loadListById(id, token) {
   };
 }
 export function updateIngredientsList(listId, currentList, ingredientId, checkState, token) {
-  debugger;
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   const updatedList = currentList.ingredients.map((ingredient) => (ingredient._id === ingredientId
     ? { ...ingredient, isActive: checkState }
@@ -165,7 +163,6 @@ export function getFormattedRecipe(url, token) {
   const headers = { headers: { Authorization: `Bearer ${token}` } };
   return async (dispatch) => {
     try {
-      debugger;
       const { data } = await axios(`${recipesParserUrl}=${url}&apiKey=${apiKey}`);
       await axios.post(`${recipesUrl}`, data, headers);
       dispatch({
@@ -175,6 +172,23 @@ export function getFormattedRecipe(url, token) {
     } catch (error) {
       dispatch({
         type: actionTypes.GET_API_RECIPE_ERROR,
+      });
+    }
+  };
+}
+export function deleteRecipeById(id, token) {
+  const headers = { headers: { Authorization: `Bearer ${token}` } };
+
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`${recipesUrl}/${id}`, headers);
+      dispatch({
+        type: actionTypes.DELETE_RECIPE,
+        recipeId: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: actionTypes.DELETE_RECIPE_ERROR,
       });
     }
   };
