@@ -17,8 +17,8 @@ const Recipes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!recipes.length) dispatch(loadRecipes(token));
-  }, []);
+    dispatch(loadRecipes(token));
+  }, [recipes.length]);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -26,6 +26,7 @@ const Recipes = () => {
     setInputValue('');
     event.preventDefault();
     dispatch(loadRecipes(token, inputValue));
+    console.log(recipes);
   };
   if (!token) {
     return <Redirect to="/" />;
