@@ -2,9 +2,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { loadRecipeById, updateListById, loadShoppingLists } from '../../redux/actions/actionCreators';
+import {
+  loadRecipeById, updateListById, loadShoppingLists, deleteRecipeById,
+} from '../../redux/actions/actionCreators';
 import Navigator from '../Navigator';
 import { parseUrl } from '../../helpers/commonHelper';
 import defaultImg from '../../assets/default-image-bg.png';
@@ -17,6 +20,7 @@ const RecipeDetail = () => {
   const selectedRecipe = useSelector((store) => store.selectedRecipe);
   const shoppingList = useSelector((store) => store.selectedList);
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     dispatch(loadShoppingLists(token));
   }, []);
@@ -34,9 +38,10 @@ const RecipeDetail = () => {
 
   const [bookmark, setBookmark] = useState(true);
 
-  const handleBookmark = () => {
-    setBookmark(!bookmark);
-    // dispatch(updateIngredientsList(listId, selectedList, ingredientId, marked, token));
+  const handleBookmark = async () => {
+    await setBookmark(!bookmark);
+    await dispatch(deleteRecipeById(recipeId, token));
+    await history.push('/recipes');
   };
 
   return (
