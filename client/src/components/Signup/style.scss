@@ -5,8 +5,9 @@
 @media screen and (max-width: 714px) {
     .signup-canvas {
         @include flex-config($justify: center, $align: center, $direction: column);
-        background-color:$base-red;
-        min-height: 100vh;
+        background: radial-gradient($base-red, #9b1f23);
+        background-repeat: no-repeat;
+        height: 100vh;
     }
     .signup-container {
         margin-bottom: 32px;
