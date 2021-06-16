@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.scss';
-import mainImage from '../../assets/logo-bg.png';
+import mainImage from '../../assets/logo-sm.png';
 
 const Landing = () => (
   <main className="canvas">
@@ -10,10 +10,6 @@ const Landing = () => (
         <figure>
           <img className="image" src={mainImage} alt="logo" />
         </figure>
-        <div className="title">
-          <h1 className="title__title">mamma</h1>
-          <h3 className="title__subtitle">chef</h3>
-        </div>
       </div>
       <span className="slogan">
         <p>it&apos;s</p>

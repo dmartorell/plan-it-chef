@@ -58,34 +58,12 @@
             padding: 3em 0em;
     
             .main-logo {
-                position: relative;
+                margin-top: 5em;
                 .image {
-                    height: 280px;
+                    top: 2em;
+                    height: 80px;
                     width: auto;
-                }
-                .title {
-                    position: absolute;
-                    bottom: -10px;
-                    left: -10px;
-                    &__title {
-                        color: $base-white;
-                        font-family: 'Shrikhand', cursive;
-                        font-size: 3.5rem;
-                        line-height: 50px;
-                        letter-spacing: 0.01em;
-                        text-align: center;
-                        text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
-                    }
-                    &__subtitle {
-                        color: $base-white;
-                        font-family: 'Noto Sans TC', sans-serif;
-                        font-size: 1.12rem;
-                        line-height: 1.8rem;
-                        letter-spacing: 0.61em;
-                        text-align: center;
-                        text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.7);
-                        text-transform: uppercase;
-                    }
+
                 }
             }
     
