@@ -32,17 +32,17 @@ const Signup = () => {
             <label className="label" htmlFor="email">
               Email
               <br />
-              <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} name="email" autoComplete="off" required />
+              <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} name="email" autoComplete="off" data-testid="email-input" required />
             </label>
             <label className="label" htmlFor="firstName">
               First Name
               <br />
-              <input className="input" type="text" onChange={(e) => setFirstName(e.target.value)} name="firstName" autoComplete="off" required />
+              <input className="input" type="text" onChange={(e) => setFirstName(e.target.value)} name="firstName" autoComplete="off" data-testid="firstName-input" required />
             </label>
             <label className="label" htmlFor="password">
               Password
               <br />
-              <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} name="password" autoComplete="off" required />
+              <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} name="password" autoComplete="off" data-testid="password-input" required />
             </label>
           </div>
           <button

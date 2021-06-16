@@ -72,7 +72,7 @@ const RecipeDetail = () => {
                   {selectedRecipe.title}
                 </h1>
                 <i className="iconify plus-icon" data-icon="akar-icons:plus" data-inline="false" />
-                <button type="button" onClick={handleClick}>
+                <button type="button" data-testId="addToCartBtn" onClick={handleClick}>
                   <i className="iconify cart-icon icon-bg" data-icon="la:shopping-cart" data-inline="false" data-testid="add-btn" />
                 </button>
               </div>

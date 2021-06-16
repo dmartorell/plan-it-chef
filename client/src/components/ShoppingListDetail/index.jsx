@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -81,7 +80,7 @@ const ShoppingListDetail = () => {
                           </p>
                         </div>
 
-                        <button className="item-btn " type="button" onClick={() => toggleCheck(productFromSection._id, !productFromSection.isActive)}>
+                        <button className="item-btn " type="button" data-testId="checkbox-btn" onClick={() => toggleCheck(productFromSection._id, !productFromSection.isActive)}>
                           {productFromSection.isActive
                             ? checkboxStatus.empty
                             : checkboxStatus.checked}

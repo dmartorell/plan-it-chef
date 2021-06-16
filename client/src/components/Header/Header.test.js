@@ -26,7 +26,8 @@ describe('Given a Header component', () => {
         type: actionTypes.GET_API_RECIPE,
         recipe: [{}],
       }));
-
+      const recipeField = screen.getByTestId('recipeUrl');
+      fireEvent.change(recipeField, { target: { value: 'www.recipes.com' } });
       fireEvent.click(screen.getByTestId('getJson'));
       expect(getFormattedRecipe).toHaveBeenCalled();
     });
