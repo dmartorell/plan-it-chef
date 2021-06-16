@@ -2,13 +2,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '../../utils/test-utils';
 import RecipeDetail from './index';
-import { loadRecipeById, loadShoppingLists, updateListById } from '../../redux/actions/actionCreators';
+import {
+  loadRecipeById, loadShoppingLists, updateListById, deleteRecipeById,
+} from '../../redux/actions/actionCreators';
 import actionTypes from '../../redux/actions/actionTypes';
 
 jest.mock('../../redux/actions/actionCreators');
 
 const initialStateFull = {
-  selectedRecipe: { name: 'Soup' },
+  selectedRecipe: { title: 'Soup', image: 'www.image.es' },
   selectedList: { _id: '12' },
   user: { token: '1' },
 };
@@ -32,7 +34,7 @@ describe('Given a Detail component', () => {
       );
       expect(screen.getByText(/soup/i)).toBeInTheDocument();
     });
-    describe('And Add to Cart button is clicked', () => {
+    describe('And when Add to Cart button is clicked', () => {
       test('Then updateListById function should be called', () => {
         updateListById.mockReturnValueOnce({
           type: actionTypes.UPDATE_LIST,
@@ -58,13 +60,26 @@ describe('Given a Detail component', () => {
         expect(updateListById).toHaveBeenCalled();
       });
     });
+    describe('And when Remove from Favs button is clicked', () => {
+      test('Then deleteRecipeById function should be called', () => {
+        loadRecipeById.mockReturnValueOnce({
+          type: actionTypes.LOAD_RECIPE,
+          recipe: {
+            title: 'Soup',
+            sourceUrl: 'http://www.pic.com',
+            image: 'www.image.es',
+          },
+        });
+        loadShoppingLists.mockReturnValueOnce({
+          type: actionTypes.LOAD_LISTS,
+          shoppingLists: { name: 'MyList' },
+        });
+        render(
+          <RecipeDetail />, { initialStateFull },
+        );
+        fireEvent.click(screen.getByTestId('bookmark-btn'));
+        expect(deleteRecipeById).toHaveBeenCalled();
+      });
+    });
   });
-
-  // describe('And Add to List button is clicked', () => {
-  //   test('Then \'Shopping Lists\' should be in the document', () => {
-  //     fireEvent.click(screen.getByTestId('add-btn'));
-  //     render(<RecipeDetail />);
-  //     expect(/Servings/).toBeInTheDocument();
-  //   });
-  // });
 });

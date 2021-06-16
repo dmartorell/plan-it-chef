@@ -129,17 +129,17 @@ describe('Given a loadListById function', () => {
 describe('Given a updateIngredientsList function', () => {
   const dispatch = jest.fn();
   test('Should dispatch UPDATE_LIST', async () => {
-    axios.put.mockResolvedValue({ data: { ingredients: [{ id: '5' }], name: 'MyList' } });
-    await updateIngredientsList()(dispatch);
+    axios.put.mockResolvedValue({ data: { id: '5' } });
+    await updateIngredientsList('12', { ingredients: [{ name: 'carrots' }] }, '44', true, '34')(dispatch);
     expect(dispatch).toHaveBeenCalledWith({
       type: actionTypes.UPDATE_LIST,
-      list: { ingredients: [{ id: '5' }], name: 'MyList' },
+      list: { id: '5' },
     });
   });
 
   test('Should dispatch error', async () => {
-    axios.mockRejectedValue();
-    await updateIngredientsList()(dispatch);
+    axios.put.mockRejectedValue();
+    await updateIngredientsList('12', { ingredients: [{ name: 'carrots' }] }, '44', true, '34')(dispatch);
     expect(dispatch).toHaveBeenCalledWith({
       type: actionTypes.UPDATE_LIST_ERROR,
     });
@@ -149,21 +149,21 @@ describe('Given a updateIngredientsList function', () => {
 describe('Given a updateListById function', () => {
   describe('When invoked', () => {
     test('It should dispatch UPDATE_LIST', async () => {
-      axios.mockResolvedValue({ data: [{ id: '12' }] });
+      axios.put.mockResolvedValue({ data: [{ id: '12' }] });
       const dispatch = jest.fn();
-      await updateListById('12')(dispatch);
+      await updateListById({ _id: '12', ingredients: [{ name: 'carrots' }] }, { _id: '11', extendedIngredients: [{ name: 'apples' }] }, '34')(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith({
-        type: actionTypes.LOAD_RECIPE,
-        recipe: [{ id: '12' }],
+        type: actionTypes.UPDATE_LIST,
+        list: [{ id: '12' }],
       });
     });
-    test('It should dispatch LOAD_RECIPE_ERROR', async () => {
-      axios.mockRejectedValue();
+    test('It should dispatch UPDATE_LIST_ERROR', async () => {
+      axios.put.mockRejectedValue('error');
       const dispatch = jest.fn();
-      await loadRecipeById('12')(dispatch);
+      await updateListById({ _id: '12', ingredients: [{ name: 'carrots' }] }, { _id: '11', extendedIngredients: [{ name: 'apples' }] }, '34')(dispatch);
       expect(dispatch).toHaveBeenCalledWith({
-        type: actionTypes.LOAD_RECIPE,
+        type: actionTypes.UPDATE_LIST_ERROR,
       });
     });
   });
@@ -171,11 +171,15 @@ describe('Given a updateListById function', () => {
 describe('Given a signup function', () => {
   const dispatch = jest.fn();
   test('Should dispatch CREATE_USER', async () => {
-    axios.put.mockResolvedValue({ name: 'John', id: '12' });
-    await signup()(dispatch);
+    axios.post.mockResolvedValue({ data: [{ name: 'name' }] });
+    await signup({
+      email: 'email',
+      firstName: 'firstName',
+      password: '1234',
+    })(dispatch);
     expect(dispatch).toHaveBeenCalledWith({
       type: actionTypes.CREATE_USER,
-      user: { name: 'John', id: '12' },
+      user: [{ name: 'name' }],
     });
   });
 
