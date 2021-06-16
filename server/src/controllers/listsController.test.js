@@ -21,6 +21,14 @@ describe('Invoking getAll function', () => {
 
     expect(res.json).toHaveBeenCalledWith([{ name: 'myList 20' }]);
   });
+  test('Should call status 404', async () => {
+    const res = {
+      status: jest.fn(),
+    };
+    List.find.mockRejectedValueOnce('error message');
+    await getAll(null, res);
+    expect(res.status).toHaveBeenCalledWith(404);
+  });
 });
 
 describe('Invoking updateById function', () => {
