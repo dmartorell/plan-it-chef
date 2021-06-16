@@ -49,7 +49,9 @@
     } 
 
     .canvas {
-        background-color: $base-red;
+        // background-color: $base-red;
+        background: radial-gradient($base-red, #9b1f23);
+        background-repeat: no-repeat;
         height: 100vh;
     
         .landing-container {
