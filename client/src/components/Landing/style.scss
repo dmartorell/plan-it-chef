@@ -56,8 +56,8 @@
         .landing-container {
             @include flex-config($justify: space-between, $align: center, $direction: column);
             height: 100vh;
-            padding: 3em 0em;
-    
+            padding: 5em 0em;
+            
             .main-logo {
                 margin-top: 5em;
                 .image {
@@ -74,9 +74,7 @@
                 text-transform: capitalize;
             }
             .buttons {
-                @include flex-config($justify: null, $align: center, $direction: column);
-                
-                
+                @include flex-config($justify: null, $align: center, $direction: column);    
             }
         }
     }
