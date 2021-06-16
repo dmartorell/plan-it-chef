@@ -15,7 +15,7 @@
         &__top {
             @include flex-config($justify: space-between, $align: flex-start, $direction: row);
             .logo {
-                width: 120px;
+                width: 110px;
                 height: auto;
             }
             .logout-btn {

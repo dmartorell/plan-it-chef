@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 html {
-    overflow: auto;
     height: 100%;
     font-family: 'Nunito', sans-serif;
     color: $base-black;
@@ -17,7 +16,9 @@ html {
         
     }
     body {
+        overflow: auto;
         height: 100%;
+        overscroll-behavior-y: none;
     }
     a {
         text-decoration: none;
