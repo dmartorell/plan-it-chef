@@ -8,15 +8,15 @@
   box-sizing: border-box;
 }
 html {
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
     font-family: 'Nunito', sans-serif;
     color: $base-black;
     ul {
         list-style: none;
+        
     }
     body {
-        overflow: auto;
         height: 100%;
     }
     a {
@@ -28,8 +28,4 @@ html {
         border: none;
         background-color: transparent;
     }
-    ul {
-        list-style: none;
-    }
-    
 }

@@ -4,6 +4,17 @@
 
 @media screen and (max-width: 714px) {
     .main-container {
+        .plus-icon {
+            color: $secondary-red;
+            cursor: pointer;
+            height: auto;
+            margin: 0 0.1em 0 auto;
+            width: 45px;
+            min-width: 45px;
+            &:hover {
+                color: $base-red;
+            }
+        }
         .list-picker-title{
             font-size: 20px;
             margin-left: 25px;
@@ -14,7 +25,7 @@
             font-size: 22px;
             padding:0 0.2em;
             &__icon {
-                font-size: 0.9em;
+                font-size: .9em;
                 margin: 0 0.2em;
                 cursor: pointer;
                 vertical-align: sub;
@@ -26,9 +37,10 @@
                 border: 1px solid $base-white;
                 border-radius: 10px;
                 background-color: white;
-                cursor: pointer;
+                cursor:pointer;
+                font-size: 1.2em;
                 margin-bottom: 0.5em;
-                padding: 1.2em 1.2em;
+                padding: 1em 1em;
                 &:hover {
                     border: 1px solid rgba($secondary-red, 0.2);
                 }

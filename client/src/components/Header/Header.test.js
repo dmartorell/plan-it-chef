@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { render, screen } from '../../utils/test-utils';
+import { render, screen, fireEvent } from '../../utils/test-utils';
+import { getFormattedRecipe } from '../../redux/actions/actionCreators';
+import actionTypes from '../../redux/actions/actionTypes';
 import Header from './index';
 
-// jest.mock('../../redux/actions/actionCreators');
+jest.mock('../../redux/actions/actionCreators');
 
 describe('Given a Header component', () => {
   describe('When is rendered', () => {
@@ -12,6 +14,22 @@ describe('Given a Header component', () => {
         <Header />,
       );
       expect(screen.getByTestId('logo-sm')).toBeInTheDocument();
+    });
+  });
+  describe('And search button is clicked', () => {
+    test('Then getFormattedRecipe function should be invoked', () => {
+      render(
+        <Header />,
+      );
+      getFormattedRecipe.mockImplementationOnce(() => ({
+
+        type: actionTypes.GET_API_RECIPE,
+        recipe: [{}],
+      }));
+      const recipeField = screen.getByTestId('recipeUrl');
+      fireEvent.change(recipeField, { target: { value: 'www.recipes.com' } });
+      fireEvent.click(screen.getByTestId('getJson'));
+      expect(getFormattedRecipe).toHaveBeenCalled();
     });
   });
 });

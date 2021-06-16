@@ -1,5 +1,3 @@
-// const jest = require('jest');
-
 const {
   updateById,
   getById,
@@ -47,7 +45,9 @@ describe('invoking a getById function', () => {
       json: jest.fn(),
       status: jest.fn(),
     };
-    User.findById.mockResolvedValuOnce(() => ({}));
+    User.findById.mockImplementationOnce(() => ({
+      populate: jest.fn().mockImplementationOnce(() => ({})),
+    }));
     await getById(req, res);
     expect(res.json).toHaveBeenCalled();
   });

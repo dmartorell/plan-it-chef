@@ -1,5 +1,3 @@
-// const jest = require('jest');
-
 const {
   getAll,
   deleteById,
@@ -22,6 +20,14 @@ describe('Invoking getAll function', () => {
     await getAll(null, res);
 
     expect(res.json).toHaveBeenCalledWith([{ name: 'myList 20' }]);
+  });
+  test('Should call status 404', async () => {
+    const res = {
+      status: jest.fn(),
+    };
+    List.find.mockRejectedValueOnce('error message');
+    await getAll(null, res);
+    expect(res.status).toHaveBeenCalledWith(404);
   });
 });
 

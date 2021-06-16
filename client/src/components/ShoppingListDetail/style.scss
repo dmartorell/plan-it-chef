@@ -4,10 +4,86 @@
 
 @media screen and (max-width: 714px) {
     .shoppingList-item {
-        @include flex-config($justify: space-between, $align: center);
-        .item-image {
-            max-width: 70px;
-            max-height: 50px;
+        @include flex-config($justify: null, $align: center);
+        border: 1px solid $base-white;
+        border-radius: 10px;
+        background-color: white;
+        cursor:pointer;
+        margin-bottom: 0.5em;
+        padding: 1em 1em;
+        &:hover {
+            border: 1px solid rgba($secondary-red, 0.2);
         }
+
+        .item-image {
+            max-width: 50px;
+            max-height: 60px;
+            object-fit: contain;
+
+        }
+        .item-info {
+            @include flex-config($justify: null, $align: baseLine);
+            &__name {
+                font-size: 1.07em;
+                font-weight: 600;
+                margin-left: 1.5em;
+                margin-right: 0.5em;
+            }
+            &__amount {
+                color: $dark-grey;
+                font-size: 0.85em;
+            }      
+        }
+        .item-btn {
+            margin-left: auto;
+            cursor: pointer;
+            &__icon {
+                width: 37px;
+                filter: opacity(0.3);
+            }
+        }
+        &--inactive {
+            @include flex-config($justify: null, $align: center);
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            padding: 1em 1em;
+            text-decoration: line-through;
+            background-color: white;
+            color: $dark-grey;
+
+            .item-image {
+                filter: grayscale(1);
+                max-width: 50px;
+                max-height: 60px;
+                object-fit: contain;
+            }
+            .item-info {
+                @include flex-config($justify: null, $align: baseLine);
+                &__name {
+                    font-size: 1.07em;
+                    font-weight: 600;
+                    margin-left: 1.5em;
+                    margin-right: 0.5em;
+                }
+                &__amount {
+                    color: $dark-grey;
+                    font-size: 0.85em;
+                }        
+            } 
+            .item-btn {
+                margin-left: auto;
+                cursor: pointer;
+                &__icon {
+                    width: 37px;
+                    filter: opacity(1);
+                }
+            }
+        }
+    }
+    .aisle-title {
+        color: $dark-grey;
+        font-size: 1.1em;
+        font-weight: thin;
+        padding: 1em 1.8em;
     }
 }

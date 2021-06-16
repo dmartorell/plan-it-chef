@@ -10,7 +10,7 @@ jest.mock('../../redux/actions/actionCreators');
 describe('Given a Recipes component', () => {
   describe('When is rendered with empty initial state', () => {
     test('Then \'No recipes available.\' should be in the document', () => {
-      const initialState = { recipes: [] };
+      const initialState = { recipes: [], user: { token: 'batman' } };
       loadRecipes.mockReturnValueOnce({
         type: actionTypes.LOAD_RECIPES,
         recipes: [],
@@ -22,15 +22,14 @@ describe('Given a Recipes component', () => {
     });
   });
   describe('When is redered with a recipe as initial state', () => {
-    let initialState;
+    const initialState = { user: { token: 'batman' }, recipes: [{ title: 'Broccoli cakes' }] };
     beforeEach(() => {
-      initialState = { recipes: [{ title: 'Broccoli cakes' }] };
       render(<Recipes />, { initialState });
     });
     test('Then the recipe should be in the document', () => {
       loadRecipes.mockReturnValueOnce({
         type: actionTypes.LOAD_RECIPES,
-        recipes: initialState,
+        recipes: [],
       });
       render(
         <Recipes />, initialState,
@@ -44,26 +43,9 @@ describe('Given a Recipes component', () => {
           type: actionTypes.LOAD_RECIPES,
           recipes: initialState,
         }));
-
         fireEvent.click(screen.getByTestId('search-btn'));
         expect(loadRecipes).toHaveBeenCalled();
       });
-    });
-  });
-});
-
-describe('Given a Recipes component', () => {
-  describe('When is rendered with empty initial state', () => {
-    test('Then \'No recipes available.\' should be in the document', () => {
-      const initialState = { recipes: [] };
-      loadRecipes.mockReturnValueOnce({
-        type: actionTypes.LOAD_RECIPES,
-        recipes: [],
-      });
-      render(
-        <Recipes />, initialState,
-      );
-      expect(screen.getByText(/No recipes available./i)).toBeInTheDocument();
     });
   });
 });

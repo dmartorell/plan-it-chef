@@ -1,29 +1,40 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 import { loadRecipes } from '../../redux/actions/actionCreators';
 import Header from '../Header';
 import Navigator from '../Navigator';
-import parseUrl from '../../helpers/parseUrl';
+import { parseUrl } from '../../helpers/commonHelper';
 import defaultImg from '../../assets/default-image-bg.png';
 import './style.scss';
 
 const Recipes = () => {
+  const token = useSelector((store) => store.user.token);
   const recipes = useSelector((store) => store.recipes);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!recipes.length) dispatch(loadRecipes());
+    dispatch(loadRecipes(token));
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   const [inputValue, setInputValue] = useState('');
 
   const handleClick = (event) => {
     setInputValue('');
     event.preventDefault();
-    dispatch(loadRecipes(inputValue));
+    dispatch(loadRecipes(token, inputValue));
   };
+  if (!token) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
