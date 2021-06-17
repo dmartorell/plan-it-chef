@@ -8,10 +8,10 @@ const Landing = () => (
     <section className="landing-container">
       <div className="main-logo">
         <figure>
-          <img className="image" src={mainImage} alt="logo" />
+          <img className="image bounce-in-bck" src={mainImage} alt="logo" />
         </figure>
       </div>
-      <span className="slogan">
+      <span className="slogan scale-in-center-slogan">
         <p>it&apos;s</p>
         <p>cooking</p>
         <p>time!</p>
