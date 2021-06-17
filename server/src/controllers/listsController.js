@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-underscore-dangle */
 const List = require('../models/listModel');
 
 function listsController() {
