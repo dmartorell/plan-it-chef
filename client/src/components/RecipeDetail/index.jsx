@@ -1,6 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-console */
-/* eslint-disable no-underscore-dangle */
 import { React, useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 

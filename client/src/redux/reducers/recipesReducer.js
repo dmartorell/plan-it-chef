@@ -1,8 +1,6 @@
-/* eslint-disable no-underscore-dangle */
 import actionTypes from '../actions/actionTypes';
 
 function recipesReducer(recipes = [], action) {
-  // eslint-disable-next-line no-debugger
   switch (action.type) {
     case actionTypes.LOAD_RECIPES:
       return action.recipes;

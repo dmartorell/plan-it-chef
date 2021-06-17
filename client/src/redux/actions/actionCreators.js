@@ -1,6 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-console */
 import axios from 'axios';
 import actionTypes from './actionTypes';
 import { sortByAisle } from '../../helpers/commonHelper';
@@ -136,7 +133,6 @@ export function signup(user) {
         user: data,
       });
     } catch (error) {
-      console.log(error.message);
       dispatch({
         type: actionTypes.CREATE_USER_ERROR,
       });
