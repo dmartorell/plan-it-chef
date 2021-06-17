@@ -25,15 +25,6 @@ describe('Given a loadRecipes function', () => {
         recipes: [{ id: '12' }],
       });
     });
-    test('It should dispatch LOAD_RECIPES_ERROR', async () => {
-      axios.mockRejectedValue();
-      const dispatch = jest.fn();
-      await loadRecipes()(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith({
-        type: 'LOAD_RECIPES_ERROR',
-      });
-    });
   });
 });
 
