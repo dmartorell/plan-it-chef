@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 const Recipe = require('../models/recipeModel');
 
 function recipesController() {

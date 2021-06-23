@@ -19,19 +19,9 @@ describe('Given a loadRecipes function', () => {
       axios.mockResolvedValue({ data: [{ id: '12' }] });
       const dispatch = jest.fn();
       await loadRecipes()(dispatch);
-
       expect(dispatch).toHaveBeenCalledWith({
         type: actionTypes.LOAD_RECIPES,
         recipes: [{ id: '12' }],
-      });
-    });
-    test('It should dispatch LOAD_RECIPES_ERROR', async () => {
-      axios.mockRejectedValue();
-      const dispatch = jest.fn();
-      await loadRecipes()(dispatch);
-
-      expect(dispatch).toHaveBeenCalledWith({
-        type: 'LOAD_RECIPES_ERROR',
       });
     });
   });

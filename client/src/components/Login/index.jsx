@@ -32,12 +32,12 @@ const Login = () => {
             <label className="label" htmlFor="email">
               Email
               <br />
-              <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} name="email" autoComplete="off" required data-testId="email-login" />
+              <input className="input" type="text" onChange={(e) => setEmail(e.target.value)} name="email" autoComplete="on" required data-testId="email-login" />
             </label>
             <label className="label" htmlFor="password">
               Password
               <br />
-              <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} name="password" autoComplete="off" required data-testid="password-login" />
+              <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} name="password" autoComplete="on" required data-testid="password-login" />
             </label>
           </div>
           <button

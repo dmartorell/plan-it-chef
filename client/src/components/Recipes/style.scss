@@ -2,7 +2,13 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
-@media screen and (max-width: 714px) {
+
+@media screen and (min-width: 400px) {
+    .recipe-item {
+        margin: 0 1em;
+    }
+}
+@media screen and (max-width: 2000px) {
     .white-canvas {
         @include flex-config($justify: none, $align: flex-start, $direction: column);
         background-color:$base-white;
@@ -65,7 +71,75 @@
                     }
                 }
             }
-            .recipe-item {
+            .recipes-list {
+                display: flex;
+                flex-wrap: wrap;
+                .recipe-item {
+                    flex: 1 250px;
+                    figure {
+                        position: relative;
+                    }
+                    &__image {
+                        border-radius: 20px;
+                        height: 280px;
+                        margin: 0.9em 0;
+                        object-fit: cover;
+                        position: relative;
+                        width: 100%;
+                    }
+                    &__title {
+                        font-size: 22px;
+                        font-weight: bold;
+                        margin-left: 25px;
+    
+                    }
+                    &__webSite {
+                        font-size: 16px;
+                        font-weight: 500;
+                        margin-bottom: 0.2em;
+    
+                        margin-left: 25px;
+                    }
+                    .times {
+                        @include flex-config($justify: flex-start, $align: center, $direction: column);
+                        background-color: $lighter-grey;
+                        border-radius: 15px 0 15px 0;
+                        bottom: 20px;
+                        right: 0;
+                        text-transform: uppercase;
+                        width: 67px;
+                        height: auto;
+                        padding: 0.5em;
+                        position: absolute;
+    
+                        .times-title {
+                            font-size: 12px;
+                            font-weight: lighter;
+                        }
+                        .times-data {
+                            font-size: 16px;
+                            font-weight: bold;
+                            line-height: 15px;
+                        }
+                        &__preparation {
+                            @include flex-config($justify: space-between, $align: center, $direction: column);
+                        }
+                        &__cooking {
+                            @include flex-config($justify: space-between, $align: center, $direction: column);
+                        }
+                    }
+                    .title-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+    
+                        .more-info-icon {
+                            cursor: pointer;    
+                            margin-right: 25px;
+                            width: 30px;
+                        }
+                    }
+                }
                 figure {
                     position: relative;
                 }
@@ -129,9 +203,8 @@
                         width: 30px;
                     }
                 }
-                
             }
-            
         }
     }
 }
+

@@ -2,7 +2,7 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
-@media screen and (max-width: 714px) {
+@media screen and (max-width: 2000px) {
     .icon-bg {
         width: 45px;
         min-width: 45px;
@@ -89,7 +89,6 @@
                         }
                     }
                 }
-                // TO BE REFACTORED
                 &__times {
                     @include flex-config(none, center);
                     font-size: 18px;

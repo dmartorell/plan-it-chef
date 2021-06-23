@@ -2,11 +2,12 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
-@media screen and (max-width: 714px) {
+@media screen and (max-width: 2000px) {
     .canvas {
-        background-color: $base-red;
+        background: radial-gradient($base-red, #9b1f23);
+        background-repeat: no-repeat;
         height: 100vh;
-    
+        
         .landing-container {
             @include flex-config($justify: space-between, $align: center, $direction: column);
             height: 100vh;

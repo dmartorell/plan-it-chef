@@ -2,8 +2,145 @@
 @import "../../styles/colors.scss";
 @import "../../styles/mixins.scss";
 
+.bounce-in-bck {
+	-webkit-animation: bounce-in-bck 0.8s both;
+	        animation: bounce-in-bck 0.8s both;
+}
+.scale-in-center-slogan {
+	-webkit-animation: scale-in-center 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.740) 1.3s both;
+	        animation: scale-in-center 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.740) 1.3s both;
+}
+ @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      opacity: 1;
+    }
+  }
 
-@media screen and (max-width: 714px) {
+@-webkit-keyframes bounce-in-bck {
+    0% {
+      -webkit-transform: scale(7);
+              transform: scale(7);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: scale(1.24);
+              transform: scale(1.24);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    89% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: scale(1.04);
+              transform: scale(1.04);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  @keyframes bounce-in-bck {
+    0% {
+      -webkit-transform: scale(7);
+              transform: scale(7);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: scale(1.5);
+              transform: scale(1.5);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: scale(1.24);
+              transform: scale(1.24);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    89% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: scale(1.04);
+              transform: scale(1.04);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+
+@media screen and (max-width: 2000px) {
     .solid-secondary-btn {
         height: auto;
         background-color: $secondary-red;
@@ -49,7 +186,6 @@
     } 
 
     .canvas {
-        // background-color: $base-red;
         background: radial-gradient($base-red, #9b1f23);
         background-repeat: no-repeat;
         height: 100vh;
@@ -57,18 +193,16 @@
         .landing-container {
             @include flex-config($justify: space-between, $align: center, $direction: column);
             height: 100vh;
-            padding: 3em 0em;
-    
+            padding: 5em 0em;
+            
             .main-logo {
                 margin-top: 5em;
                 .image {
                     top: 2em;
-                    height: 80px;
+                    height: 70px;
                     width: auto;
-
                 }
             }
-    
             .slogan {
                 color: $base-white;
                 font-size: 1.87rem;
@@ -77,9 +211,7 @@
                 text-transform: capitalize;
             }
             .buttons {
-                @include flex-config($justify: null, $align: center, $direction: column);
-                
-                
+                @include flex-config($justify: null, $align: center, $direction: column);    
             }
         }
     }

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-underscore-dangle */
 import { React } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
