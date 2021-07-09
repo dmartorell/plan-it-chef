@@ -7,9 +7,10 @@ The work was commissioned by a very important client from the U.S. To be more pr
 
 The project was completed in three weeks and I used React, Redux and Sass in the front-end and Nodejs, Expressjs, and MongoDB in the back-end. It also includes a Signup / Login strategy with Passport and It's been fully tested using Jest.
 
-![Logo](https://i.ibb.co/yB7Gc4v/sc0.jpg)
+<div align="center">
+    <img src="https://i.ibb.co/yB7Gc4v/sc0.jpg" width="600">
+</div>
 
-    
 ## Features
 
 - Access control: Sign up and Log in.
@@ -22,7 +23,9 @@ The project was completed in three weeks and I used React, Redux and Sass in the
 - Line through the ingredients as the user is buying.
 ## Screenshots
 
-![App Screenshot](https://i.ibb.co/L06ftxX/ss-combi.jpg) 
+<div align="center">
+    <img src="https://i.ibb.co/L06ftxX/ss-combi.jpg" width="500"></img>
+</div>
 ## Demo
 
 https://vimeo.com/manage/videos/566745067
