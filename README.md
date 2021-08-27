@@ -3,6 +3,7 @@
 
 This is my final project at SkylabCoders Academy. 'Plan It Chef' is a fullstack web app addressed to foodies and cooking lovers that allows users to extract recipes from the internet, format and save them. It also features one-click shopping lists creation and mixed lists.
 
+
 The project was completed in three weeks and I used React, Redux and Sass in the front-end and Nodejs, Expressjs, and MongoDB in the back-end. It also includes a Signup / Login strategy with Passport and It's been fully tested using Jest.
 
 <div align="center">
